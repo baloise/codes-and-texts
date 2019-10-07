@@ -5,4 +5,4 @@ Project to replace the old cut
 
 ## Tools for Translations
 
-* Pontoon
+* (Pontoon)[https://pontoon.mozilla.org]
