@@ -5,7 +5,6 @@ import org.springframework.data.annotation.AccessType;
 import javax.persistence.*;
 
 @Entity(name = "codetype")
-@AccessType(AccessType.Type.PROPERTY)
 public class CodeType {
 
     @Id
@@ -16,10 +15,6 @@ public class CodeType {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "responsible_id", updatable = false)
     private Responsible responsible;
-
-    public String getPrefix() {
-        return this.responsible.getPrefix();
-    }
 
     public long getId() {
         return id;
