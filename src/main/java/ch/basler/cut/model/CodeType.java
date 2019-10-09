@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "CODETYP")
+@Entity(name = "CODETYPE")
 public class CodeType {
     @Id
     @Column(name = "ID")
