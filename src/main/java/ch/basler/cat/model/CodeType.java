@@ -1,7 +1,5 @@
 package ch.basler.cat.model;
 
-import org.springframework.data.annotation.AccessType;
-
 import javax.persistence.*;
 
 @Entity(name = "codetype")
