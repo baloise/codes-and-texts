@@ -6,6 +6,9 @@ public class CodeValueId implements Serializable {
     private long id;
     private long codeTypeId;
 
+    public CodeValueId() {
+    }
+
     public CodeValueId(long id, long codeTypeId) {
         this.id = id;
         this.codeTypeId = codeTypeId;
