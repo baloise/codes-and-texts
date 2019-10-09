@@ -1,4 +1,4 @@
-package ch.basler.cut.model;
+package ch.basler.cat.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

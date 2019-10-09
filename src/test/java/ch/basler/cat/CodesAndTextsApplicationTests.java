@@ -1,4 +1,4 @@
-package ch.basler.cut;
+package ch.basler.cat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

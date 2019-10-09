@@ -1,7 +1,7 @@
-package ch.basler.cut.services;
+package ch.basler.cat.services;
 
 
-import ch.basler.cut.model.CodeType;
+import ch.basler.cat.model.CodeType;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
