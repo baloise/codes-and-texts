@@ -5,19 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "CODETYP")
-public class CodeTyp {
+public class CodeType {
     @Id
     @Column(name = "ID")
     private long id;
-    private String erfasser;
+    private String creator;
     private String name;
 
-    public String getErfasser() {
-        return erfasser;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setErfasser(String erfasser) {
-        this.erfasser = erfasser;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public String getName() {
