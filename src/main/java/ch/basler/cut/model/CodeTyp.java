@@ -4,17 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "TBTI_CODETYP")
+@Entity(name = "CODETYP")
 public class CodeTyp {
-
     @Id
-    @Column(name = "lauf_nr")
+    @Column(name = "ID")
     private long id;
-
     private String erfasser;
     private String name;
-    @Column(name = "ZUSTAENDIGKEIT_NR")
-    private int zustaendigkeitNr;
 
     public String getErfasser() {
         return erfasser;
@@ -30,13 +26,5 @@ public class CodeTyp {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getZustaendigkeitNr() {
-        return zustaendigkeitNr;
-    }
-
-    public void setZustaendigkeitNr(int zustaendigkeitNr) {
-        this.zustaendigkeitNr = zustaendigkeitNr;
     }
 }
