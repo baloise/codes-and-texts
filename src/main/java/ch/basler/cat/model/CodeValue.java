@@ -1,38 +1,35 @@
 package ch.basler.cat.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
-@IdClass(CodeValueId.class)
 @Entity(name = "codevalue")
 public class CodeValue {
 
     @Id
-    private long id;
+    private String id;
 
-    @Id
-    @Column(name = "codetype_id")
-    private long codeTypeId;
+    private long value;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "codetype_id")
+    private CodeType codeType;
+
+    public CodeType getCodeType() {
+        return codeType;
+    }
+
+    public void setCodeType(CodeType codeType) {
+        this.codeType = codeType;
+    }
 
     private String creator;
     private String name;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public long getCodeTypeId() {
-        return codeTypeId;
-    }
-
-    public void setCodeTypeId(long codeTypeId) {
-        this.codeTypeId = codeTypeId;
     }
 
     public String getCreator() {
@@ -50,4 +47,14 @@ public class CodeValue {
     public void setName(String name) {
         this.name = name;
     }
+
+    public long getValue() {
+        return value;
+    }
+
+    public void setValue(long value) {
+        this.value = value;
+    }
 }
+
+

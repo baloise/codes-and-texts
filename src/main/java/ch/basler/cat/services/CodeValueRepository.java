@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "codeValue", path = "codeValue")
-public interface CodeValueRepository extends PagingAndSortingRepository<CodeValue, Long> {
+public interface CodeValueRepository extends PagingAndSortingRepository<CodeValue, String> {
 
     List<CodeValue> findByName(@Param("name") String name);
 

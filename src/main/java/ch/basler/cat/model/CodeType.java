@@ -1,10 +1,11 @@
 package ch.basler.cat.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.AccessType;
 
-@Entity(name = "CODETYPE")
+import javax.persistence.*;
+
+@Entity(name = "codetype")
+@AccessType(AccessType.Type.PROPERTY)
 public class CodeType {
 
     @Id
@@ -12,6 +13,21 @@ public class CodeType {
     private long id;
     private String creator;
     private String name;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "responsible_id", updatable = false)
+    private Responsible responsible;
+
+    public String getPrefix() {
+        return this.responsible.getPrefix();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getCreator() {
         return creator;

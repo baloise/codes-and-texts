@@ -13,4 +13,6 @@ public interface CodeTypeRepository extends PagingAndSortingRepository<CodeType,
 
     List<CodeType> findByName(@Param("name") String name);
 
+    // List<CodeType> findByPrefix(@Param("prefix") String prefix);
+
 }
