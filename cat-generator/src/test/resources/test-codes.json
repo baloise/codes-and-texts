@@ -1,0 +1,1532 @@
+{
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://localhost:8080/codeType/search/findByResponsiblePrefix?prefix=PABLO",
+    "hreflang" : null,
+    "media" : null,
+    "title" : null,
+    "type" : null,
+    "deprecation" : null
+  } ],
+  "content" : [ {
+    "name" : "PRAEMIEN_BELASTUNG",
+    "id" : 1264,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B038014",
+      "name" : "VORSCHUESSIG"
+    }, {
+      "value" : 2,
+      "creator" : "B038014",
+      "name" : "NACHSCHUESSIG"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1264",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1264{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1264/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1264/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "RABATT_QUELLE",
+    "id" : 1265,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B006434",
+      "name" : "PABLO"
+    }, {
+      "value" : 2,
+      "creator" : "B006434",
+      "name" : "PAKT"
+    }, {
+      "value" : 3,
+      "creator" : "B006434",
+      "name" : "USER"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1265",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1265{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1265/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1265/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "KL_P0015_REASON",
+    "id" : 1272,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "ALTERSRENTE"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "ALTERSSPAREN"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "FINANZIERUNGSPAREN"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "FINANZIERUNGRISIKO"
+    }, {
+      "value" : 5,
+      "creator" : "B018095",
+      "name" : "RISIKO"
+    }, {
+      "value" : 6,
+      "creator" : "B018095",
+      "name" : "SPAREN"
+    }, {
+      "value" : 7,
+      "creator" : "B018095",
+      "name" : "KONFIGURIERBARELEISTUNG"
+    }, {
+      "value" : 8,
+      "creator" : "B018095",
+      "name" : "PLANKATEGORIE"
+    }, {
+      "value" : 9,
+      "creator" : "B018095",
+      "name" : "LOEHNE"
+    }, {
+      "value" : 10,
+      "creator" : "B018095",
+      "name" : "ALLGEMEINLOHN"
+    }, {
+      "value" : 11,
+      "creator" : "B018095",
+      "name" : "ALLGEMEINLOHN2"
+    }, {
+      "value" : 12,
+      "creator" : "B018095",
+      "name" : "RISIKOLOHN"
+    }, {
+      "value" : 13,
+      "creator" : "B018095",
+      "name" : "RISIKOLOHN2"
+    }, {
+      "value" : 14,
+      "creator" : "B018095",
+      "name" : "SPARLOHN"
+    }, {
+      "value" : 15,
+      "creator" : "B018095",
+      "name" : "SPARLOHN2"
+    }, {
+      "value" : 16,
+      "creator" : "B018095",
+      "name" : "ZUSAETZLICHESTODESFALLKAPITAL"
+    }, {
+      "value" : 17,
+      "creator" : "B018095",
+      "name" : "ZUSAETZLICHESTODESFALLKAPITAL2"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1272",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1272{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1272/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1272/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "KRANKEN_TAGGELD_AUSWAHL",
+    "id" : 1198,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "b006434",
+      "name" : "JA"
+    }, {
+      "value" : 2,
+      "creator" : "b006434",
+      "name" : "NEIN"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "BEANTRAGT"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1198",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1198{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1198/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1198/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "VORSORGEMODELL",
+    "id" : 1200,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "b037286",
+      "name" : "PERSPECTIVA_RELAX"
+    }, {
+      "value" : 2,
+      "creator" : "b018095",
+      "name" : "VOLLVERSICHRUNG"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1200",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1200{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1200/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1200/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "LOHN_OBERGRENZE",
+    "id" : 1201,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "UVG_MAX"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "BSL_STANDARD"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "BVG_MAX"
+    }, {
+      "value" : 4,
+      "creator" : "b006434",
+      "name" : "BVG_MAX_X_10"
+    }, {
+      "value" : 5,
+      "creator" : "b006434",
+      "name" : "INDIVIDUELL"
+    }, {
+      "value" : 6,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1201",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1201{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1201/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1201/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "KOORDINATIONS_ABZUG",
+    "id" : 1202,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "BVG_KA"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "INDIVIDUELL"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1202",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1202{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1202/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1202/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "SPARPLAN",
+    "id" : 1203,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "BVG_MINUS_1"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "BVG"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "BVG_PLUS_1"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "BVG_PLUS_2"
+    }, {
+      "value" : 5,
+      "creator" : "B018095",
+      "name" : "FIX_20_PROZENT"
+    }, {
+      "value" : 6,
+      "creator" : "B018095",
+      "name" : "BVG_MINUS_2"
+    }, {
+      "value" : 7,
+      "creator" : "B018095",
+      "name" : "FIX_5_PROZENT"
+    }, {
+      "value" : 8,
+      "creator" : "B018095",
+      "name" : "FIX_10_PROZENT"
+    }, {
+      "value" : 9,
+      "creator" : "B018095",
+      "name" : "FIX_15_PROZENT"
+    }, {
+      "value" : 10,
+      "creator" : "b018095",
+      "name" : "INDIVIDUELL"
+    }, {
+      "value" : 11,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    }, {
+      "value" : 12,
+      "creator" : "B038014",
+      "name" : "BVG_PLUS_1_2"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1203",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1203{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1203/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1203/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "LEISTUNG",
+    "id" : 1206,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "BVG_MIN"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "BVG"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "IR_60_PROZENT"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "VL_18_PROZENT"
+    }, {
+      "value" : 5,
+      "creator" : "B018095",
+      "name" : "VL_24_PROZENT"
+    }, {
+      "value" : 6,
+      "creator" : "B018095",
+      "name" : "VL_30_PROZENT"
+    }, {
+      "value" : 7,
+      "creator" : "B018095",
+      "name" : "VL_36_PROZENT"
+    }, {
+      "value" : 8,
+      "creator" : "B018095",
+      "name" : "VL_40_PROZENT"
+    }, {
+      "value" : 9,
+      "creator" : "B018095",
+      "name" : "VL_50_PROZENT"
+    }, {
+      "value" : 10,
+      "creator" : "B018095",
+      "name" : "VL_60_PROZENT"
+    }, {
+      "value" : 11,
+      "creator" : "B018095",
+      "name" : "VL_6_PROZENT"
+    }, {
+      "value" : 12,
+      "creator" : "B018095",
+      "name" : "VL_8_PROZENT"
+    }, {
+      "value" : 13,
+      "creator" : "B018095",
+      "name" : "VL_10_PROZENT"
+    }, {
+      "value" : 14,
+      "creator" : "B018095",
+      "name" : "VL_12_PROZENT"
+    }, {
+      "value" : 15,
+      "creator" : "B018095",
+      "name" : "IR_20_PROZENT"
+    }, {
+      "value" : 16,
+      "creator" : "b006434",
+      "name" : "VL_INDIVIDUELL"
+    }, {
+      "value" : 17,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1206",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1206{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1206/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1206/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "VERVIELFACHUNG",
+    "id" : 1208,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "FAKTOR_1_FACH"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "FAKTOR_1P5_FACH"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "FAKTOR_2_FACH"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1208",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1208{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1208/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1208/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "TODESFALL_KAPTIAL_LEISTUNG",
+    "id" : 1209,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "VL_100_PROZENT"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "VL_200_PROZENT"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "VL_INDIVIDUELL"
+    }, {
+      "value" : 4,
+      "creator" : "b006434",
+      "name" : "KNICK_ALTER"
+    }, {
+      "value" : 5,
+      "creator" : "b006434",
+      "name" : "NEIN"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1209",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1209{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1209/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1209/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "TODESFALL_KAPTIAL_ART",
+    "id" : 1210,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "ALLE"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "VERHEIRATETE"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "LEDIGE_MIT_VERRECHNUNG"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "LEDIGE_OHNE_VERRECHNUNG"
+    }, {
+      "value" : 5,
+      "creator" : "B018095",
+      "name" : "UEBERLEBENSZEITRENTE"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1210",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1210{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1210/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1210/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "TODESFALL_KAPITAL_LOHN",
+    "id" : 1211,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "VERSICHERTER_LOHN"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "GEMELDETER_LOHN"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1211",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1211{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1211/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1211/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "KNICKALTER",
+    "id" : 1212,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "OHNE_KNICKALTER"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "MIT_KNICKALTER_BEI_ALTER_44_45"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1212",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1212{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1212/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1212/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "EINTRITTSSCHWELLE",
+    "id" : 1213,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "BVG_MIN"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "INDIVIDUELL"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1213",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1213{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1213/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1213/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "FINANZIERUNG",
+    "id" : 1214,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "PRAEMIE_AN_50"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "PRAEMIE_AN_40"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "PRAEMIE_AN_1D3"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "PRAEMIE_AN_0"
+    }, {
+      "value" : 5,
+      "creator" : "B038014",
+      "name" : "PRAEMIE_INDIVIDUELL"
+    }, {
+      "value" : 6,
+      "creator" : "B038014",
+      "name" : "LOHN"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1214",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1214{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1214/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1214/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "UNFALLDECKUNG",
+    "id" : 1215,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "AB_UVG"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "NEIN"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "JA"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1215",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1215{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1215/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1215/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "SCHLUSSALTER",
+    "id" : 1216,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "GESETZLICH"
+    }, {
+      "value" : 2,
+      "creator" : "b006434",
+      "name" : "INDIVIDUELL"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1216",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1216{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1216/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1216/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "SCHLUSSALTER_KINDER_RENTE",
+    "id" : 1217,
+    "codeValues" : [ {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "ALTER_18"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "ALTER_20"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1217",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1217{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1217/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1217/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "WARTEFRIST",
+    "id" : 1218,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "B018095",
+      "name" : "WF_3_MONATE"
+    }, {
+      "value" : 2,
+      "creator" : "B018095",
+      "name" : "WF_6_MONATE"
+    }, {
+      "value" : 3,
+      "creator" : "B018095",
+      "name" : "WF_12_MONATE"
+    }, {
+      "value" : 4,
+      "creator" : "B018095",
+      "name" : "WF_24_MONATE"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1218",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1218{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1218/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1218/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "KRANKENTAGGELD_ANBIETER",
+    "id" : 1221,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "b006434",
+      "name" : "NICHT_BEKANNT"
+    }, {
+      "value" : 2,
+      "creator" : "b006434",
+      "name" : "AGRISANO"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "ALLIANZ"
+    }, {
+      "value" : 4,
+      "creator" : "b006434",
+      "name" : "ASSURA"
+    }, {
+      "value" : 5,
+      "creator" : "b006434",
+      "name" : "ATUPRI"
+    }, {
+      "value" : 6,
+      "creator" : "b006434",
+      "name" : "AXA"
+    }, {
+      "value" : 7,
+      "creator" : "b006434",
+      "name" : "BASLER"
+    }, {
+      "value" : 8,
+      "creator" : "b006434",
+      "name" : "CONCORDIA"
+    }, {
+      "value" : 9,
+      "creator" : "b006434",
+      "name" : "CSS"
+    }, {
+      "value" : 10,
+      "creator" : "b006434",
+      "name" : "ELIPS_LIFE"
+    }, {
+      "value" : 11,
+      "creator" : "b006434",
+      "name" : "GENERALI"
+    }, {
+      "value" : 12,
+      "creator" : "b006434",
+      "name" : "GROUPE_MUTUEL"
+    }, {
+      "value" : 13,
+      "creator" : "b006434",
+      "name" : "HELSANA"
+    }, {
+      "value" : 14,
+      "creator" : "b006434",
+      "name" : "HELVETIA"
+    }, {
+      "value" : 15,
+      "creator" : "b006434",
+      "name" : "HOTELA"
+    }, {
+      "value" : 16,
+      "creator" : "b006434",
+      "name" : "INNOVA"
+    }, {
+      "value" : 17,
+      "creator" : "b006434",
+      "name" : "KPT_CPT"
+    }, {
+      "value" : 18,
+      "creator" : "b006434",
+      "name" : "MOBILIAR"
+    }, {
+      "value" : 19,
+      "creator" : "b006434",
+      "name" : "OKK"
+    }, {
+      "value" : 20,
+      "creator" : "b006434",
+      "name" : "SANITAS"
+    }, {
+      "value" : 21,
+      "creator" : "b006434",
+      "name" : "SWICA"
+    }, {
+      "value" : 22,
+      "creator" : "b006434",
+      "name" : "SYMPANY"
+    }, {
+      "value" : 23,
+      "creator" : "b006434",
+      "name" : "VAUDOISE"
+    }, {
+      "value" : 24,
+      "creator" : "b006434",
+      "name" : "VISANA"
+    }, {
+      "value" : 25,
+      "creator" : "b006434",
+      "name" : "ZURICH"
+    }, {
+      "value" : 26,
+      "creator" : "b006434",
+      "name" : "ANDERE"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1221",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1221{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1221/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1221/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "OFFERT_STATUS",
+    "id" : 1223,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "b018095",
+      "name" : "IN_BEARBEITUNG"
+    }, {
+      "value" : 2,
+      "creator" : "b018095",
+      "name" : "BEARBEITUNG_IN_PAKT"
+    }, {
+      "value" : 3,
+      "creator" : "b018095",
+      "name" : "FERTIGGESTELLT"
+    }, {
+      "value" : 4,
+      "creator" : "b006434",
+      "name" : "EINGEREICHT"
+    }, {
+      "value" : 5,
+      "creator" : "B006434",
+      "name" : "VERWORFEN"
+    }, {
+      "value" : 6,
+      "creator" : "b018095",
+      "name" : "ABGELEHNT_DURCH_KUNDE"
+    }, {
+      "value" : 7,
+      "creator" : "b018095",
+      "name" : "ABGELEHNT_DURCH_BASLER"
+    }, {
+      "value" : 8,
+      "creator" : "b018095",
+      "name" : "ABGELEHNT_AUTOMATISCH"
+    }, {
+      "value" : 9,
+      "creator" : "b018095",
+      "name" : "VERWORFEN_AUTOMATISCH"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1223",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1223{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1223/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1223/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "RABATTGRUND",
+    "id" : 1226,
+    "codeValues" : [ {
+      "value" : 6,
+      "creator" : "B006434",
+      "name" : "VTB_PRODUKT_WECHSEL"
+    }, {
+      "value" : 7,
+      "creator" : "B006434",
+      "name" : "VTB_INDIVIDUELLER_SCHADENVERLAUF"
+    }, {
+      "value" : 8,
+      "creator" : "B006434",
+      "name" : "VTB_VERBUNDSKONDITIONEN"
+    }, {
+      "value" : 9,
+      "creator" : "B006434",
+      "name" : "VTB_SANIERUNG"
+    }, {
+      "value" : 1,
+      "creator" : "B006434",
+      "name" : "VTB_STUFENLOSES_MODELL"
+    }, {
+      "value" : 2,
+      "creator" : "B006434",
+      "name" : "VTB_TARIF_PLUS"
+    }, {
+      "value" : 3,
+      "creator" : "B006434",
+      "name" : "VTNB_KONKURRENZ"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1226",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1226{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1226/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1226/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  }, {
+    "name" : "DOK_TYP",
+    "id" : 1237,
+    "codeValues" : [ {
+      "value" : 1,
+      "creator" : "b018095",
+      "name" : "OFFERTE"
+    }, {
+      "value" : 2,
+      "creator" : "b006434",
+      "name" : "OFFERTE_PLANBESCHRIEB"
+    }, {
+      "value" : 3,
+      "creator" : "b006434",
+      "name" : "ORIENTIERUNGSBLATT"
+    }, {
+      "value" : 4,
+      "creator" : "b006434",
+      "name" : "BLD_VEREINBARUNG"
+    }, {
+      "value" : 5,
+      "creator" : "b006434",
+      "name" : "BEKANNTGABEKASSENVORSTAND"
+    }, {
+      "value" : 6,
+      "creator" : "B018095",
+      "name" : "ANMELDESCHEINE"
+    }, {
+      "value" : 7,
+      "creator" : "B018095",
+      "name" : "KASSENVORSTANDSBESCHLUSS"
+    }, {
+      "value" : 8,
+      "creator" : "B018095",
+      "name" : "ANSCHLUSSVERTRAG"
+    } ],
+    "prefix" : "PABLO",
+    "links" : [ {
+      "rel" : "self",
+      "href" : "http://localhost:8080/codeType/1237",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeType",
+      "href" : "http://localhost:8080/codeType/1237{?projection}",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "responsible",
+      "href" : "http://localhost:8080/codeType/1237/responsible",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    }, {
+      "rel" : "codeValues",
+      "href" : "http://localhost:8080/codeType/1237/codeValues",
+      "hreflang" : null,
+      "media" : null,
+      "title" : null,
+      "type" : null,
+      "deprecation" : null
+    } ]
+  } ]
+}
