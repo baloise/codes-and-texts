@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class CodesGeneratorTest {
+public class CodesParserTest {
 
     @Test
     public void exportCodes() throws Exception {
