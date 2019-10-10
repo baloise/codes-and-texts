@@ -22,4 +22,6 @@ describe('CodeTypeDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

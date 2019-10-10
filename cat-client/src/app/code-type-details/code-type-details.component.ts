@@ -21,14 +21,11 @@ export class CodeTypeDetailsComponent implements OnInit {
         let idParam = params.get("id");
         if (idParam) {
           this.id = parseInt(idParam);
-          this.ctService.get(this.id).subscribe(data => {
-            this.codeType = data
-            console.log(this.codeType)
-          });
+          this.ctService.get(this.id).subscribe(data => this.codeType = data);
         }
       } catch (e) {
         console.error("Invalid Code Type Id requested!", e);
       }
-    })
+    });
   }
 }

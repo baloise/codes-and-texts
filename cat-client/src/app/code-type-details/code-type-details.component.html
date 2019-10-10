@@ -3,7 +3,10 @@
 
     <h2>{{codeType?.name}}<sub>(#{{id}}, {{codeType?.prefix || "-"}})</sub></h2>
 
-    <button routerLink="/codetypes" class="btn">&lt;&lt; zurück</button>
+    <div class="form-group">
+      <button routerLink="/codetypes" class="btn">&lt;&lt; zurück</button>
+      <button routerLink="{{'/editcodetype/' + id}}" [queryParams]="{referrer: '/codetype/' + id}" class="btn">edit</button>
+    </div>
 
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
