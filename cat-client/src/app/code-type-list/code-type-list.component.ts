@@ -10,12 +10,39 @@ import {CodeType} from "../model/codeType";
 export class CodeTypeListComponent implements OnInit {
 
   private codeTypes: CodeType[];
+  filter: string;
+  currentpage: number = 0;
 
   constructor(private ctService: CodeTypeService) {
   }
 
   ngOnInit() {
-    this.ctService.findAll()
-      .subscribe(data => this.codeTypes = data);
+    this.update();
+  }
+
+  nextPage() {
+    this.currentpage++;
+    this.update();
+  }
+
+  previousPage() {
+    this.currentpage--;
+    if (this.currentpage < 0) {
+      this.currentpage = 0;
+    }
+    this.update();
+  }
+
+  search() {
+    this.update();
+    this.currentpage = 0;
+  }
+
+  update() {
+    if (this.filter) {
+      this.ctService.findByResponsiblePrefix(this.filter, this.currentpage).subscribe(data => this.codeTypes = data)
+    } else {
+      this.ctService.findAll(this.currentpage).subscribe(data => this.codeTypes = data);
+    }
   }
 }

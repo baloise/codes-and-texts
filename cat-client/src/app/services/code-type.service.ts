@@ -18,15 +18,19 @@ export class CodeTypeService {
     this.serviceBaseUrl = environment.serviceBase + "codeType/";
   }
 
-  public findAll(): Observable<CodeType[]> {
-    return this.http.get<CodeTypeResponse>(this.serviceBaseUrl)
+  public findAll(page: number = 0): Observable<CodeType[]> {
+    return this.http.get<CodeTypeResponse>(this.serviceBaseUrl, {params: {"page": String(page)}})
       .pipe(map(r => r.content));
   }
 
-  public findByResponsiblePrefix(prefix: string): Observable<CodeType[]> {
-    return this.http.get<CodeTypeResponse>(this.serviceBaseUrl + "search/findByResponsiblePrefix", {params: {"prefix": prefix}})
+  public findByResponsiblePrefix(prefix: string, page: number = 0): Observable<CodeType[]> {
+    return this.http.get<CodeTypeResponse>(this.serviceBaseUrl + "search/findByResponsiblePrefix", {
+      params: {
+        "prefix": prefix,
+        "page": String(page)
+      }
+    })
       .pipe(map(r => r.content));
-    ;
   }
 
   public save(ct: CodeType) {
