@@ -1,1 +1,25 @@
-<p>code-type-details works!</p>
+<div class="card my-5">
+  <div class="card-body">
+
+    <h2>{{codeType?.name}}<sub>(#{{id}}, {{codeType?.prefix || "-"}})</sub></h2>
+
+    <button routerLink="/codetypes" class="btn">&lt;&lt; zurück</button>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Wert</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cv of codeType?.codeValues">
+        <td>{{ cv.id }}</td>
+        <td>{{ cv.name }}</td>
+        <td>{{ cv.value }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

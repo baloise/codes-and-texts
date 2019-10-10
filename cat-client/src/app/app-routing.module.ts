@@ -6,7 +6,7 @@ import {CodeTypeDetailsComponent} from "./code-type-details/code-type-details.co
 
 const routes: Routes = [
   { path: 'codetypes', component: CodeTypeListComponent },
-  { path: 'codetype', component: CodeTypeDetailsComponent },
+  { path: 'codetype/:id', component: CodeTypeDetailsComponent },
   { path: 'addcodetype', component: CodeTypeFormComponent }
 ];
 @NgModule({

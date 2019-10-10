@@ -19,10 +19,10 @@
       </tr>
       </tbody>
     </table>
-    <div class="form-group">
-      <button (click)="previousPage()">&lt;</button>
-      {{currentpage + 1}}
-      <button (click)="nextPage()">&gt;</button>
-    </div>
+    <ul class="pagination">
+      <li class="page-link" (click)="previousPage()">&lt;</li>
+      <li class="page-link">{{currentpage + 1}}</li>
+      <li class="page-link" (click)="nextPage()">&gt;</li>
+    </ul>
   </div>
 </div>

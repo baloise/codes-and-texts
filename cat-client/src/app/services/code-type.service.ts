@@ -33,6 +33,10 @@ export class CodeTypeService {
       .pipe(map(r => r.content));
   }
 
+  public get(id: number) {
+    return this.http.get<CodeType>(this.serviceBaseUrl + id, {params:{"projection": "inlineCodeValue"}});
+  }
+
   public save(ct: CodeType) {
     return this.http.post<CodeType>(this.serviceBaseUrl, ct);
   }
