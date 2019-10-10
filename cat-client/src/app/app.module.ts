@@ -1,18 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CodeTypeComponent } from './code-type/code-type.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CodeTypeListComponent} from './code-type-list/code-type-list.component';
+import {CodeTypeFormComponent} from './code-type-form/code-type-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CodeTypeComponent
+    CodeTypeListComponent,
+    CodeTypeFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

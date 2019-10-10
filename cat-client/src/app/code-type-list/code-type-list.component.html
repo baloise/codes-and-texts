@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prefix</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ct of codeTypes">
+        <td>{{ ct.id }}</td>
+        <td>{{ ct.name }}</td>
+        <td>{{ ct.prefix }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

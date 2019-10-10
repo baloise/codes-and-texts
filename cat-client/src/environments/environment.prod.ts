@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  serviceBase: "http://target.balgorupit.com/cat:8080/"
 };
