@@ -1,0 +1,1762 @@
+{
+  "_embedded" : {
+    "codeType" : [ {
+      "creator" : "B038014",
+      "name" : "PRAEMIEN_BELASTUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B038014",
+        "name" : "VORSCHUESSIG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1264"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B038014",
+        "name" : "NACHSCHUESSIG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1264"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1264"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1264"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1264/responsible"
+        }
+      }
+    }, {
+      "creator" : "B006434",
+      "name" : "RABATT_QUELLE",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B006434",
+        "name" : "PABLO",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1265"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B006434",
+        "name" : "PAKT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1265"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B006434",
+        "name" : "USER",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1265"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1265"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1265"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1265/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "KL_P0015_REASON",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "ALTERSRENTE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "ALTERSSPAREN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "FINANZIERUNGSPAREN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "FINANZIERUNGRISIKO",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B018095",
+        "name" : "RISIKO",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B018095",
+        "name" : "SPAREN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "B018095",
+        "name" : "KONFIGURIERBARELEISTUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "B018095",
+        "name" : "PLANKATEGORIE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "B018095",
+        "name" : "LOEHNE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 10,
+        "creator" : "B018095",
+        "name" : "ALLGEMEINLOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 11,
+        "creator" : "B018095",
+        "name" : "ALLGEMEINLOHN2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 12,
+        "creator" : "B018095",
+        "name" : "RISIKOLOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 13,
+        "creator" : "B018095",
+        "name" : "RISIKOLOHN2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 14,
+        "creator" : "B018095",
+        "name" : "SPARLOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 15,
+        "creator" : "B018095",
+        "name" : "SPARLOHN2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 16,
+        "creator" : "B018095",
+        "name" : "ZUSAETZLICHESTODESFALLKAPITAL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      }, {
+        "value" : 17,
+        "creator" : "B018095",
+        "name" : "ZUSAETZLICHESTODESFALLKAPITAL2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1272"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1272"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1272"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1272/responsible"
+        }
+      }
+    }, {
+      "creator" : "b006434",
+      "name" : "KRANKEN_TAGGELD_AUSWAHL",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "b006434",
+        "name" : "JA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1198"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b006434",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1198"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "BEANTRAGT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1198"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1198"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1198"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1198/responsible"
+        }
+      }
+    }, {
+      "creator" : "b037286",
+      "name" : "VORSORGEMODELL",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "b037286",
+        "name" : "PERSPECTIVA_RELAX",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1200"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b018095",
+        "name" : "VOLLVERSICHRUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1200"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1200"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1200"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1200/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "LOHN_OBERGRENZE",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "UVG_MAX",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "BSL_STANDARD",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "BVG_MAX",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "b006434",
+        "name" : "BVG_MAX_X_10",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "b006434",
+        "name" : "INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1201"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1201"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1201"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1201/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "KOORDINATIONS_ABZUG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1202"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "BVG_KA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1202"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1202"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1202"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1202"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1202/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "SPARPLAN",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "BVG_MINUS_1",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "BVG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "BVG_PLUS_1",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "BVG_PLUS_2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B018095",
+        "name" : "FIX_20_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B018095",
+        "name" : "BVG_MINUS_2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "B018095",
+        "name" : "FIX_5_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "B018095",
+        "name" : "FIX_10_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "B018095",
+        "name" : "FIX_15_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 10,
+        "creator" : "b018095",
+        "name" : "INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 11,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      }, {
+        "value" : 12,
+        "creator" : "B038014",
+        "name" : "BVG_PLUS_1_2",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1203"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1203"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1203"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1203/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "LEISTUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "BVG_MIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "BVG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "IR_60_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "VL_18_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B018095",
+        "name" : "VL_24_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B018095",
+        "name" : "VL_30_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "B018095",
+        "name" : "VL_36_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "B018095",
+        "name" : "VL_40_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "B018095",
+        "name" : "VL_50_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 10,
+        "creator" : "B018095",
+        "name" : "VL_60_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 11,
+        "creator" : "B018095",
+        "name" : "VL_6_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 12,
+        "creator" : "B018095",
+        "name" : "VL_8_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 13,
+        "creator" : "B018095",
+        "name" : "VL_10_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 14,
+        "creator" : "B018095",
+        "name" : "VL_12_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 15,
+        "creator" : "B018095",
+        "name" : "IR_20_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 16,
+        "creator" : "b006434",
+        "name" : "VL_INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      }, {
+        "value" : 17,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1206"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1206"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1206"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1206/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "VERVIELFACHUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "FAKTOR_1_FACH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1208"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "FAKTOR_1P5_FACH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1208"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "FAKTOR_2_FACH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1208"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1208"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1208"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1208/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "TODESFALL_KAPTIAL_LEISTUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "VL_100_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1209"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "VL_200_PROZENT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1209"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "VL_INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1209"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "b006434",
+        "name" : "KNICK_ALTER",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1209"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "b006434",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1209"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1209"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1209"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1209/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "TODESFALL_KAPTIAL_ART",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "ALLE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1210"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "VERHEIRATETE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1210"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "LEDIGE_MIT_VERRECHNUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1210"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "LEDIGE_OHNE_VERRECHNUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1210"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B018095",
+        "name" : "UEBERLEBENSZEITRENTE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1210"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1210"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1210"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1210/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "TODESFALL_KAPITAL_LOHN",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "VERSICHERTER_LOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1211"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "GEMELDETER_LOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1211"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1211"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1211"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1211/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "KNICKALTER",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "OHNE_KNICKALTER",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1212"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "MIT_KNICKALTER_BEI_ALTER_44_45",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1212"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1212"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1212"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1212/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "EINTRITTSSCHWELLE",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "BVG_MIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1213"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1213"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1213"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1213"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1213"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1213/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "FINANZIERUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "PRAEMIE_AN_50",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "PRAEMIE_AN_40",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "PRAEMIE_AN_1D3",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "PRAEMIE_AN_0",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B038014",
+        "name" : "PRAEMIE_INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B038014",
+        "name" : "LOHN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1214"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1214"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1214"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1214/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "UNFALLDECKUNG",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "AB_UVG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1215"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "NEIN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1215"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "JA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1215"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1215"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1215"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1215/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "SCHLUSSALTER",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "GESETZLICH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1216"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b006434",
+        "name" : "INDIVIDUELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1216"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1216"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1216"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1216/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "SCHLUSSALTER_KINDER_RENTE",
+      "codeValues" : [ {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "ALTER_18",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1217"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "ALTER_20",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1217"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1217"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1217"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1217/responsible"
+        }
+      }
+    }, {
+      "creator" : "B018095",
+      "name" : "WARTEFRIST",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "B018095",
+        "name" : "WF_3_MONATE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1218"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B018095",
+        "name" : "WF_6_MONATE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1218"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B018095",
+        "name" : "WF_12_MONATE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1218"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "B018095",
+        "name" : "WF_24_MONATE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1218"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1218"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1218"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1218/responsible"
+        }
+      }
+    }, {
+      "creator" : "b006434",
+      "name" : "KRANKENTAGGELD_ANBIETER",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "b006434",
+        "name" : "NICHT_BEKANNT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b006434",
+        "name" : "AGRISANO",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "ALLIANZ",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "b006434",
+        "name" : "ASSURA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "b006434",
+        "name" : "ATUPRI",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "b006434",
+        "name" : "AXA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "b006434",
+        "name" : "BASLER",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "b006434",
+        "name" : "CONCORDIA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "b006434",
+        "name" : "CSS",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 10,
+        "creator" : "b006434",
+        "name" : "ELIPS_LIFE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 11,
+        "creator" : "b006434",
+        "name" : "GENERALI",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 12,
+        "creator" : "b006434",
+        "name" : "GROUPE_MUTUEL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 13,
+        "creator" : "b006434",
+        "name" : "HELSANA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 14,
+        "creator" : "b006434",
+        "name" : "HELVETIA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 15,
+        "creator" : "b006434",
+        "name" : "HOTELA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 16,
+        "creator" : "b006434",
+        "name" : "INNOVA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 17,
+        "creator" : "b006434",
+        "name" : "KPT_CPT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 18,
+        "creator" : "b006434",
+        "name" : "MOBILIAR",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 19,
+        "creator" : "b006434",
+        "name" : "OKK",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 20,
+        "creator" : "b006434",
+        "name" : "SANITAS",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 21,
+        "creator" : "b006434",
+        "name" : "SWICA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 22,
+        "creator" : "b006434",
+        "name" : "SYMPANY",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 23,
+        "creator" : "b006434",
+        "name" : "VAUDOISE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 24,
+        "creator" : "b006434",
+        "name" : "VISANA",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 25,
+        "creator" : "b006434",
+        "name" : "ZURICH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      }, {
+        "value" : 26,
+        "creator" : "b006434",
+        "name" : "ANDERE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1221"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1221"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1221"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1221/responsible"
+        }
+      }
+    }, {
+      "creator" : "b018095",
+      "name" : "OFFERT_STATUS",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "b018095",
+        "name" : "IN_BEARBEITUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b018095",
+        "name" : "BEARBEITUNG_IN_PAKT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b018095",
+        "name" : "FERTIGGESTELLT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "b006434",
+        "name" : "EINGEREICHT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "B006434",
+        "name" : "VERWORFEN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "b018095",
+        "name" : "ABGELEHNT_DURCH_KUNDE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "b018095",
+        "name" : "ABGELEHNT_DURCH_BASLER",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "b018095",
+        "name" : "ABGELEHNT_AUTOMATISCH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "b018095",
+        "name" : "VERWORFEN_AUTOMATISCH",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1223"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1223"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1223"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1223/responsible"
+        }
+      }
+    }, {
+      "creator" : "B006434",
+      "name" : "RABATTGRUND",
+      "codeValues" : [ {
+        "value" : 6,
+        "creator" : "B006434",
+        "name" : "VTB_PRODUKT_WECHSEL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "B006434",
+        "name" : "VTB_INDIVIDUELLER_SCHADENVERLAUF",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "B006434",
+        "name" : "VTB_VERBUNDSKONDITIONEN",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 9,
+        "creator" : "B006434",
+        "name" : "VTB_SANIERUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 1,
+        "creator" : "B006434",
+        "name" : "VTB_STUFENLOSES_MODELL",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "B006434",
+        "name" : "VTB_TARIF_PLUS",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "B006434",
+        "name" : "VTNB_KONKURRENZ",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1226"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1226"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1226"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1226/responsible"
+        }
+      }
+    }, {
+      "creator" : "b006434",
+      "name" : "DOK_TYP",
+      "codeValues" : [ {
+        "value" : 1,
+        "creator" : "b018095",
+        "name" : "OFFERTE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 2,
+        "creator" : "b006434",
+        "name" : "OFFERTE_PLANBESCHRIEB",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 3,
+        "creator" : "b006434",
+        "name" : "ORIENTIERUNGSBLATT",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 4,
+        "creator" : "b006434",
+        "name" : "BLD_VEREINBARUNG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 5,
+        "creator" : "b006434",
+        "name" : "BEKANNTGABEKASSENVORSTAND",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 6,
+        "creator" : "B018095",
+        "name" : "ANMELDESCHEINE",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 7,
+        "creator" : "B018095",
+        "name" : "KASSENVORSTANDSBESCHLUSS",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      }, {
+        "value" : 8,
+        "creator" : "B018095",
+        "name" : "ANSCHLUSSVERTRAG",
+        "_links" : {
+          "codeType" : {
+            "href" : "http://127.0.0.1:8080/codeType/1237"
+          }
+        }
+      } ],
+      "prefix" : "PABLO",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:8080/codeType/1237"
+        },
+        "codeType" : {
+          "href" : "http://127.0.0.1:8080/codeType/1237"
+        },
+        "responsible" : {
+          "href" : "http://127.0.0.1:8080/codeType/1237/responsible"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:8080/codeType/search/findByResponsiblePrefix?prefix=PABLO"
+    }
+  }
+}
