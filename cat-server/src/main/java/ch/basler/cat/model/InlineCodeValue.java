@@ -10,5 +10,7 @@ public interface InlineCodeValue {
 
     String getName();
 
+    String getPrefix();
+
     List<CodeValue> getCodeValues();
 }
