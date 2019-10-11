@@ -5,15 +5,18 @@
 
     <div class="form-group">
       <button routerLink="/codetypes" class="btn">&lt;&lt; back</button>
-      <button routerLink="{{'/editcodetype/' + id}}" [queryParams]="{referrer: '/codetype/' + id}" class="btn">edit</button>
+      <button *ngIf="!id" (click)="addCodeType()">
+        <fa-icon [icon]="['fas', 'save']"></fa-icon>
+      </button>
     </div>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" *ngIf="!!id">
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Value</th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
@@ -21,6 +24,17 @@
         <td>{{ cv.id }}</td>
         <td>{{ cv.name }}</td>
         <td>{{ cv.value }}</td>
+        <td>
+          <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <button class="btn">
+            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+            Add new
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>

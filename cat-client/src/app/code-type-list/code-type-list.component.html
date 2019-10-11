@@ -1,7 +1,7 @@
 <div class="card my-5">
   <div class="card-body">
     <div class="form-group">
-      <input class="form-control" type="text" (keyup)="search()" [(ngModel)]="filter" placeholder="Prefix-Search ..." />
+      <input class="form-control" type="text" (keyup)="search()" [(ngModel)]="filter" placeholder="Prefix-Search ..."/>
     </div>
 
     <table class="table table-bordered table-striped">
@@ -13,6 +13,14 @@
       </tr>
       </thead>
       <tbody>
+      <tr>
+        <td colspan="3">
+          <button class="btn" routerLink="/codetype/">
+            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+            Add new
+          </button>
+        </td>
+      </tr>
       <tr *ngFor="let ct of codeTypes" routerLink="/codetype/{{ct.id}}">
         <td>{{ ct.id }}</td>
         <td>{{ ct.name }}</td>
