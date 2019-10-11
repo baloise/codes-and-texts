@@ -58,7 +58,7 @@ public class CodeType {
     }
 
     public String getPackageName() {
-        return this.responsible.getPackagename();
+        return this.responsible.getPackageName();
     }
 
     public long getId() {

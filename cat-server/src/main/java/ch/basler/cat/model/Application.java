@@ -30,7 +30,7 @@ public class Application {
     private String creator;
 
     @Column(name = "package")
-    private String packagename;
+    private String packageName;
 
     public long getId() {
         return id;
@@ -56,11 +56,11 @@ public class Application {
         this.creator = creator;
     }
 
-    public String getPackagename() {
-        return packagename;
+    public String getPackageName() {
+        return packageName;
     }
 
-    public void setPackagename(String packagename) {
-        this.packagename = packagename;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 }

@@ -24,9 +24,9 @@ public class Responsible {
 
     @Id
     private long id;
-    private String projectname;
+    private String projectName;
     @Column(name = "package")
-    private String packagename;
+    private String packageName;
     private String prefix;
     private String email;
     private String creator;
@@ -39,20 +39,20 @@ public class Responsible {
         this.id = id;
     }
 
-    public String getProjectname() {
-        return projectname;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setProjectname(String projectname) {
-        this.projectname = projectname;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
-    public String getPackagename() {
-        return packagename;
+    public String getPackageName() {
+        return packageName;
     }
 
-    public void setPackagename(String packagename) {
-        this.packagename = packagename;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
     public String getPrefix() {
