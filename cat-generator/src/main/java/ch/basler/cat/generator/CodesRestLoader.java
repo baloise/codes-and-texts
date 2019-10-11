@@ -2,7 +2,7 @@ package ch.basler.cat.generator;
 
 import org.springframework.web.client.RestTemplate;
 
-public class CodeRestLoader {
+public class CodesRestLoader {
 
     public static final String SEARCH_ROUTE = "/codeType/search/findByResponsiblePrefix?prefix=";
     public String export(String host, String port, String codesPrefix) {

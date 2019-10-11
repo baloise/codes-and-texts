@@ -1,4 +1,4 @@
-package ch.basler.cat.generator;
+package ch.basler.cat.generator.model;
 
 public class CodeValue {
     String name;

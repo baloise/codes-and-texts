@@ -1,0 +1,76 @@
+// generated
+package $PACKAGE;
+
+import ch.basler.text.java.code.Code;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class $CLASSNAME extends Code  {
+
+  private static final short CODETYP_$CODE_TYPE_NAME = $CODE_TYPE_ID;
+
+  private static final long serialVersionUID = 1L;
+
+  private static final $CLASSNAME[] codeWertArray = new $CLASSNAME[9];
+  private static final Map<String, Code> codeWertNameMap = new HashMap<String, Code>($NUMBER_OF_CODES);
+
+  public static final $CLASSNAME CODE_NULL;
+
+  public static final $CLASSNAME $CODE_VALUE_NAME;
+
+  static {
+    CODE_NULL = new $CLASSNAME(CODE_NULL_NAME, CODE_NULL_VALUE);
+    $CODE_VALUE_NAME = new $CLASSNAME("$CODE_VALUE_NAME", (short)$CODE_VALUE_ID);
+
+    codeWertNameMap.put(CODE_NULL.getCodewertName(), CODE_NULL);
+    codeWertNameMap.put($CODE_VALUE_NAME.getCodewertName(), $CODE_VALUE_NAME);
+
+    codeWertArray[CODE_NULL.getCodewert()] = CODE_NULL;
+    codeWertArray[$CODE_VALUE_NAME.getCodewert()] = $CODE_VALUE_NAME;
+  }
+
+  private $CLASSNAME(String aCodeWertName, short aCodeWert) {
+    super(aCodeWertName, aCodeWert);
+  }
+
+  public short getCodetyp() {
+    return CODETYP_$CODE_TYPE_NAME;
+  }
+
+  public static $CLASSNAME getCodeObject(short aCodeWert) {
+    $CLASSNAME result = null;
+    try {
+      result = codeWertArray[aCodeWert];
+    }
+    catch(ArrayIndexOutOfBoundsException e) {}
+
+    if(result == null) {
+      result = new $CLASSNAME("CODEWERT_UNBEKANNT", aCodeWert);
+    }
+    return result;
+  }
+
+  public static $CLASSNAME getCodeObject(String aCodeWertName) {
+    $CLASSNAME result = ($CLASSNAME)codeWertNameMap.get(aCodeWertName);
+    return result;  
+  }
+
+  public static boolean isUnknown(Code aCode) {
+    boolean result = true;
+
+    try {
+      if(codeWertArray[aCode.getCodewert()].getCodewert() == aCode.getCodewert()) {
+        result = false;
+      }
+    }
+    catch(ArrayIndexOutOfBoundsException e) {}
+    catch (NullPointerException e) {}
+
+    return result;
+  }
+
+  public Iterator<Code> getCodewertIterator() {
+    return codeWertNameMap.values().iterator();
+  }
+}
