@@ -1,4 +1,4 @@
-package ch.basler.cat.generator.model;
+package ch.basler.cat.generator.codes.model;
 
 import java.util.ArrayList;
 import java.util.List;

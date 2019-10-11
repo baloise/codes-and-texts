@@ -1,8 +1,9 @@
-package ch.basler.cat.generator;
+package ch.basler.cat.generator.codes.export;
 
+import ch.basler.cat.generator.codes.export.LegacyCodesGenerator;
 import ch.basler.cat.generator.common.FileUtil;
-import ch.basler.cat.generator.model.CodeType;
-import ch.basler.cat.generator.model.CodeValue;
+import ch.basler.cat.generator.codes.model.CodeType;
+import ch.basler.cat.generator.codes.model.CodeValue;
 import org.junit.Test;
 
 import java.util.ArrayList;

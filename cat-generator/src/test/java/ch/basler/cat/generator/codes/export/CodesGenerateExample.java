@@ -1,6 +1,9 @@
-package ch.basler.cat.generator;
+package ch.basler.cat.generator.codes.export;
 
-import ch.basler.cat.generator.model.CodeType;
+import ch.basler.cat.generator.codes.CodesParser;
+import ch.basler.cat.generator.codes.CodesRestLoader;
+import ch.basler.cat.generator.codes.export.LegacyCodesGenerator;
+import ch.basler.cat.generator.codes.model.CodeType;
 
 import java.io.IOException;
 import java.util.List;

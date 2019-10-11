@@ -1,7 +1,7 @@
-package ch.basler.cat.generator;
+package ch.basler.cat.generator.codes;
 
-import ch.basler.cat.generator.model.CodeType;
-import ch.basler.cat.generator.model.CodeValue;
+import ch.basler.cat.generator.codes.model.CodeType;
+import ch.basler.cat.generator.codes.model.CodeValue;
 import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.boot.json.JsonParser;
 

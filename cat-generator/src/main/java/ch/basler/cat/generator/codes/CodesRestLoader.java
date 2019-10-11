@@ -1,4 +1,4 @@
-package ch.basler.cat.generator;
+package ch.basler.cat.generator.codes;
 
 import org.springframework.web.client.RestTemplate;
 
