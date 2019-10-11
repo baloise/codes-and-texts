@@ -29,6 +29,10 @@ public class CodeType {
         return this.responsible.getPrefix();
     }
 
+    public String getPackageName() {
+        return this.responsible.getPackagename();
+    }
+
     public long getId() {
         return id;
     }

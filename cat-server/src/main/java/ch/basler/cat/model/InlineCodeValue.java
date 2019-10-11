@@ -12,5 +12,7 @@ public interface InlineCodeValue {
 
     String getPrefix();
 
+    String getPackageName();
+
     List<CodeValue> getCodeValues();
 }
