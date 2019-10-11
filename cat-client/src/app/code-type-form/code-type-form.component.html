@@ -4,7 +4,7 @@
     <h2><app-inline-edit type="text" [(ngModel)]="codeType.name"></app-inline-edit><sub>(#{{id}}, <app-inline-edit type="text" [(ngModel)]="codeType.prefix"></app-inline-edit>)</sub></h2>
 
     <div class="form-group">
-      <button routerLink="{{referrerUrl}}" class="btn">&lt;&lt; abbrechen</button>
+      <button routerLink="{{referrerUrl}}" class="btn">&lt;&lt; cancel</button>
       <button (click)="save()" class="btn">save</button>
     </div>
 
@@ -13,7 +13,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Wert</th>
+        <th scope="col">Value</th>
       </tr>
       </thead>
       <tbody>

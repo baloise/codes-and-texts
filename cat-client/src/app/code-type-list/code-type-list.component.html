@@ -1,8 +1,9 @@
 <div class="card my-5">
   <div class="card-body">
     <div class="form-group">
-      <input class="form-control" type="text" (keyup)="search()" [(ngModel)]="filter" />
+      <input class="form-control" type="text" (keyup)="search()" [(ngModel)]="filter" placeholder="Prefix-Search ..." />
     </div>
+
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -19,6 +20,7 @@
       </tr>
       </tbody>
     </table>
+
     <ul class="pagination">
       <li class="page-link" (click)="previousPage()">&lt;</li>
       <li class="page-link">{{currentpage + 1}}</li>

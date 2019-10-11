@@ -4,7 +4,7 @@
     <h2>{{codeType?.name}}<sub>(#{{id}}, {{codeType?.prefix || "-"}})</sub></h2>
 
     <div class="form-group">
-      <button routerLink="/codetypes" class="btn">&lt;&lt; zurück</button>
+      <button routerLink="/codetypes" class="btn">&lt;&lt; back</button>
       <button routerLink="{{'/editcodetype/' + id}}" [queryParams]="{referrer: '/codetype/' + id}" class="btn">edit</button>
     </div>
 
@@ -13,7 +13,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Wert</th>
+        <th scope="col">Value</th>
       </tr>
       </thead>
       <tbody>

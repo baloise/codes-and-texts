@@ -1,17 +1,27 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="#">{{ title }}</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/codetypes">Code Types <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" disabled=disabled href="#" tabindex="-1" aria-disabled="true">Applications</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <div class="logo"></div>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item"><a routerLink="/codetypes" class="btn btn-info">List CodeTypes</a></li>
-            <li class="list-inline-item"><a routerLink="/addcodetype" class="btn btn-info">Add CodeType</a></li>
-          </ul>
-        </div>
-      </div>
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
+

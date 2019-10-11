@@ -5,6 +5,7 @@ import {CodeTypeFormComponent} from "./code-type-form/code-type-form.component";
 import {CodeTypeDetailsComponent} from "./code-type-details/code-type-details.component";
 
 const routes: Routes = [
+  { path: '', component: CodeTypeListComponent },
   { path: 'codetypes', component: CodeTypeListComponent },
   { path: 'codetype/:id', component: CodeTypeDetailsComponent },
   { path: 'addcodetype', component: CodeTypeFormComponent },
