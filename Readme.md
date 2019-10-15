@@ -11,4 +11,4 @@ Project to replace the old cut
 
 
 ## local setup for postgres running in docker 
- docker run --name postgres -e POSTGRES_DB=cat -e POSTGRES_USER=cat -e  POSTGRES_PASSWORD=cat -d -p 5432:5432 postgres:12-alpine
+ docker run --name postgres_cat -e POSTGRES_DB=cat -e POSTGRES_USER=cat -e  POSTGRES_PASSWORD=cat -d -p 5433:5432 postgres:12-alpine

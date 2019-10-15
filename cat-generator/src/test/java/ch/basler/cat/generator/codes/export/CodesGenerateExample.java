@@ -11,8 +11,8 @@ import java.util.List;
 public class CodesGenerateExample {
     //
     public static void main(String[] args) {
-        // "http://localhost:8080/codeType/search/findByResponsiblePrefix?prefix=PABLO"
-        String json = new CodesRestLoader().export("localhost", "8080", "PABLO");
+        // "http://localhost:8088/codeType/search/findByResponsiblePrefix?prefix=PABLO"
+        String json = new CodesRestLoader().export("localhost", "8088", "PABLO");
 
         System.out.println(json);
 

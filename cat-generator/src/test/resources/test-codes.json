@@ -1,7 +1,7 @@
 {
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/codeType/search/findByResponsiblePrefix?prefix=PABLO",
+    "href" : "http://localhost:8088/codeType/search/findByResponsiblePrefix?prefix=PABLO",
     "hreflang" : null,
     "media" : null,
     "title" : null,
@@ -23,7 +23,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1264",
+      "href" : "http://localhost:8088/codeType/1264",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -31,7 +31,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1264{?projection}",
+      "href" : "http://localhost:8088/codeType/1264{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -39,7 +39,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1264/responsible",
+      "href" : "http://localhost:8088/codeType/1264/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -47,7 +47,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1264/codeValues",
+      "href" : "http://localhost:8088/codeType/1264/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -73,7 +73,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1265",
+      "href" : "http://localhost:8088/codeType/1265",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -81,7 +81,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1265{?projection}",
+      "href" : "http://localhost:8088/codeType/1265{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -89,7 +89,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1265/responsible",
+      "href" : "http://localhost:8088/codeType/1265/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -97,7 +97,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1265/codeValues",
+      "href" : "http://localhost:8088/codeType/1265/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -179,7 +179,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1272",
+      "href" : "http://localhost:8088/codeType/1272",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -187,7 +187,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1272{?projection}",
+      "href" : "http://localhost:8088/codeType/1272{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -195,7 +195,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1272/responsible",
+      "href" : "http://localhost:8088/codeType/1272/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -203,7 +203,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1272/codeValues",
+      "href" : "http://localhost:8088/codeType/1272/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -229,7 +229,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1198",
+      "href" : "http://localhost:8088/codeType/1198",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -237,7 +237,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1198{?projection}",
+      "href" : "http://localhost:8088/codeType/1198{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -245,7 +245,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1198/responsible",
+      "href" : "http://localhost:8088/codeType/1198/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -253,7 +253,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1198/codeValues",
+      "href" : "http://localhost:8088/codeType/1198/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -275,7 +275,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1200",
+      "href" : "http://localhost:8088/codeType/1200",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -283,7 +283,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1200{?projection}",
+      "href" : "http://localhost:8088/codeType/1200{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -291,7 +291,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1200/responsible",
+      "href" : "http://localhost:8088/codeType/1200/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -299,7 +299,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1200/codeValues",
+      "href" : "http://localhost:8088/codeType/1200/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -337,7 +337,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1201",
+      "href" : "http://localhost:8088/codeType/1201",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -345,7 +345,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1201{?projection}",
+      "href" : "http://localhost:8088/codeType/1201{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -353,7 +353,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1201/responsible",
+      "href" : "http://localhost:8088/codeType/1201/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -361,7 +361,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1201/codeValues",
+      "href" : "http://localhost:8088/codeType/1201/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -387,7 +387,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1202",
+      "href" : "http://localhost:8088/codeType/1202",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -395,7 +395,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1202{?projection}",
+      "href" : "http://localhost:8088/codeType/1202{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -403,7 +403,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1202/responsible",
+      "href" : "http://localhost:8088/codeType/1202/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -411,7 +411,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1202/codeValues",
+      "href" : "http://localhost:8088/codeType/1202/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -473,7 +473,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1203",
+      "href" : "http://localhost:8088/codeType/1203",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -481,7 +481,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1203{?projection}",
+      "href" : "http://localhost:8088/codeType/1203{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -489,7 +489,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1203/responsible",
+      "href" : "http://localhost:8088/codeType/1203/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -497,7 +497,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1203/codeValues",
+      "href" : "http://localhost:8088/codeType/1203/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -579,7 +579,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1206",
+      "href" : "http://localhost:8088/codeType/1206",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -587,7 +587,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1206{?projection}",
+      "href" : "http://localhost:8088/codeType/1206{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -595,7 +595,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1206/responsible",
+      "href" : "http://localhost:8088/codeType/1206/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -603,7 +603,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1206/codeValues",
+      "href" : "http://localhost:8088/codeType/1206/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -629,7 +629,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1208",
+      "href" : "http://localhost:8088/codeType/1208",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -637,7 +637,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1208{?projection}",
+      "href" : "http://localhost:8088/codeType/1208{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -645,7 +645,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1208/responsible",
+      "href" : "http://localhost:8088/codeType/1208/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -653,7 +653,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1208/codeValues",
+      "href" : "http://localhost:8088/codeType/1208/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -687,7 +687,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1209",
+      "href" : "http://localhost:8088/codeType/1209",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -695,7 +695,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1209{?projection}",
+      "href" : "http://localhost:8088/codeType/1209{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -703,7 +703,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1209/responsible",
+      "href" : "http://localhost:8088/codeType/1209/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -711,7 +711,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1209/codeValues",
+      "href" : "http://localhost:8088/codeType/1209/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -745,7 +745,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1210",
+      "href" : "http://localhost:8088/codeType/1210",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -753,7 +753,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1210{?projection}",
+      "href" : "http://localhost:8088/codeType/1210{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -761,7 +761,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1210/responsible",
+      "href" : "http://localhost:8088/codeType/1210/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -769,7 +769,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1210/codeValues",
+      "href" : "http://localhost:8088/codeType/1210/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -791,7 +791,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1211",
+      "href" : "http://localhost:8088/codeType/1211",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -799,7 +799,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1211{?projection}",
+      "href" : "http://localhost:8088/codeType/1211{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -807,7 +807,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1211/responsible",
+      "href" : "http://localhost:8088/codeType/1211/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -815,7 +815,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1211/codeValues",
+      "href" : "http://localhost:8088/codeType/1211/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -837,7 +837,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1212",
+      "href" : "http://localhost:8088/codeType/1212",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -845,7 +845,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1212{?projection}",
+      "href" : "http://localhost:8088/codeType/1212{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -853,7 +853,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1212/responsible",
+      "href" : "http://localhost:8088/codeType/1212/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -861,7 +861,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1212/codeValues",
+      "href" : "http://localhost:8088/codeType/1212/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -887,7 +887,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1213",
+      "href" : "http://localhost:8088/codeType/1213",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -895,7 +895,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1213{?projection}",
+      "href" : "http://localhost:8088/codeType/1213{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -903,7 +903,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1213/responsible",
+      "href" : "http://localhost:8088/codeType/1213/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -911,7 +911,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1213/codeValues",
+      "href" : "http://localhost:8088/codeType/1213/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -949,7 +949,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1214",
+      "href" : "http://localhost:8088/codeType/1214",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -957,7 +957,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1214{?projection}",
+      "href" : "http://localhost:8088/codeType/1214{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -965,7 +965,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1214/responsible",
+      "href" : "http://localhost:8088/codeType/1214/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -973,7 +973,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1214/codeValues",
+      "href" : "http://localhost:8088/codeType/1214/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -999,7 +999,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1215",
+      "href" : "http://localhost:8088/codeType/1215",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1007,7 +1007,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1215{?projection}",
+      "href" : "http://localhost:8088/codeType/1215{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1015,7 +1015,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1215/responsible",
+      "href" : "http://localhost:8088/codeType/1215/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1023,7 +1023,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1215/codeValues",
+      "href" : "http://localhost:8088/codeType/1215/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1045,7 +1045,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1216",
+      "href" : "http://localhost:8088/codeType/1216",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1053,7 +1053,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1216{?projection}",
+      "href" : "http://localhost:8088/codeType/1216{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1061,7 +1061,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1216/responsible",
+      "href" : "http://localhost:8088/codeType/1216/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1069,7 +1069,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1216/codeValues",
+      "href" : "http://localhost:8088/codeType/1216/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1091,7 +1091,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1217",
+      "href" : "http://localhost:8088/codeType/1217",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1099,7 +1099,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1217{?projection}",
+      "href" : "http://localhost:8088/codeType/1217{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1107,7 +1107,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1217/responsible",
+      "href" : "http://localhost:8088/codeType/1217/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1115,7 +1115,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1217/codeValues",
+      "href" : "http://localhost:8088/codeType/1217/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1145,7 +1145,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1218",
+      "href" : "http://localhost:8088/codeType/1218",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1153,7 +1153,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1218{?projection}",
+      "href" : "http://localhost:8088/codeType/1218{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1161,7 +1161,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1218/responsible",
+      "href" : "http://localhost:8088/codeType/1218/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1169,7 +1169,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1218/codeValues",
+      "href" : "http://localhost:8088/codeType/1218/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1287,7 +1287,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1221",
+      "href" : "http://localhost:8088/codeType/1221",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1295,7 +1295,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1221{?projection}",
+      "href" : "http://localhost:8088/codeType/1221{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1303,7 +1303,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1221/responsible",
+      "href" : "http://localhost:8088/codeType/1221/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1311,7 +1311,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1221/codeValues",
+      "href" : "http://localhost:8088/codeType/1221/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1361,7 +1361,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1223",
+      "href" : "http://localhost:8088/codeType/1223",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1369,7 +1369,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1223{?projection}",
+      "href" : "http://localhost:8088/codeType/1223{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1377,7 +1377,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1223/responsible",
+      "href" : "http://localhost:8088/codeType/1223/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1385,7 +1385,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1223/codeValues",
+      "href" : "http://localhost:8088/codeType/1223/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1427,7 +1427,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1226",
+      "href" : "http://localhost:8088/codeType/1226",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1435,7 +1435,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1226{?projection}",
+      "href" : "http://localhost:8088/codeType/1226{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1443,7 +1443,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1226/responsible",
+      "href" : "http://localhost:8088/codeType/1226/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1451,7 +1451,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1226/codeValues",
+      "href" : "http://localhost:8088/codeType/1226/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1497,7 +1497,7 @@
     "prefix" : "PABLO",
     "links" : [ {
       "rel" : "self",
-      "href" : "http://localhost:8080/codeType/1237",
+      "href" : "http://localhost:8088/codeType/1237",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1505,7 +1505,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeType",
-      "href" : "http://localhost:8080/codeType/1237{?projection}",
+      "href" : "http://localhost:8088/codeType/1237{?projection}",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1513,7 +1513,7 @@
       "deprecation" : null
     }, {
       "rel" : "responsible",
-      "href" : "http://localhost:8080/codeType/1237/responsible",
+      "href" : "http://localhost:8088/codeType/1237/responsible",
       "hreflang" : null,
       "media" : null,
       "title" : null,
@@ -1521,7 +1521,7 @@
       "deprecation" : null
     }, {
       "rel" : "codeValues",
-      "href" : "http://localhost:8080/codeType/1237/codeValues",
+      "href" : "http://localhost:8088/codeType/1237/codeValues",
       "hreflang" : null,
       "media" : null,
       "title" : null,

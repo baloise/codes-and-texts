@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serviceBase: "http://localhost:8080/"
+  serviceBase: "http://localhost:8088/"
 };
 
 /*
