@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "responsible", path = "responsible")
-public interface ResponsibleRepository extends PagingAndSortingRepository<Responsible, String> {
+public interface ResponsibleRepository extends PagingAndSortingRepository<Responsible, Long> {
 
     List<Responsible> findByPrefix(@Param("prefix") String prefix);
 
