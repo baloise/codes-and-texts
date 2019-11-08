@@ -1,1 +1,1 @@
-* @baloise/open-source
+* @mikevader @tommuelli @tiliavir
