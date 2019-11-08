@@ -1,7 +1,11 @@
 <div class="card my-5">
   <div class="card-body">
-
-    <h2>{{codeType?.name}}<sub>(#{{id}}, {{codeType?.prefix || "-"}})</sub></h2>
+    <h2>
+      <app-inline-edit [disabled]="!!id" [editing]="!id" [(ngModel)]="codeType.name"></app-inline-edit>
+      <sub>(#{{id}},
+        <app-inline-edit type="text" [(ngModel)]="codeType.prefix"></app-inline-edit>
+        )</sub>
+    </h2>
 
     <div class="form-group">
       <button routerLink="/codetypes" class="btn">&lt;&lt; back</button>
@@ -30,7 +34,7 @@
       </tr>
       <tr>
         <td colspan="4">
-          <button class="btn">
+          <button class="btn" (click)="addCodeValue()">
             <fa-icon [icon]="['fas', 'plus']"></fa-icon>
             Add new
           </button>

@@ -23,13 +23,12 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 export class InlineEditComponent implements ControlValueAccessor, OnInit {
 
   @ViewChild("inlineEditControl", {static: false}) inlineEditControl: ElementRef; // input DOM element
-  @Input() label: string = '';  // Label value for input element
   @Input() type: string = 'text'; // The type of input element
   @Input() required: boolean = false; // Is input requried?
   @Input() disabled: boolean = false; // Is input disabled?
+  @Input() editing: boolean = false; // Is Component in edit mode?
   private _value: string = ''; // Private variable for input value
   private preValue: string = ''; // The value before clicking to edit
-  private editing: boolean = false; // Is Component in edit mode?
   public onChange: any = Function.prototype; // Trascend the onChange event
   public onTouched: any = Function.prototype; // Trascend the onTouch event
 

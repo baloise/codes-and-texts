@@ -26,7 +26,7 @@ export class CodeTypeDetailsComponent implements OnInit {
           this.ctService.get(this.id).subscribe(data => this.codeType = data);
         } else {
           // we add a new codetype
-
+          this.codeType = new CodeType();
         }
       } catch (e) {
         console.error("Invalid Code Type Id requested!", e);
