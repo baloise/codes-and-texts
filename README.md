@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/baloise/codes-and-texts.svg?branch=master)](https://travis-ci.org/baloise/codes-and-texts)
 
 # Codes and Texts
-Project to replace the old CuT
+Project to replace the old [**C**(odes)**u**(nd)**T**(exte)](https://translate.google.com/?op=translate&sl=de&tl=en&text=Codes%20und%20Texte).
 
 ## Local Setup for postgres running in docker 
 ```
