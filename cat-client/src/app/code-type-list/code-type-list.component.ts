@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CodeTypeService} from "../services/code-type.service";
-import {CodeType} from "../model/codeType";
+import {CodeTypeService} from '../services/code-type.service';
+import {CodeType} from '../model/codeType';
 
 @Component({
   selector: 'app-code-type-list',
@@ -11,7 +11,7 @@ export class CodeTypeListComponent implements OnInit {
 
   private codeTypes: CodeType[];
   filter: string;
-  currentpage: number = 0;
+  currentpage = 0;
 
   constructor(private ctService: CodeTypeService) {
   }
@@ -40,7 +40,7 @@ export class CodeTypeListComponent implements OnInit {
 
   update() {
     if (this.filter) {
-      this.ctService.findByResponsiblePrefix(this.filter, this.currentpage).subscribe(data => this.codeTypes = data)
+      this.ctService.findByResponsiblePrefix(this.filter, this.currentpage).subscribe(data => this.codeTypes = data);
     } else {
       this.ctService.findAll(this.currentpage).subscribe(data => this.codeTypes = data);
     }

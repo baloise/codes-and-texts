@@ -1,4 +1,4 @@
-import { CodeType } from './codeType';
+import {CodeType} from './codeType';
 
 describe('Codetype', () => {
   it('should create an instance', () => {

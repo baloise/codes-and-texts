@@ -8,9 +8,9 @@ import {CodeTypeListComponent} from './code-type-list/code-type-list.component';
 import {CodeTypeFormComponent} from './code-type-form/code-type-form.component';
 import {CodeTypeDetailsComponent} from './code-type-details/code-type-details.component';
 import {InlineEditComponent} from './inline-edit/inline-edit.component';
-import {FormsModule} from "@angular/forms";
-import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {faEdit, faPlus, faSave} from "@fortawesome/free-solid-svg-icons";
+import {FormsModule} from '@angular/forms';
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {faEdit, faPlus, faSave} from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
