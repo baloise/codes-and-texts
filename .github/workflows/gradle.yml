@@ -16,6 +16,7 @@ jobs:
       working-directory: cat-client
       run: |
         npm ci
+        npm i ng-cli -g
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
