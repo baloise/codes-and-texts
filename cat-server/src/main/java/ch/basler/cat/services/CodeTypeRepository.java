@@ -2,7 +2,7 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeType;
-import ch.basler.cat.model.InlineCodeValue;
+import ch.basler.cat.model.InlineCodeValuesAndStyles;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin
-@RepositoryRestResource(collectionResourceRel = "codeType", path = "codeType", excerptProjection = InlineCodeValue.class)
+@RepositoryRestResource(collectionResourceRel = "codeType", path = "codeType", excerptProjection = InlineCodeValuesAndStyles.class)
 public interface CodeTypeRepository extends PagingAndSortingRepository<CodeType, Long> {
 
     Page<List<CodeType>> findByName(@Param("name") String name, Pageable pageable);

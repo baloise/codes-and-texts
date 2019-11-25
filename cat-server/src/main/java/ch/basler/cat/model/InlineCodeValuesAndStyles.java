@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.config.Projection;
 import java.util.List;
 
 @Projection(types = {CodeType.class})
-public interface InlineCodeValue {
+public interface InlineCodeValuesAndStyles {
     long getId();
 
     String getName();
@@ -15,4 +15,5 @@ public interface InlineCodeValue {
     String getPackageName();
 
     List<CodeValue> getCodeValues();
+    List<CodeStyle> getCodeStyles();
 }

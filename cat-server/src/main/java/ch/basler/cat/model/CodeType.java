@@ -11,11 +11,24 @@ public class CodeType {
     private long id;
     private String creator;
     private String name;
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "responsible_id", updatable = false)
     private Responsible responsible;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "codeType")
     private List<CodeValue> codeValues;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "codeType")
+    private List<CodeStyle> codeStyles;
+
+    public List<CodeStyle> getCodeStyles() {
+        return codeStyles;
+    }
+
+    public void setCodeStyles(List<CodeStyle> codeStyles) {
+        this.codeStyles = codeStyles;
+    }
 
     public List<CodeValue> getCodeValues() {
         return codeValues;
