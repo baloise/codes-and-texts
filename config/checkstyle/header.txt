@@ -13,19 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class CodesAndTextsApplication {
-
-    public CodesAndTextsApplication() {
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(CodesAndTextsApplication.class, args);
-    }
-
-}
