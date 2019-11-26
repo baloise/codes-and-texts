@@ -27,7 +27,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin
-@RepositoryRestResource(collectionResourceRel = "codeType", path = "codeType", excerptProjection = InlineCodeValuesAndStyles.class)
+@RepositoryRestResource(collectionResourceRel = "codeType", path = "codeType",
+        excerptProjection = InlineCodeValuesAndStyles.class)
 
 public interface CodeTypeRepository extends PagingAndSortingRepository<CodeType, Long> {
 
