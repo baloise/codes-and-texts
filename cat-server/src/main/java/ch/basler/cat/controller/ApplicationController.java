@@ -53,7 +53,7 @@ public class ApplicationController {
     @GetMapping("/applications/{id}")
     public Application one(@PathVariable("id") Long id) {
         return this.repository.findById(id)
-                .orElseThrow(() -> new ApplicationNotFoundException(id));
+                .orElseThrow(() -> new EntityFoundException("application", id));
     }
 
     @PutMapping("/applications/{id}")

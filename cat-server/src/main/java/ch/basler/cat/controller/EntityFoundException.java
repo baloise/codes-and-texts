@@ -15,8 +15,8 @@
  */
 package ch.basler.cat.controller;
 
-public class ApplicationNotFoundException extends RuntimeException {
-    public ApplicationNotFoundException(Long id) {
-        super("Could not find application " + id);
+public class EntityFoundException extends RuntimeException {
+    public EntityFoundException(String entityName, Long id) {
+        super("Could not find " + entityName + " " + id);
     }
 }
