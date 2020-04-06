@@ -30,15 +30,12 @@ public class ApplicationController {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplicationController.class);
     private final ApplicationRepository repository;
-    private ApplicationResourceAssembler applicationResourceAssembler;
 
     @Autowired
     public ApplicationController(
-            ApplicationRepository repository,
-            ApplicationResourceAssembler applicationResourceAssembler) {
+            ApplicationRepository repository) {
 
         this.repository = repository;
-        this.applicationResourceAssembler = applicationResourceAssembler;
     }
 
     // Aggregate root
