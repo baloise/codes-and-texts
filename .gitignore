@@ -32,3 +32,5 @@ out/
 ### VS Code ###
 .vscode/
 /cat-generator/gen/
+/cat-vaadin-client/node_modules/
+/cat-vaadin-client/target/
