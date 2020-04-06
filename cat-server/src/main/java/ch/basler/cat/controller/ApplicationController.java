@@ -15,15 +15,18 @@
  */
 package ch.basler.cat.controller;
 
+import ch.basler.cat.api.ApplicationDto;
 import ch.basler.cat.model.Application;
 import ch.basler.cat.services.ApplicationRepository;
 import org.apache.commons.collections4.IterableUtils;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class ApplicationController {
@@ -31,45 +34,68 @@ public class ApplicationController {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationController.class);
     private final ApplicationRepository repository;
 
+    private ModelMapper modelMapper;
+
     @Autowired
     public ApplicationController(
-            ApplicationRepository repository) {
+            ApplicationRepository repository,
+            ModelMapper modelMapper) {
 
         this.repository = repository;
+        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
     @GetMapping("/applications")
-    public List<Application> all() {
-        return IterableUtils.toList(this.repository.findAll());
+    public List<ApplicationDto> all() {
+        return IterableUtils.toList(this.repository.findAll()).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
 
     @PostMapping("/applications")
-    public Application create(@RequestBody Application application) {
-        return repository.save(application);
+    public ApplicationDto create(@RequestBody ApplicationDto applicationDto) {
+        Application application = convertToEntity(applicationDto);
+        Application applicationCreated = repository.save(application);
+        return convertToDto(applicationCreated);
     }
 
     // Single item
     @GetMapping("/applications/{id}")
-    public Application one(@PathVariable("id") Long id) {
-        return this.repository.findById(id)
+    public ApplicationDto one(@PathVariable("id") Long id) {
+        Application application = this.repository.findById(id)
                 .orElseThrow(() -> new EntityFoundException("application", id));
+
+        return convertToDto(application);
     }
 
     @PutMapping("/applications/{id}")
-    public Application update(@RequestBody Application newApplication, @PathVariable Long id) {
+    public ApplicationDto update(@RequestBody ApplicationDto newApplicationDto, @PathVariable Long id) {
+        Application newApplication = convertToEntity(newApplicationDto);
         return repository.findById(id)
                 .map((application -> {
                     application.setName(newApplication.getName());
-                    return repository.save(application);
+                    return convertToDto(repository.save(application));
                 })).orElseGet(() -> {
                     newApplication.setId(id);
-                    return repository.save(newApplication);
+                    return convertToDto(repository.save(newApplication));
                 });
     }
 
     @DeleteMapping("/applications/{id}")
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+
+    private ApplicationDto convertToDto(Application application) {
+        ApplicationDto applicationDto = modelMapper.map(application, ApplicationDto.class);
+
+        return applicationDto;
+    }
+
+    private Application convertToEntity(ApplicationDto applicationDto) {
+        Application application = modelMapper.map(applicationDto, Application.class);
+
+        return application;
     }
 }
