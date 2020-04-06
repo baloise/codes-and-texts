@@ -23,7 +23,8 @@ import org.springframework.stereotype.Component;
 import static ch.basler.cat.controller.ApplicationResourceAssembler.ApplicationResource;
 
 @Component
-public class ApplicationResourceAssembler extends RepresentationModelAssemblerSupport<Application, ApplicationResource> {
+public class ApplicationResourceAssembler
+        extends RepresentationModelAssemblerSupport<Application, ApplicationResource> {
 
     public ApplicationResourceAssembler() {
         super(ApplicationController.class, ApplicationResource.class);
@@ -36,7 +37,7 @@ public class ApplicationResourceAssembler extends RepresentationModelAssemblerSu
 
     static class ApplicationResource extends EntityModel<Application> {
 
-        public ApplicationResource(Application content) {
+        ApplicationResource(Application content) {
             super(content);
         }
     }

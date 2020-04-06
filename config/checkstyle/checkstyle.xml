@@ -87,7 +87,7 @@
 
     <!-- Checks for Headers                                -->
     <!-- See https://checkstyle.org/config_header.html   -->
-    <module name="Header">
+    <module name="RegexpHeader">
         <property name="headerFile" value="./config/checkstyle/header.txt"/>
         <property name="fileExtensions" value="java"/>
     </module>
@@ -110,7 +110,10 @@
 
         <!-- Checks for Naming Conventions.                  -->
         <!-- See https://checkstyle.org/config_naming.html -->
-        <module name="ConstantName"/>
+        <module name="ConstantName">
+            <property name="format"
+                      value="^log(ger)?$|^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+        </module>
         <module name="LocalFinalVariableName"/>
         <module name="LocalVariableName"/>
         <module name="MemberName"/>
@@ -165,6 +168,7 @@
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
         <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
             <property name="ignoreSetter" value="true"/>
         </module>
         <module name="IllegalInstantiation"/>

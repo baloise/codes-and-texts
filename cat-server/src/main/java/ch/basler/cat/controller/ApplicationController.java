@@ -28,7 +28,7 @@ import java.util.List;
 @RestController
 public class ApplicationController {
 
-    private static final Logger log = LoggerFactory.getLogger(ApplicationController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApplicationController.class);
     private final ApplicationRepository repository;
     private ApplicationResourceAssembler applicationResourceAssembler;
 
@@ -40,11 +40,6 @@ public class ApplicationController {
         this.repository = repository;
         this.applicationResourceAssembler = applicationResourceAssembler;
     }
-
-//    @RequestMapping(method = RequestMethod.GET)
-//    public NestedContentResource<ApplicationResource> all() {
-//        return new NestedContentResource<ApplicationResource>(applicationResourceAssembler.toCollectionModel(this.applicationRepository.findAll()));
-//    }
 
     // Aggregate root
     @GetMapping("/applications")
