@@ -18,8 +18,9 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
     /** Text filter that can be changed separately. */
     private String filterText = "";
 
-    public CodeValueDataProvider() {
-        super(DataService.get().getAllCodeValues());
+
+    public CodeValueDataProvider(CodeType codeType) {
+        super(DataService.get().getAllCodeValues(codeType));
     }
 
     /**
@@ -70,7 +71,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
      *            the text to filter by, never null
      */
     public void setFilter(CodeType codeType) {
-        this.setFilter(codeValue -> codeValue.getCodeType().equals(codeType));
+        this.setFilter(codeValue -> codeType.equals(codeType));
     }
 
     @Override

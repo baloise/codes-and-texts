@@ -30,7 +30,7 @@ public abstract class DataService implements Serializable {
     public abstract CodeType getCodeTypeById(long codeTypeId);
 
 
-    public abstract Collection<CodeValue> getAllCodeValues();
+    public abstract Collection<CodeValue> getAllCodeValues(CodeType codeType);
     public abstract void updateCodeValue(CodeValue ct);
     public abstract void deleteCodeValue(String codeValueId);
     public abstract CodeValue getCodeValueById(String codeValueId);

@@ -187,9 +187,14 @@ public class MockDataService extends DataService {
         codeTypes.remove(p);
     }
     @Override
-    public synchronized Collection<CodeValue> getAllCodeValues(){
-        updateAllCodeValues();
-        return allCodeValues;
+    public synchronized Collection<CodeValue> getAllCodeValues(CodeType codeType){
+        if (codeType == null) {
+            return Collections.EMPTY_LIST;
+        }
+        else {
+            updateAllCodeValues();
+            return codeType.getCodeValues();
+        }
     }
 
     private void updateAllCodeValues() {

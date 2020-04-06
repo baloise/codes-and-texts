@@ -34,13 +34,13 @@ public class CodeValueView extends HorizontalLayout
 
     private final CodeValueViewLogic viewLogic = new CodeValueViewLogic(this);
     private Button newCodeValue;
-    private CodeValueDataProvider dataProvider = new CodeValueDataProvider();
+    private CodeValueDataProvider dataProvider;
 
     public CodeValueView() {
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
-
+        dataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
         codeValueGrid = new CodeValueGrid();
         codeValueGrid.setDataProvider(dataProvider);
         // Allows user to select a single row in the grid.
@@ -69,6 +69,8 @@ public class CodeValueView extends HorizontalLayout
         codeTypeSelect.setItems(new CodeTypeDataProvider().getItems());
         codeTypeSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
+                dataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+                codeValueGrid.setDataProvider(dataProvider);
                 newCodeValue.setEnabled(true);
                 dataProvider.setFilter(changeEvent.getValue());
             }
@@ -86,9 +88,6 @@ public class CodeValueView extends HorizontalLayout
 
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
-        topLayout.setHeight("30%");
-
-
         topLayout.add(codeTypeSelect);
         topLayout.add(newCodeValue);
         topLayout.setVerticalComponentAlignment(Alignment.START, codeTypeSelect);
