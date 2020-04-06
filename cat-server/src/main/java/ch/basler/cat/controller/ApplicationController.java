@@ -74,7 +74,7 @@ public class ApplicationController {
         Application newApplication = convertToEntity(newApplicationDto);
         return repository.findById(id)
                 .map((application -> {
-                    application.setName(newApplication.getName());
+                    modelMapper.map(newApplication, application);
                     return convertToDto(repository.save(application));
                 })).orElseGet(() -> {
                     newApplication.setId(id);
