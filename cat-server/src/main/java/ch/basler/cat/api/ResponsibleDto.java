@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Baloise Group
+ * Copyright 2020 Baloise Group
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat.model;
+package ch.basler.cat.api;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class ResponsibleDto {
 
-@Entity(name = "responsible")
-public class Responsible {
-
-    @Id
     private long id;
-    @Column(name = "projectname")
     private String projectName;
-    @Column(name = "package")
     private String packageName;
     private String prefix;
     private String email;
@@ -80,5 +72,3 @@ public class Responsible {
         this.creator = creator;
     }
 }
-
-
