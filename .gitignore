@@ -6,6 +6,7 @@ target/
 !**/src/main/**
 !**/src/test/**
 data
+node/
 
 ### STS ###
 .apt_generated
