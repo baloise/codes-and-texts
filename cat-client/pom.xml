@@ -1,24 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>ch.basler.cat</groupId>
-    <artifactId>cat-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
+    <parent>
+        <groupId>ch.basler.cat</groupId>
+        <artifactId>cat-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-  <artifactId>cat-client</artifactId>
-  <packaging>jar</packaging>
+    <artifactId>cat-client</artifactId>
+    <packaging>jar</packaging>
 
-  <name>CAT Glient</name>
+    <name>CAT Glient</name>
 
-  <properties>
-  </properties>
+    <properties>
+    </properties>
 
-  <dependencies>
-  </dependencies>
+    <dependencies>
+    </dependencies>
 
-  <build>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <configuration>
+                    <nodeVersion>v12.4.0</nodeVersion>
+                    <nodeDownloadRoot>https://nexus.balgroupit.com/repository/nodejs/</nodeDownloadRoot>
+                    <!--
+                    <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
+                    <npmVersion>6.3.0</npmVersion>
+                    <npmDownloadRoot>https://nexus.balgroupit.com/repository/npm/</npmDownloadRoot>
+                    <workingDirectory>src/main/web/</workingDirectory>
+                    -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>prod</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run-script build</arguments>
+                        </configuration>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
