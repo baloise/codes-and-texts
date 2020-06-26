@@ -27,7 +27,8 @@
 
     <modules>
         <module>cat-generator</module>
-        <module>cat-client</module>
+        <!-- TODO: enable as soon as node can be installed on github CI -->
+        <!-- <module>cat-client</module> -->
         <module>cat-vaadin-client</module>
         <module>cat-server</module>
     </modules>
