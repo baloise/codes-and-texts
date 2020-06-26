@@ -19,4 +19,8 @@ public class EntityFoundException extends RuntimeException {
     public EntityFoundException(String entityName, Long id) {
         super("Could not find " + entityName + " " + id);
     }
+
+    public EntityFoundException(String entityName, String id) {
+        super("Could not find " + entityName + " " + id);
+    }
 }

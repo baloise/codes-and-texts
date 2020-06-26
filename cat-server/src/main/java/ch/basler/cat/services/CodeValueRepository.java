@@ -30,6 +30,5 @@ public interface CodeValueRepository extends PagingAndSortingRepository<CodeValu
 
     Page<List<CodeValue>> findByName(@Param("name") String name, Pageable pageable);
 
-    Page<List<CodeValue>> findByCodeTypeId(@Param("type") long typeId, Pageable pageable);
-
+    List<CodeValue> findByCodeTypeId(@Param("type") long typeId);
 }
