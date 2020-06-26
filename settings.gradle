@@ -1,3 +1,0 @@
-rootProject.name = 'codes-and-texts'
-
-include 'cat-server', 'cat-client', 'cat-generator'
