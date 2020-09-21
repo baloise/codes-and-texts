@@ -87,15 +87,11 @@ public class ApplicationController {
         repository.deleteById(id);
     }
 
-    private ApplicationDto convertToDto(Application application) {
-        ApplicationDto applicationDto = modelMapper.map(application, ApplicationDto.class);
-
-        return applicationDto;
+    ApplicationDto convertToDto(Application application) {
+        return modelMapper.map(application, ApplicationDto.class);
     }
 
-    private Application convertToEntity(ApplicationDto applicationDto) {
-        Application application = modelMapper.map(applicationDto, Application.class);
-
-        return application;
+    Application convertToEntity(ApplicationDto applicationDto) {
+        return modelMapper.map(applicationDto, Application.class);
     }
 }

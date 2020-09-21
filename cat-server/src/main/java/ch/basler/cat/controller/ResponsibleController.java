@@ -87,15 +87,11 @@ public class ResponsibleController {
         repository.deleteById(id);
     }
 
-    private ResponsibleDto convertToDto(Responsible responsible) {
-        ResponsibleDto responsibleDto = modelMapper.map(responsible, ResponsibleDto.class);
-
-        return responsibleDto;
+    ResponsibleDto convertToDto(Responsible responsible) {
+        return modelMapper.map(responsible, ResponsibleDto.class);
     }
 
-    private Responsible convertToEntity(ResponsibleDto responsibleDto) {
-        Responsible responsible = modelMapper.map(responsibleDto, Responsible.class);
-
-        return responsible;
+    Responsible convertToEntity(ResponsibleDto responsibleDto) {
+        return modelMapper.map(responsibleDto, Responsible.class);
     }
 }
