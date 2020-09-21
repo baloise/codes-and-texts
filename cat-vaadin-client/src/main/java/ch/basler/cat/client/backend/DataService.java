@@ -37,7 +37,7 @@ public abstract class DataService implements Serializable {
 
 
     public static DataService get() {
-        return MockDataService.getInstance();
+        return RestDataService.getInstance();
     }
 
 }
