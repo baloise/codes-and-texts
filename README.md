@@ -19,12 +19,13 @@ docker run --name postgres_cat -e POSTGRES_DB=cat -e POSTGRES_USER=cat -e  POSTG
 ./gradlew bootRun -Pdev
 ```
 
-## Start Client
+running on port 8088
+## Start Vaadin Client
 ```shell script
-npm ci
-
-cd ./cat-client
-ng serve
+cd cat-vaadin-client
+mvn jetty:run
 ```
+running on port 8089
 
 ## Start Generator
+todo
