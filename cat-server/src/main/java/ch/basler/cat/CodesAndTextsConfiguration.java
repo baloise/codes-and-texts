@@ -15,7 +15,6 @@
  */
 package ch.basler.cat;
 
-import ch.basler.cat.mapper.CodeValueMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +25,6 @@ public class CodesAndTextsConfiguration {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
-    }
-
-    @Bean
-    public CodeValueMapper codeValueMapper() {
-        return new CodeValueMapper(modelMapper());
     }
 
 }

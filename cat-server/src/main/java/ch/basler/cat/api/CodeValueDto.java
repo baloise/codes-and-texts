@@ -18,7 +18,6 @@ package ch.basler.cat.api;
 public class CodeValueDto {
     private String id;
     private long value;
-    private long codeType;
     private String creator;
     private String name;
 
@@ -36,14 +35,6 @@ public class CodeValueDto {
 
     public void setValue(long value) {
         this.value = value;
-    }
-
-    public long getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(long codeType) {
-        this.codeType = codeType;
     }
 
     public String getCreator() {
