@@ -34,7 +34,7 @@ public class CodeTypeController {
     private static final Logger logger = LoggerFactory.getLogger(CodeTypeController.class);
     private final CodeTypeRepository repository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     @Autowired
     public CodeTypeController(
@@ -87,15 +87,11 @@ public class CodeTypeController {
         repository.deleteById(id);
     }
 
-    private CodeTypeDto convertToDto(CodeType codeType) {
-        CodeTypeDto codeTypeDto = modelMapper.map(codeType, CodeTypeDto.class);
-
-        return codeTypeDto;
+    CodeTypeDto convertToDto(CodeType codeType) {
+        return modelMapper.map(codeType, CodeTypeDto.class);
     }
 
-    private CodeType convertToEntity(CodeTypeDto codeTypeDto) {
-        CodeType codeType = modelMapper.map(codeTypeDto, CodeType.class);
-
-        return codeType;
+    CodeType convertToEntity(CodeTypeDto codeTypeDto) {
+        return modelMapper.map(codeTypeDto, CodeType.class);
     }
 }
