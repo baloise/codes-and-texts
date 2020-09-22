@@ -26,7 +26,7 @@ jobs:
         DOCKER_REPO: balcodecampcat/cat-server
       run: |
         cd cat-server
-        docker build -t $DOCKER_REPO:${{ github.sha }}
+        docker build -t $DOCKER_REPO:${{ github.sha }} .
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         docker push $DOCKER_REPO:${{ github.sha }}
     - name: Deploy to OpenShift
