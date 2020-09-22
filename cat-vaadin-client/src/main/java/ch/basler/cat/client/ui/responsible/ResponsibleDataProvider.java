@@ -30,7 +30,7 @@ public class ResponsibleDataProvider extends ListDataProvider<Responsible> {
     public void save(Responsible responsible) {
         final boolean newResponsible = responsible.isNewResponsible();
 
-        DataService.get().updateResponsible(responsible);
+        DataService.get().saveResponsible(responsible);
         if (newResponsible) {
             refreshAll();
         } else {

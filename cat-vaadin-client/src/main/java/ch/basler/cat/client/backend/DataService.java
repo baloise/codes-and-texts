@@ -4,7 +4,6 @@ import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
 import ch.basler.cat.client.backend.data.Responsible;
-import ch.basler.cat.client.backend.mock.MockDataService;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -12,31 +11,31 @@ import java.util.Collection;
 /**
  * Back-end service interface for retrieving and updating product data.
  */
-public abstract class DataService implements Serializable {
+public interface DataService extends Serializable {
 
-    public abstract Collection<Application> getAllApplications();
-    public abstract void updateApplication(Application a);
-    public abstract void deleteApplication(long applicationId);
-    public abstract Application getApplicationById(long applicationId);
+    Collection<Application> getAllApplications();
+    void saveApplication(Application a);
+    void deleteApplication(long applicationId);
+    Application getApplicationById(long applicationId);
     
-    public abstract Collection<Responsible> getAllResponsibles();
-    public abstract void updateResponsible(Responsible r);
-    public abstract void deleteResponsible(long responsibleId);
-    public abstract Responsible getResponsibleById(long responsibleId);
+    Collection<Responsible> getAllResponsibles();
+    void saveResponsible(Responsible r);
+    void deleteResponsible(long responsibleId);
+    Responsible getResponsibleById(long responsibleId);
 
-    public abstract Collection<CodeType> getAllCodeTypes();
-    public abstract void updateCodeType(CodeType ct);
-    public abstract void deleteCodeType(long codeTypeId);
-    public abstract CodeType getCodeTypeById(long codeTypeId);
-
-
-    public abstract Collection<CodeValue> getAllCodeValues(CodeType codeType);
-    public abstract void updateCodeValue(CodeValue ct);
-    public abstract void deleteCodeValue(String codeValueId);
-    public abstract CodeValue getCodeValueById(String codeValueId);
+    Collection<CodeType> getAllCodeTypes();
+    void saveCodeType(CodeType ct);
+    void deleteCodeType(long codeTypeId);
+    CodeType getCodeTypeById(long codeTypeId);
 
 
-    public static DataService get() {
+    Collection<CodeValue> getAllCodeValues(CodeType codeType);
+    void saveCodeValue(CodeValue codeValue);
+    void deleteCodeValue(String codeValueId);
+    CodeValue getCodeValueById(String codeValueId);
+
+
+    static DataService get() {
         return RestDataService.getInstance();
     }
 

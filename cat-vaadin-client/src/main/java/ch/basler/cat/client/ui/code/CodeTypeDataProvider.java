@@ -31,7 +31,7 @@ public class CodeTypeDataProvider extends ListDataProvider<CodeType> {
     public void save(CodeType codeType) {
         final boolean newCodeType = codeType.isNewCodeType();
 
-        DataService.get().updateCodeType(codeType);
+        DataService.get().saveCodeType(codeType);
         if (newCodeType) {
             refreshAll();
         } else {

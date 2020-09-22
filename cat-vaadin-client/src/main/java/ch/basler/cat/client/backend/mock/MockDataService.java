@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
  * Mock data model. This implementation has very simplistic locking and does not
  * notify users of modifications.
  */
-public class MockDataService extends DataService {
+public class MockDataService implements DataService {
 
     private static MockDataService INSTANCE;
 
@@ -67,7 +67,7 @@ public class MockDataService extends DataService {
 
 
     @Override
-    public synchronized void updateApplication(Application a) {
+    public synchronized void saveApplication(Application a) {
         if (a.getId() < 0) {
             // New Application
             a.setId(nextApplicationId++);
@@ -113,7 +113,7 @@ public class MockDataService extends DataService {
     }
 
     @Override
-    public synchronized void updateResponsible(Responsible a) {
+    public synchronized void saveResponsible(Responsible a) {
         if (a.getId() < 0) {
             // New Responsible
             a.setId(nextResponsibleId++);
@@ -158,7 +158,7 @@ public class MockDataService extends DataService {
     }
 
     @Override
-    public synchronized void updateCodeType(CodeType a) {
+    public synchronized void saveCodeType(CodeType a) {
         if (a.getId() < 0) {
             // New CodeType
             a.setId(nextCodeTypeId++);
@@ -216,7 +216,7 @@ public class MockDataService extends DataService {
     }
 
     @Override
-    public synchronized void updateCodeValue(CodeValue codeValue) {
+    public synchronized void saveCodeValue(CodeValue codeValue) {
         CodeType codeType = codeValue.getCodeType();
         if (codeValue.getId().isEmpty()) {
             // New CodeValue

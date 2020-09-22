@@ -1,22 +1,13 @@
 package ch.basler.cat.client.backend;
 
-
 import ch.basler.cat.client.backend.data.*;
 import ch.basler.cat.client.backend.mock.MockDataService;
-import com.google.gson.Gson;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.Collection;
 
-public class RestDataService extends DataService {
+public class RestDataService extends AbstractRestDataService implements DataService {
 
-    private static final String HOST = "localhost";
-    private static final String PORT = "8088";
-    private static final String URL_PREFIX = "http://" + HOST + ":" + PORT;
     private static RestDataService INSTANCE;
-    private final Gson gson = new Gson();
-    private final RestTemplate restTemplate = new RestTemplate();
 
     public static synchronized DataService getInstance() {
         if (INSTANCE == null) {
@@ -27,56 +18,50 @@ public class RestDataService extends DataService {
 
     @Override
     public Collection<Application> getAllApplications() {
-        final String uri = URL_PREFIX + "/applications";
-        String response = restTemplate.getForObject(uri, String.class);
-        return Arrays.asList(gson.fromJson(response, Application[].class));
+        return getAllData("applications", Application[].class);
     }
 
     @Override
-    public void updateApplication(Application application) {
-
-
+    public void saveApplication(Application application) {
         if (application.isNewApplication()) {
-            final String uri = URL_PREFIX + "/applications";
-            restTemplate.postForObject(uri, application, Application.class);
+            createData("applications", application, Application.class);
         } else {
-            final String uri = URL_PREFIX + "/applications/" + application.getId();
-            restTemplate.put(uri, application);
+            updateData("applications", application.getId(), application);
         }
-
     }
 
     @Override
     public void deleteApplication(long applicationId) {
-        final String uri = URL_PREFIX + "/applications/" + applicationId;
-        restTemplate.delete(uri);
+        deleteData("applications", applicationId);
     }
 
     @Override
     public Application getApplicationById(long applicationId) {
-        final String uri = URL_PREFIX + ("/applications/" + applicationId);
-        String response = restTemplate.getForObject(uri, String.class);
-        return gson.fromJson(response, Application.class);
+        return getById("applications", applicationId, Application.class);
     }
 
     @Override
     public Collection<Responsible> getAllResponsibles() {
-        return MockDataService.getInstance().getAllResponsibles();
+        return getAllData("responsibles", Responsible[].class);
     }
 
     @Override
-    public void updateResponsible(Responsible r) {
-
+    public void saveResponsible(Responsible responsible) {
+        if (responsible.getId() <= 0) {
+            createData("responsibles", responsible, Responsible.class);
+        } else {
+            updateData("responsibles", responsible.getId(), responsible);
+        }
     }
 
     @Override
     public void deleteResponsible(long responsibleId) {
-
+        deleteData("responsibles", responsibleId);
     }
 
     @Override
     public Responsible getResponsibleById(long responsibleId) {
-        return null;
+        return getById("responsibles", responsibleId, Responsible.class);
     }
 
     @Override
@@ -85,7 +70,7 @@ public class RestDataService extends DataService {
     }
 
     @Override
-    public void updateCodeType(CodeType ct) {
+    public void saveCodeType(CodeType ct) {
 
     }
 
@@ -105,7 +90,7 @@ public class RestDataService extends DataService {
     }
 
     @Override
-    public void updateCodeValue(CodeValue ct) {
+    public void saveCodeValue(CodeValue ct) {
 
     }
 

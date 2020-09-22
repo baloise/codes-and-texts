@@ -32,7 +32,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
     public void save(CodeValue codeValue) {
         final boolean newCodeValue = codeValue.isNewCodeValue();
 
-        DataService.get().updateCodeValue(codeValue);
+        DataService.get().saveCodeValue(codeValue);
         if (newCodeValue) {
             refreshAll();
         } else {

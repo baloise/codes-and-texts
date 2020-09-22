@@ -30,7 +30,7 @@ public class ApplicationDataProvider extends ListDataProvider<Application> {
     public void save(Application application) {
         final boolean newApplication = application.isNewApplication();
 
-        DataService.get().updateApplication(application);
+        DataService.get().saveApplication(application);
         if (newApplication) {
             refreshAll();
         } else {
