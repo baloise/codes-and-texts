@@ -20,7 +20,7 @@ public class ResponsibleControllerTest {
     @Test
     public void convertToDto() {
         Responsible entity = new Responsible();
-        entity.setId(1);
+        entity.setId(1L);
         entity.setCreator("testCreator");
         entity.setPrefix("testPrefix");
         entity.setPackageName("testPackage");
@@ -29,7 +29,7 @@ public class ResponsibleControllerTest {
 
         ResponsibleDto mapped = controller.convertToDto(entity);
 
-        assertEquals(entity.getId(), mapped.getId());
+        assertEquals(entity.getId().longValue(), mapped.getId());
         assertEquals(entity.getCreator(), mapped.getCreator());
         assertEquals(entity.getPrefix(), mapped.getPrefix());
         assertEquals(entity.getPackageName(), mapped.getPackageName());
@@ -49,7 +49,7 @@ public class ResponsibleControllerTest {
 
         Responsible mapped = controller.convertToEntity(dto);
 
-        assertEquals(dto.getId(), mapped.getId());
+        assertEquals(dto.getId(), mapped.getId().longValue());
         assertEquals(dto.getCreator(), mapped.getCreator());
         assertEquals(dto.getPrefix(), mapped.getPrefix());
         assertEquals(dto.getPackageName(), mapped.getPackageName());

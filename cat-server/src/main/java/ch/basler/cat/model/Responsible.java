@@ -15,15 +15,21 @@
  */
 package ch.basler.cat.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "responsible")
 public class Responsible {
 
     @Id
-    private long id;
+    @GenericGenerator(name = "responsible_id", strategy = "ch.basler.cat.model.ResponsibleIdGenerator")
+    @GeneratedValue(generator = "responsible_id")
+    @Column(name="id")
+    private Long id;
     @Column(name = "projectname")
     private String projectName;
     @Column(name = "package")
@@ -32,11 +38,11 @@ public class Responsible {
     private String email;
     private String creator;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

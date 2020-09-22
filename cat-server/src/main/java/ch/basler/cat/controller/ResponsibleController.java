@@ -56,6 +56,7 @@ public class ResponsibleController {
     @PostMapping("/responsibles")
     public ResponsibleDto create(@RequestBody ResponsibleDto responsibleDto) {
         Responsible responsible = convertToEntity(responsibleDto);
+        responsible.setId(null);
         Responsible responsibleCreated = repository.save(responsible);
         return convertToDto(responsibleCreated);
     }
