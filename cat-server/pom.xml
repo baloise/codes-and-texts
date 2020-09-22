@@ -9,11 +9,12 @@
     </parent>
 
     <artifactId>cat-server</artifactId>
-    <packaging>war</packaging>
+    <!-- <packaging>war</packaging> -->
 
     <name>CAT Server</name>
 
     <properties>
+        <start-class>ch.basler.cat.CodesAndTextsApplication</start-class>
     </properties>
 
     <dependencies>

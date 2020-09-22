@@ -18,4 +18,30 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B install --file pom.xml
+
+    - name: Build & Push Docker
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_REPO: balcodecampcat/cat-server
+      run: |
+        cd cat-server
+        docker build -t $DOCKER_REPO:${{ github.sha }}
+        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        docker push $DOCKER_REPO:${{ github.sha }}
+    - name: Deploy to OpenShift
+      if: gihub.ref == 'refs/heads/master'
+      env:
+        GITOPSCLI_TOKEN: ${{ secrets.GITOPSCLI_TOKEN }}
+      run: |
+        docker run --rm baloise/gitopscli:4.1.1 deploy \
+          --git-provider "github" \
+          --username "CAN BE ANYTHING IF USING GITHUB TOKEN" \
+          --password "$GITOPSCLI_TOKEN" \
+          --git-user "gitopscli" \
+          --git-email "gitopscli@baloise.dev" \
+          --organisation "baloise-incubator" \
+          --repository "codes-and-texts-deployment" \
+          --file "codes-and-texts/values.yaml" \
+          --values "{server.image.tag: ${{ github.sha }}}"
       
