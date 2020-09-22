@@ -17,8 +17,6 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeValue;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,8 +25,6 @@ import java.util.List;
 
 @CrossOrigin
 public interface CodeValueRepository extends PagingAndSortingRepository<CodeValue, String> {
-
-    Page<List<CodeValue>> findByName(@Param("name") String name, Pageable pageable);
 
     List<CodeValue> findByCodeTypeId(@Param("type") long typeId);
 }

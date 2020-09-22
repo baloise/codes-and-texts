@@ -53,6 +53,13 @@ public class CodeTypeController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/responsibles/{responsibleId}/codetypes")
+    public List<CodeTypeDto> all(@PathVariable long responsibleId) {
+        return IterableUtils.toList(repository.findByResponsibleId(responsibleId)).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
     @PostMapping("/codetypes")
     public CodeTypeDto create(@RequestBody CodeTypeDto codeTypeDto) {
         CodeType codeType = convertToEntity(codeTypeDto);
