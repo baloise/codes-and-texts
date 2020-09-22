@@ -29,6 +29,4 @@ public interface CodeTypeRepository extends PagingAndSortingRepository<CodeType,
 
     Page<List<CodeType>> findByName(@Param("name") String name, Pageable pageable);
 
-    Page<List<CodeType>> findByResponsiblePrefix(@Param("prefix") String prefix, Pageable pageable);
-
 }
