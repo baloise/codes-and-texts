@@ -17,10 +17,10 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeStyle;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-public interface CodeStyleRepository extends PagingAndSortingRepository<CodeStyle, String> {
+public interface CodeStyleRepository extends CrudRepository<CodeStyle, String> {
 
 }

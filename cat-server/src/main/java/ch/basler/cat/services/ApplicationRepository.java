@@ -17,15 +17,13 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.Application;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ApplicationRepository extends PagingAndSortingRepository<Application, Long> {
+public interface ApplicationRepository extends CrudRepository<Application, Long> {
 
-    Page<List<Application>> findByName(@Param("name") String name, Pageable pageable);
+    List<Application> findByName(@Param("name") String name);
 
 }

@@ -17,14 +17,14 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeValue;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @CrossOrigin
-public interface CodeValueRepository extends PagingAndSortingRepository<CodeValue, String> {
+public interface CodeValueRepository extends CrudRepository<CodeValue, String> {
 
     List<CodeValue> findByCodeTypeId(@Param("type") long typeId);
 }

@@ -16,14 +16,14 @@
 package ch.basler.cat.services;
 
 import ch.basler.cat.model.CodeType;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @CrossOrigin
-public interface CodeTypeRepository extends PagingAndSortingRepository<CodeType, Long> {
+public interface CodeTypeRepository extends CrudRepository<CodeType, Long> {
 
     List<CodeType> findByResponsibleId(@Param("responsibleId") Long responsibleId);
 

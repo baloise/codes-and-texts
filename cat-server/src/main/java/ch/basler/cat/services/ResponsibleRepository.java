@@ -17,10 +17,10 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.Responsible;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-public interface ResponsibleRepository extends PagingAndSortingRepository<Responsible, Long> {
+public interface ResponsibleRepository extends CrudRepository<Responsible, Long> {
 
 }
