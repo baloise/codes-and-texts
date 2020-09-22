@@ -72,7 +72,7 @@ public class CodeTypeView extends HorizontalLayout
         responsibleSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 newCodeType.setEnabled(true);
-                dataProvider.setFilter(changeEvent.getValue());
+                dataProvider.setFilter(changeEvent.getValue().getId());
             }
 
         });
@@ -162,7 +162,7 @@ public class CodeTypeView extends HorizontalLayout
     public void editCodeType(CodeType codeType) {
         showForm(codeType != null);
         if (codeType.isNewCodeType()) {
-            codeType.setResponsible(responsibleSelect.getValue());
+            codeType.setResponsible(responsibleSelect.getValue().getId());
         }
         form.editCodeType(codeType);
     }

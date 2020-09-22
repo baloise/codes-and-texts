@@ -65,13 +65,11 @@ public class CodeTypeDataProvider extends ListDataProvider<CodeType> {
         }
         this.filterText = filterText.trim().toLowerCase(Locale.ENGLISH);
 
-        this.
-        setFilter(codeType -> passesFilter(codeType.getName(), this.filterText)
-                || passesFilter(codeType.getPrefix(), this.filterText));
+        this.setFilter(codeType -> passesFilter(codeType.getName(), this.filterText));
     }
 
-    public void setFilter(Responsible responsible) {
-        super.setFilter(codeType -> codeType.getResponsible().equals(responsible));
+    public void setFilter(Long responsibleId) {
+        super.setFilter(codeType -> codeType.getResponsible().equals(responsibleId));
     }
 
     @Override

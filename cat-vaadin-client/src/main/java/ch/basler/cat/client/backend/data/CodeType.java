@@ -29,53 +29,21 @@ public class CodeType {
     @NotNull
     private String name;
 
-    private Responsible responsible;
 
-    @NotNull
-    private List<CodeValue> codeValues = new ArrayList<>();
-    @NotNull
-    private List<CodeStyle> codeStyles = new ArrayList<>();;
+    private Long responsible;
+
     public CodeType() {
-    }
-
-    public CodeType(Responsible responsible) {
-        this.responsible = responsible;
-    }
-
-    public Responsible getResponsible() {
-        return responsible;
-    }
-
-    public void setResponsible(Responsible responsible) {
-        this.responsible = responsible;
-    }
-
-    public List<CodeStyle> getCodeStyles() {
-        return codeStyles;
-    }
-
-    public void setCodeStyles(List<CodeStyle> codeStyles) {
-        this.codeStyles = codeStyles;
-    }
-
-    public List<CodeValue> getCodeValues() {
-        return codeValues;
-    }
-
-    public void setCodeValues(List<CodeValue> codeValues) {
-        this.codeValues = codeValues;
-    }
-
-    public String getPrefix() {
-        return this.responsible.getPrefix();
-    }
-
-    public String getPackageName() {
-        return this.responsible.getPackageName();
     }
 
     public long getId() {
         return id;
+    }
+    public Long getResponsible() {
+        return responsible;
+    }
+
+    public void setResponsible(Long responsibleId) {
+        this.responsible = responsible;
     }
 
     public void setId(long id) {
@@ -103,7 +71,7 @@ public class CodeType {
     }
     @Override
     public String toString() {
-        return  responsible.getPrefix() + "::" + name;
+        return  name;
     }
     /*
      * Vaadin DataProviders rely on properly implemented equals and hashcode

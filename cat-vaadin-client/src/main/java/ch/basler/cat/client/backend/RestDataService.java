@@ -1,7 +1,6 @@
 package ch.basler.cat.client.backend;
 
 import ch.basler.cat.client.backend.data.*;
-import ch.basler.cat.client.backend.mock.MockDataService;
 
 import java.util.Collection;
 
@@ -66,22 +65,26 @@ public class RestDataService extends AbstractRestDataService implements DataServ
 
     @Override
     public Collection<CodeType> getAllCodeTypes() {
-        return MockDataService.getInstance().getAllCodeTypes();
+        return getAllData("codetypes", CodeType[].class);
     }
 
     @Override
-    public void saveCodeType(CodeType ct) {
-
+    public void saveCodeType(CodeType codeType) {
+        if (codeType.getId() <= 0) {
+            createData("codetypes", codeType, CodeType.class);
+        } else {
+            updateData("codetypes", codeType.getId(), codeType);
+        }
     }
 
     @Override
     public void deleteCodeType(long codeTypeId) {
-
+        deleteData("codetypes", codeTypeId);
     }
 
     @Override
     public CodeType getCodeTypeById(long codeTypeId) {
-        return null;
+        return getById("codetypes", codeTypeId, CodeType.class);
     }
 
     @Override

@@ -15,7 +15,6 @@ public class CodeTypeGrid extends Grid<CodeType> {
 
     public static final String ID = "id";
     public static final String NAME = "name";
-    public static final String PREFIX = "prefix";
     public static final String CREATOR = "creator";
 
     public CodeTypeGrid() {
@@ -25,8 +24,6 @@ public class CodeTypeGrid extends Grid<CodeType> {
                 .setFlexGrow(4).setSortable(true).setKey(ID);
         addColumn(CodeType::getName).setHeader("Name")
                 .setFlexGrow(20).setSortable(true).setKey(NAME);
-        addColumn(CodeType::getPrefix).setHeader("Prefix")
-                .setFlexGrow(5).setSortable(true).setKey(PREFIX);
         addColumn(CodeType::getCreator).setHeader("Creator")
                 .setFlexGrow(20).setSortable(true).setKey(CREATOR);
 
@@ -42,17 +39,14 @@ public class CodeTypeGrid extends Grid<CodeType> {
         if (width > 800) {
             getColumnByKey(ID).setVisible(true);
             getColumnByKey(NAME).setVisible(true);
-            getColumnByKey(PREFIX).setVisible(true);
             getColumnByKey(CREATOR).setVisible(true);
         } else if (width > 550) {
             getColumnByKey(ID).setVisible(true);
             getColumnByKey(NAME).setVisible(true);
-            getColumnByKey(PREFIX).setVisible(true);
             getColumnByKey(CREATOR).setVisible(true);
         } else {
             getColumnByKey(ID).setVisible(true);
             getColumnByKey(NAME).setVisible(true);
-            getColumnByKey(PREFIX).setVisible(true);
             getColumnByKey(CREATOR).setVisible(false);
         }
     }

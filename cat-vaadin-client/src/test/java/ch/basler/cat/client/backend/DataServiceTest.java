@@ -1,6 +1,5 @@
 package ch.basler.cat.client.backend;
 
-import ch.basler.cat.client.backend.mock.MockDataService;
 import org.junit.Before;
 
 /**
@@ -12,7 +11,7 @@ public class DataServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        service = MockDataService.getInstance();
+        //FIXME
     }
 
 }
