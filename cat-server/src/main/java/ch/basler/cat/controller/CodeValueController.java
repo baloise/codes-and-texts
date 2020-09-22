@@ -46,32 +46,38 @@ public class CodeValueController {
     }
 
     // Aggregate root
-    @GetMapping("/codetypes/{typeId}/codevalues")
-    public List<CodeValueDto> all(@PathVariable long typeId) {
-        return IterableUtils.toList(this.repository.findByCodeTypeId(typeId)).stream()
+    @GetMapping("/codevalues")
+    public List<CodeValueDto> all() {
+        return IterableUtils.toList(repository.findAll()).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/codetypes/{typeId}/codevalues")
-    public CodeValueDto create(@RequestBody CodeValueDto codeValueDto, @PathVariable("typeId") long typeId) {
+    @GetMapping("/codetypes/{typeId}/codevalues")
+    public List<CodeValueDto> all(@PathVariable long typeId) {
+        return IterableUtils.toList(repository.findByCodeTypeId(typeId)).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    @PostMapping("/codevalues")
+    public CodeValueDto create(@RequestBody CodeValueDto codeValueDto) {
         CodeValue codeValue = convertToEntity(codeValueDto);
         CodeValue codeValueCreated = repository.save(codeValue);
         return convertToDto(codeValueCreated);
     }
 
     // Single item
-    @GetMapping("/codetypes/{typeId}/codevalues/{id}")
-    public CodeValueDto one(@PathVariable("typeId") long typeId, @PathVariable("id") String id) {
-        CodeValue codeValue = this.repository.findById(id)
+    @GetMapping("/codevalues/{id}")
+    public CodeValueDto one(@PathVariable("id") String id) {
+        CodeValue codeValue = repository.findById(id)
                 .orElseThrow(() -> new EntityFoundException("codeValue", id));
 
         return convertToDto(codeValue);
     }
 
-    @PutMapping("/codetypes/{typeId}/codevalues/{id}")
+    @PutMapping("/codevalues/{id}")
     public CodeValueDto update(@RequestBody CodeValueDto newCodeValueDto,
-                               @PathVariable("typeId") long typeId,
                                @PathVariable("id") String id) {
 
         CodeValue newCodeValue = convertToEntity(newCodeValueDto);
@@ -85,8 +91,8 @@ public class CodeValueController {
                 });
     }
 
-    @DeleteMapping("/codetypes/{typeId}/codevalues/{id}")
-    public void delete(@PathVariable("typeId") long typeId, @PathVariable("id") String id) {
+    @DeleteMapping("/codevalues/{id}")
+    public void delete(@PathVariable("id") String id) {
         repository.deleteById(id);
     }
 

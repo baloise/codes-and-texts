@@ -48,7 +48,7 @@ public class CodeTypeController {
     // Aggregate root
     @GetMapping("/codetypes")
     public List<CodeTypeDto> all() {
-        return IterableUtils.toList(this.repository.findAll()).stream()
+        return IterableUtils.toList(repository.findAll()).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
@@ -70,7 +70,7 @@ public class CodeTypeController {
     // Single item
     @GetMapping("/codetypes/{id}")
     public CodeTypeDto one(@PathVariable("id") Long id) {
-        CodeType codeType = this.repository.findById(id)
+        CodeType codeType = repository.findById(id)
                 .orElseThrow(() -> new EntityFoundException("codeType", id));
 
         return convertToDto(codeType);
