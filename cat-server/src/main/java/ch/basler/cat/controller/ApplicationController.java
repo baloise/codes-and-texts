@@ -55,7 +55,9 @@ public class ApplicationController {
 
     @PostMapping("/applications")
     public ApplicationDto create(@RequestBody ApplicationDto applicationDto) {
+
         Application application = convertToEntity(applicationDto);
+        application.setId(null);
         Application applicationCreated = repository.save(application);
         return convertToDto(applicationCreated);
     }

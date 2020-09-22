@@ -13,21 +13,21 @@ public class ApplicationControllerTest {
     private ApplicationController controller;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         controller = new ApplicationController(null, new ModelMapper());
     }
 
     @Test
     public void convertToDto() {
         Application entity = new Application();
-        entity.setId(1);
+        entity.setId(1l);
         entity.setCreator("testCreator");
         entity.setName("testName");
         entity.setPackageName("testPackageName");
 
         ApplicationDto mapped = controller.convertToDto(entity);
 
-        assertEquals(entity.getId(), mapped.getId());
+        assertEquals(entity.getId().longValue(), mapped.getId());
         assertEquals(entity.getCreator(), mapped.getCreator());
         assertEquals(entity.getName(), mapped.getName());
         assertEquals(entity.getPackageName(), mapped.getPackageName());
@@ -43,7 +43,7 @@ public class ApplicationControllerTest {
 
         Application mapped = controller.convertToEntity(dto);
 
-        assertEquals(dto.getId(), mapped.getId());
+        assertEquals(dto.getId(), mapped.getId().longValue());
         assertEquals(dto.getCreator(), mapped.getCreator());
         assertEquals(dto.getName(), mapped.getName());
         assertEquals(dto.getPackageName(), mapped.getPackageName());

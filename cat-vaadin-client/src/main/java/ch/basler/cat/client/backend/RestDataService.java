@@ -16,7 +16,7 @@ public class RestDataService extends DataService {
     private static final String URL_PREFIX = "http://" + HOST + ":" + PORT;
     private static RestDataService INSTANCE;
     private final Gson gson = new Gson();
-    private final  RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
 
     public static synchronized DataService getInstance() {
         if (INSTANCE == null) {
@@ -34,13 +34,21 @@ public class RestDataService extends DataService {
 
     @Override
     public void updateApplication(Application application) {
-        final String uri = URL_PREFIX + "/applications/" + application.getId();
-        restTemplate.put(uri, application);
+
+
+        if (application.isNewApplication()) {
+            final String uri = URL_PREFIX + "/applications";
+            restTemplate.postForObject(uri, application, Application.class);
+        } else {
+            final String uri = URL_PREFIX + "/applications/" + application.getId();
+            restTemplate.put(uri, application);
+        }
+
     }
 
     @Override
     public void deleteApplication(long applicationId) {
-        final String uri =URL_PREFIX + "/applications/" + applicationId;
+        final String uri = URL_PREFIX + "/applications/" + applicationId;
         restTemplate.delete(uri);
     }
 

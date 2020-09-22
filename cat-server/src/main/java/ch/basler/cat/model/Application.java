@@ -15,15 +15,19 @@
  */
 package ch.basler.cat.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity(name = "application")
 public class Application {
 
+
     @Id
-    private long id;
+    @GenericGenerator(name = "application_id", strategy = "ch.basler.cat.model.ApplicationIdGenerator")
+    @GeneratedValue(generator = "application_id")
+    @Column(name="id")
+    private Long id;
 
     private String name;
 
@@ -32,11 +36,11 @@ public class Application {
     @Column(name = "package")
     private String packageName;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
