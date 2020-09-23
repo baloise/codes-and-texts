@@ -16,6 +16,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.CodeValueDto;
+import ch.basler.cat.mapper.CodeValueDtoMapper;
 import ch.basler.cat.model.CodeValue;
 import ch.basler.cat.services.CodeValueRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -34,15 +35,12 @@ public class CodeValueController {
     private static final Logger logger = LoggerFactory.getLogger(CodeValueController.class);
     private final CodeValueRepository repository;
 
-    private final ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final CodeValueDtoMapper dtoMapper = new CodeValueDtoMapper();
 
     @Autowired
-    public CodeValueController(
-            CodeValueRepository repository,
-            ModelMapper modelMapper) {
-
+    public CodeValueController(CodeValueRepository repository) {
         this.repository = repository;
-        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
@@ -97,7 +95,7 @@ public class CodeValueController {
     }
 
     CodeValueDto convertToDto(CodeValue codeValue) {
-        return modelMapper.map(codeValue, CodeValueDto.class);
+        return dtoMapper.map(codeValue);
     }
 
     CodeValue convertToEntity(CodeValueDto codeValueDto) {

@@ -4,7 +4,6 @@ import ch.basler.cat.api.ApplicationDto;
 import ch.basler.cat.model.Application;
 import org.junit.Before;
 import org.junit.Test;
-import org.modelmapper.ModelMapper;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +13,7 @@ public class ApplicationControllerTest {
 
     @Before
     public void setUp() {
-        controller = new ApplicationController(null, new ModelMapper());
+        controller = new ApplicationController(null);
     }
 
     @Test

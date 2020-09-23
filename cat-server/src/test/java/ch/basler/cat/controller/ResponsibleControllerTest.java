@@ -14,7 +14,7 @@ public class ResponsibleControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        controller = new ResponsibleController(null, new ModelMapper());
+        controller = new ResponsibleController(null);
     }
 
     @Test

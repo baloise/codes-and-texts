@@ -16,6 +16,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.ApplicationDto;
+import ch.basler.cat.mapper.ApplicationDtoMapper;
 import ch.basler.cat.model.Application;
 import ch.basler.cat.services.ApplicationRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -34,15 +35,12 @@ public class ApplicationController {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationController.class);
     private final ApplicationRepository repository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final ApplicationDtoMapper dtoMapper = new ApplicationDtoMapper();
 
     @Autowired
-    public ApplicationController(
-            ApplicationRepository repository,
-            ModelMapper modelMapper) {
-
+    public ApplicationController(ApplicationRepository repository) {
         this.repository = repository;
-        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
@@ -90,7 +88,7 @@ public class ApplicationController {
     }
 
     ApplicationDto convertToDto(Application application) {
-        return modelMapper.map(application, ApplicationDto.class);
+        return dtoMapper.map(application);
     }
 
     Application convertToEntity(ApplicationDto applicationDto) {

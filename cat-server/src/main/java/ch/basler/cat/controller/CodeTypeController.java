@@ -16,6 +16,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.CodeTypeDto;
+import ch.basler.cat.mapper.CodeTypeDtoMapper;
 import ch.basler.cat.model.CodeType;
 import ch.basler.cat.services.CodeTypeRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -34,15 +35,12 @@ public class CodeTypeController {
     private static final Logger logger = LoggerFactory.getLogger(CodeTypeController.class);
     private final CodeTypeRepository repository;
 
-    private final ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final CodeTypeDtoMapper dtoMapper = new CodeTypeDtoMapper();
 
     @Autowired
-    public CodeTypeController(
-            CodeTypeRepository repository,
-            ModelMapper modelMapper) {
-
+    public CodeTypeController(CodeTypeRepository repository) {
         this.repository = repository;
-        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
@@ -95,7 +93,7 @@ public class CodeTypeController {
     }
 
     CodeTypeDto convertToDto(CodeType codeType) {
-        return modelMapper.map(codeType, CodeTypeDto.class);
+        return dtoMapper.map(codeType);
     }
 
     CodeType convertToEntity(CodeTypeDto codeTypeDto) {

@@ -1,6 +1,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.CodeTypeDto;
+import ch.basler.cat.mapper.CodeTypeDtoMapper;
 import ch.basler.cat.model.CodeType;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class CodeTypeControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        controller = new CodeTypeController(null, new ModelMapper());
+        controller = new CodeTypeController(null);
     }
 
     @Test

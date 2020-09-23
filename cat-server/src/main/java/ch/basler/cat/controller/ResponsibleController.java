@@ -16,6 +16,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.ResponsibleDto;
+import ch.basler.cat.mapper.ResponsibleDtoMapper;
 import ch.basler.cat.model.Responsible;
 import ch.basler.cat.services.ResponsibleRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -34,15 +35,12 @@ public class ResponsibleController {
     private static final Logger logger = LoggerFactory.getLogger(ResponsibleController.class);
     private final ResponsibleRepository repository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final ResponsibleDtoMapper dtoMapper = new ResponsibleDtoMapper();
 
     @Autowired
-    public ResponsibleController(
-            ResponsibleRepository repository,
-            ModelMapper modelMapper) {
-
+    public ResponsibleController(ResponsibleRepository repository) {
         this.repository = repository;
-        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
@@ -89,7 +87,7 @@ public class ResponsibleController {
     }
 
     ResponsibleDto convertToDto(Responsible responsible) {
-        return modelMapper.map(responsible, ResponsibleDto.class);
+        return dtoMapper.map(responsible);
     }
 
     Responsible convertToEntity(ResponsibleDto responsibleDto) {

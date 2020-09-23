@@ -16,6 +16,7 @@
 package ch.basler.cat.controller;
 
 import ch.basler.cat.api.CodeTextDto;
+import ch.basler.cat.mapper.CodeTextDtoMapper;
 import ch.basler.cat.model.CodeText;
 import ch.basler.cat.services.CodeTextRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -34,15 +35,12 @@ public class CodeTextController {
     private static final Logger logger = LoggerFactory.getLogger(CodeTextController.class);
     private final CodeTextRepository repository;
 
-    private final ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final CodeTextDtoMapper dtoMapper = new CodeTextDtoMapper();
 
     @Autowired
-    public CodeTextController(
-            CodeTextRepository repository,
-            ModelMapper modelMapper) {
-
+    public CodeTextController(CodeTextRepository repository) {
         this.repository = repository;
-        this.modelMapper = modelMapper;
     }
 
     // Aggregate root
@@ -97,7 +95,7 @@ public class CodeTextController {
     }
 
     CodeTextDto convertToDto(CodeText codeText) {
-        return modelMapper.map(codeText, CodeTextDto.class);
+        return dtoMapper.map(codeText);
     }
 
     CodeText convertToEntity(CodeTextDto codeTextDto) {
