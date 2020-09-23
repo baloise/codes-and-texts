@@ -3,9 +3,14 @@ package ch.basler.cat.client.backend;
 import ch.basler.cat.client.backend.data.*;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class RestDataService extends AbstractRestDataService implements DataService {
 
+    public static final String APPLICATIONS = "applications";
+    public static final String RESPONSIBLES = "responsibles";
+    public static final String CODETYPES = "codetypes";
+    public static final String CODEVALUES = "codevalues";
     private static RestDataService INSTANCE;
 
     public static synchronized DataService getInstance() {
@@ -17,93 +22,101 @@ public class RestDataService extends AbstractRestDataService implements DataServ
 
     @Override
     public Collection<Application> getAllApplications() {
-        return getAllData("applications", Application[].class);
+        return getAllData(APPLICATIONS, Application[].class);
     }
 
     @Override
     public void saveApplication(Application application) {
         if (application.isNewApplication()) {
-            createData("applications", application, Application.class);
+            createData(APPLICATIONS, application, Application.class);
         } else {
-            updateData("applications", application.getId(), application);
+            updateData(APPLICATIONS, application.getId(), application);
         }
     }
 
     @Override
     public void deleteApplication(long applicationId) {
-        deleteData("applications", applicationId);
+        deleteData(APPLICATIONS, applicationId);
     }
 
     @Override
     public Application getApplicationById(long applicationId) {
-        return getById("applications", applicationId, Application.class);
+        return getById(APPLICATIONS, applicationId, Application.class);
     }
 
     @Override
     public Collection<Responsible> getAllResponsibles() {
-        return getAllData("responsibles", Responsible[].class);
+        return getAllData(RESPONSIBLES, Responsible[].class);
     }
 
     @Override
     public void saveResponsible(Responsible responsible) {
-        if (responsible.getId() <= 0) {
-            createData("responsibles", responsible, Responsible.class);
+        if (responsible.isNewResponsible()) {
+            createData(RESPONSIBLES, responsible, Responsible.class);
         } else {
-            updateData("responsibles", responsible.getId(), responsible);
+            updateData(RESPONSIBLES, responsible.getId(), responsible);
         }
     }
 
     @Override
     public void deleteResponsible(long responsibleId) {
-        deleteData("responsibles", responsibleId);
+        deleteData(RESPONSIBLES, responsibleId);
     }
 
     @Override
     public Responsible getResponsibleById(long responsibleId) {
-        return getById("responsibles", responsibleId, Responsible.class);
+        return getById(RESPONSIBLES, responsibleId, Responsible.class);
     }
 
     @Override
     public Collection<CodeType> getAllCodeTypes() {
-        return getAllData("codetypes", CodeType[].class);
+        return getAllData(CODETYPES, CodeType[].class);
     }
 
     @Override
     public void saveCodeType(CodeType codeType) {
-        if (codeType.getId() <= 0) {
-            createData("codetypes", codeType, CodeType.class);
+        if (codeType.isNewCodeType()) {
+            createData(CODETYPES, codeType, CodeType.class);
         } else {
-            updateData("codetypes", codeType.getId(), codeType);
+            updateData(CODETYPES, codeType.getId(), codeType);
         }
     }
 
     @Override
     public void deleteCodeType(long codeTypeId) {
-        deleteData("codetypes", codeTypeId);
+        deleteData(CODETYPES, codeTypeId);
     }
 
     @Override
     public CodeType getCodeTypeById(long codeTypeId) {
-        return getById("codetypes", codeTypeId, CodeType.class);
+        return getById(CODETYPES, codeTypeId, CodeType.class);
     }
 
     @Override
     public Collection<CodeValue> getAllCodeValues(CodeType codeType) {
-        return null;
+        if (codeType == null) {
+            return Collections.emptyList();
+        }
+        String route = CODETYPES + "/" + codeType.getId() + "/" + CODEVALUES;
+        return getAllData(route, CodeValue[].class);
     }
 
     @Override
-    public void saveCodeValue(CodeValue ct) {
-
+    public void saveCodeValue(CodeValue codeValue) {
+        if (codeValue.isNewCodeValue()) {
+            createData(CODEVALUES, codeValue, CodeValue.class);
+        } else {
+            updateData(CODEVALUES, codeValue.getId(), codeValue);
+        }
     }
 
     @Override
     public void deleteCodeValue(String codeValueId) {
-
+        deleteData(CODEVALUES, codeValueId);
     }
 
     @Override
     public CodeValue getCodeValueById(String codeValueId) {
-        return null;
+        return getById(CODEVALUES, codeValueId, CodeValue.class);
     }
 }
