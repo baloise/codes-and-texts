@@ -17,7 +17,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B install --file pom.xml
+      run: mvn -B -Pproduction install --file pom.xml
 
     - name: Build & Push Docker Server
       env:
@@ -29,7 +29,17 @@ jobs:
         docker build -t $DOCKER_REPO:${{ github.sha }} .
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         docker push $DOCKER_REPO:${{ github.sha }}
-    - name: Deploy to OpenShift
+    - name: Build & Push Docker Client
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_REPO: balcodecampcat/cat-frontend-vaadin
+      run: |
+        cd cat-vaadin-client
+        docker build -t $DOCKER_REPO:${{ github.sha }} .
+        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        docker push $DOCKER_REPO:${{ github.sha }}
+    - name: Deploy Server to OpenShift
       if: github.ref == 'refs/heads/master'
       env:
         GITOPSCLI_TOKEN: ${{ secrets.GITOPSCLI_TOKEN }}
@@ -44,3 +54,18 @@ jobs:
           --repository "codes-and-texts-deployment" \
           --file "codes-and-texts/values.yaml" \
           --values "{catserver.image.tag: ${{ github.sha }}}"
+    - name: Deploy Client to OpenShift
+      if: github.ref == 'refs/heads/master'
+      env:
+        GITOPSCLI_TOKEN: ${{ secrets.GITOPSCLI_TOKEN }}
+      run: |
+        docker run --rm baloise/gitopscli:4.1.1 deploy \
+          --git-provider "github" \
+          --username "CAN BE ANYTHING IF USING GITHUB TOKEN" \
+          --password "$GITOPSCLI_TOKEN" \
+          --git-user "gitopscli" \
+          --git-email "gitopscli@baloise.dev" \
+          --organisation "baloise-incubator" \
+          --repository "codes-and-texts-deployment" \
+          --file "codes-and-texts/values.yaml" \
+          --values "{frontend-vaadin.image.tag: ${{ github.sha }}}"

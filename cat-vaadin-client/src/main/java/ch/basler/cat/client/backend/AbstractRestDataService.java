@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class AbstractRestDataService {
 
-    private static final String HOST = "localhost";
-    private static final String PORT = "8088";
+    private static final String HOST = System.getenv().getOrDefault("BACKEND_HOST", "localhost");
+    private static final String PORT = System.getenv().getOrDefault("BACKEND_PORT", "8088");
     private static final String URL_PREFIX = "http://" + HOST + ":" + PORT;
     private final Gson gson = new Gson();
     private final RestTemplate restTemplate = new RestTemplate();
