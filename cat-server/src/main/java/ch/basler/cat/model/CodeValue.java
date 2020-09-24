@@ -15,12 +15,16 @@
  */
 package ch.basler.cat.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity(name = "codevalue")
 public class CodeValue {
 
     @Id
+    @GenericGenerator(name = "codevalue_id", strategy = "ch.basler.cat.model.CodeValueIdGenerator")
+    @GeneratedValue(generator = "codevalue_id")
     private String id;
 
     private long value;
