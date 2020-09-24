@@ -93,10 +93,10 @@ public class CodeTypeController {
     }
 
     CodeTypeDto convertToDto(CodeType codeType) {
-        return dtoMapper.map(codeType);
+        return dtoMapper.mapToDto(codeType);
     }
 
     CodeType convertToEntity(CodeTypeDto codeTypeDto) {
-        return modelMapper.map(codeTypeDto, CodeType.class);
+        return dtoMapper.maptoEntity(codeTypeDto);
     }
 }

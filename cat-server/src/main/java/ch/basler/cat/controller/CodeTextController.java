@@ -95,10 +95,10 @@ public class CodeTextController {
     }
 
     CodeTextDto convertToDto(CodeText codeText) {
-        return dtoMapper.map(codeText);
+        return dtoMapper.mapToDto(codeText);
     }
 
     CodeText convertToEntity(CodeTextDto codeTextDto) {
-        return modelMapper.map(codeTextDto, CodeText.class);
+        return dtoMapper.maptoEntity(codeTextDto);
     }
 }

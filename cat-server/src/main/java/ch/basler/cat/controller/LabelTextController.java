@@ -95,10 +95,10 @@ public class LabelTextController {
     }
 
     LabelTextDto convertToDto(LabelText codeText) {
-        return dtoMapper.map(codeText);
+        return dtoMapper.mapToDto(codeText);
     }
 
     LabelText convertToEntity(LabelTextDto codeTextDto) {
-        return modelMapper.map(codeTextDto, LabelText.class);
+        return dtoMapper.maptoEntity(codeTextDto);
     }
 }

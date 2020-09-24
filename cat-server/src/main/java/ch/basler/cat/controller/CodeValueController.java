@@ -95,10 +95,10 @@ public class CodeValueController {
     }
 
     CodeValueDto convertToDto(CodeValue codeValue) {
-        return dtoMapper.map(codeValue);
+        return dtoMapper.mapToDto(codeValue);
     }
 
     CodeValue convertToEntity(CodeValueDto codeValueDto) {
-        return modelMapper.map(codeValueDto, CodeValue.class);
+        return dtoMapper.maptoEntity(codeValueDto);
     }
 }

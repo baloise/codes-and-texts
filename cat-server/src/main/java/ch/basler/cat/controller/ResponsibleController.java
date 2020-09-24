@@ -87,10 +87,10 @@ public class ResponsibleController {
     }
 
     ResponsibleDto convertToDto(Responsible responsible) {
-        return dtoMapper.map(responsible);
+        return dtoMapper.mapToDto(responsible);
     }
 
     Responsible convertToEntity(ResponsibleDto responsibleDto) {
-        return modelMapper.map(responsibleDto, Responsible.class);
+        return dtoMapper.maptoEntity(responsibleDto);
     }
 }

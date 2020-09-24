@@ -6,13 +6,23 @@ import ch.basler.cat.model.CodeType;
 public class CodeTypeDtoMapper extends DtoMapper<CodeTypeDto, CodeType> {
 
     @Override
-    protected CodeTypeDto mapToDto(CodeType entity) {
-        CodeTypeDto dto = new CodeTypeDto();
-        dto.setId(entity.getId());
-        dto.setName(trim(entity.getName()));
-        dto.setResponsible(entity.getResponsibleId());
-        dto.setCreator(trim(entity.getCreator()));
-        return dto;
+    protected CodeTypeDto entityToDto(CodeType entity) {
+        CodeTypeDto mapped = new CodeTypeDto();
+        mapped.setId(entity.getId());
+        mapped.setName(trim(entity.getName()));
+        mapped.setResponsible(entity.getResponsibleId());
+        mapped.setCreator(trim(entity.getCreator()));
+        return mapped;
+    }
+
+    @Override
+    protected CodeType dtoToEntity(CodeTypeDto dto) {
+        CodeType mapped = new CodeType();
+        mapped.setId(dto.getId());
+        mapped.setName(trim(dto.getName()));
+        mapped.setResponsibleId(dto.getResponsible());
+        mapped.setCreator(trim(dto.getCreator()));
+        return mapped;
     }
 
 }

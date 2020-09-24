@@ -6,16 +6,29 @@ import ch.basler.cat.model.LabelText;
 public class LabelTextDtoMapper extends DtoMapper<LabelTextDto, LabelText> {
 
     @Override
-    protected LabelTextDto mapToDto(LabelText entity) {
-        LabelTextDto dto = new LabelTextDto();
-        dto.setId(trim(entity.getId()));
-        dto.setAppId(entity.getAppId());
-        dto.setName(trim(entity.getName()));
-        dto.setTextD(trim(entity.getTextD()));
-        dto.setTextF(trim(entity.getTextF()));
-        dto.setTextI(trim(entity.getTextI()));
-        dto.setTextE(trim(entity.getTextE()));
-        return dto;
+    protected LabelTextDto entityToDto(LabelText entity) {
+        LabelTextDto mapped = new LabelTextDto();
+        mapped.setId(trim(entity.getId()));
+        mapped.setAppId(entity.getAppId());
+        mapped.setName(trim(entity.getName()));
+        mapped.setTextD(trim(entity.getTextD()));
+        mapped.setTextF(trim(entity.getTextF()));
+        mapped.setTextI(trim(entity.getTextI()));
+        mapped.setTextE(trim(entity.getTextE()));
+        return mapped;
+    }
+
+    @Override
+    protected LabelText dtoToEntity(LabelTextDto entity) {
+        LabelText mapped = new LabelText();
+        mapped.setId(trim(entity.getId()));
+        mapped.setAppId(entity.getAppId());
+        mapped.setName(trim(entity.getName()));
+        mapped.setTextD(trim(entity.getTextD()));
+        mapped.setTextF(trim(entity.getTextF()));
+        mapped.setTextI(trim(entity.getTextI()));
+        mapped.setTextE(trim(entity.getTextE()));
+        return mapped;
     }
 
 }

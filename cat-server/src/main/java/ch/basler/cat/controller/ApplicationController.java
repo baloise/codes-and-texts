@@ -88,10 +88,10 @@ public class ApplicationController {
     }
 
     ApplicationDto convertToDto(Application application) {
-        return dtoMapper.map(application);
+        return dtoMapper.mapToDto(application);
     }
 
     Application convertToEntity(ApplicationDto applicationDto) {
-        return modelMapper.map(applicationDto, Application.class);
+        return dtoMapper.maptoEntity(applicationDto);
     }
 }

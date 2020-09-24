@@ -6,13 +6,22 @@ import ch.basler.cat.model.Application;
 public class ApplicationDtoMapper extends DtoMapper<ApplicationDto, Application> {
 
     @Override
-    protected ApplicationDto mapToDto(Application entity) {
-        ApplicationDto dto = new ApplicationDto();
-        dto.setId(entity.getId());
-        dto.setName(trim(entity.getName()));
-        dto.setPackageName(trim(entity.getPackageName()));
-        dto.setCreator(trim(entity.getCreator()));
-        return dto;
+    protected ApplicationDto entityToDto(Application entity) {
+        ApplicationDto mapped = new ApplicationDto();
+        mapped.setId(entity.getId());
+        mapped.setName(trim(entity.getName()));
+        mapped.setPackageName(trim(entity.getPackageName()));
+        mapped.setCreator(trim(entity.getCreator()));
+        return mapped;
     }
 
+    @Override
+    protected Application dtoToEntity(ApplicationDto dto) {
+        Application mapped = new Application();
+        mapped.setId(dto.getId());
+        mapped.setName(trim(dto.getName()));
+        mapped.setPackageName(trim(dto.getPackageName()));
+        mapped.setCreator(trim(dto.getCreator()));
+        return mapped;
+    }
 }
