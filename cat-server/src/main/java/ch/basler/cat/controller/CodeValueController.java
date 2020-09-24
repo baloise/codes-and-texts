@@ -18,6 +18,7 @@ package ch.basler.cat.controller;
 import ch.basler.cat.api.CodeValueDto;
 import ch.basler.cat.mapper.CodeValueDtoMapper;
 import ch.basler.cat.model.CodeValue;
+import ch.basler.cat.model.CodeValueId;
 import ch.basler.cat.services.CodeValueRepository;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
@@ -72,7 +73,7 @@ public class CodeValueController {
     // Single item
     @GetMapping("/codevalues/{id}")
     public CodeValueDto one(@PathVariable("id") String id) {
-        CodeValue codeValue = repository.findById(id)
+        CodeValue codeValue = repository.findById(CodeValueId.of(id))
                 .orElseThrow(() -> new EntityFoundException("codeValue", id));
 
         return convertToDto(codeValue);
@@ -83,7 +84,7 @@ public class CodeValueController {
                                @PathVariable("id") String id) {
 
         CodeValue newCodeValue = convertToEntity(newCodeValueDto);
-        return repository.findById(id)
+        return repository.findById(CodeValueId.of(id))
                 .map((codeValue -> {
                     modelMapper.map(newCodeValue, codeValue);
                     return convertToDto(repository.save(codeValue));
@@ -95,7 +96,7 @@ public class CodeValueController {
 
     @DeleteMapping("/codevalues/{id}")
     public void delete(@PathVariable("id") String id) {
-        repository.deleteById(id);
+        repository.deleteById(CodeValueId.of(id));
     }
 
     CodeValueDto convertToDto(CodeValue codeValue) {

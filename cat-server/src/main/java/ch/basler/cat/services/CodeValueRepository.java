@@ -17,6 +17,7 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeValue;
+import ch.basler.cat.model.CodeValueId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin
-public interface CodeValueRepository extends CrudRepository<CodeValue, String> {
+public interface CodeValueRepository extends CrudRepository<CodeValue, CodeValueId> {
 
     List<CodeValue> findByTypeId(@Param("type") long typeId);
 }

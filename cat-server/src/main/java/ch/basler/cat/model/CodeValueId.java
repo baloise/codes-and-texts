@@ -33,4 +33,12 @@ public class CodeValueId implements Serializable {
     public void setTypeId(long typeId) {
         this.typeId = typeId;
     }
+
+    public static CodeValueId of(String idString) {
+        String[] idParts = idString.split(":");
+        CodeValueId id = new CodeValueId();
+        id.setTypeId(Long.parseLong(idParts[0]));
+        id.setValue(Long.parseLong(idParts[1]));
+        return id;
+    }
 }
