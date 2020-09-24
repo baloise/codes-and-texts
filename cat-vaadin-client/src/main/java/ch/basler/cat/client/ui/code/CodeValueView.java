@@ -158,6 +158,9 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
      */
     public void updateCodeValue(CodeValue codeValue) {
         codeValueDataProvider.save(codeValue);
+        if (codeValue.isNewCodeValue()) {
+            reloadFromServer();
+        }
     }
 
     /**
@@ -167,6 +170,12 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
      */
     public void removeCodeValue(CodeValue codeValue) {
         codeValueDataProvider.delete(codeValue);
+        reloadFromServer();
+    }
+
+    private void reloadFromServer() {
+        this.codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+        this.codeValueGrid.setDataProvider(codeValueDataProvider);
     }
 
     /**
@@ -176,9 +185,8 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
      */
     public void editCodeValue(CodeValue codeValue) {
         showForm(codeValue != null);
-        if (codeValue.isNewCodeValue()) {
-            codeValue.setCodeType(codeTypeSelect.getValue());
-
+        if (codeValue.isNewCodeValue() && codeTypeSelect != null && codeTypeSelect.getValue() != null) {
+            codeValue.setTypeId(codeTypeSelect.getValue().getId());
         }
         form.editCodeValue(codeValue);
     }

@@ -29,16 +29,16 @@ public class CodeValue {
     @NotNull
     private String name;
     @NotNull
-    private CodeType codeType;
+    private Long typeId;
     @NotNull
     private String creator;
 
-    public CodeType getCodeType() {
-        return codeType;
+    public Long getTypeId() {
+        return typeId;
     }
 
-    public void setCodeType(CodeType codeType) {
-        this.codeType = codeType;
+    public void setTypeId(Long typeId) {
+        this.typeId = typeId;
     }
 
     public String getId() {

@@ -20,8 +20,7 @@ public class CodeValueIdGenerator implements IdentifierGenerator {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("select max(value) from codevalue WHERE codetype_id = " + codeValue.getTypeId());
             if (rs.next()) {
-                long newValue = rs.getLong(1) + 1L;
-                return codeValue.getTypeId() + ":" + newValue;
+                return rs.getLong(1) + 1L;
             }
         } catch (SQLException e) {
             e.printStackTrace();

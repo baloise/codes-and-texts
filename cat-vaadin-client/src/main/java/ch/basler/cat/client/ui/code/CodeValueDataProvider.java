@@ -59,7 +59,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
         }
         this.filterText = filterText.trim().toLowerCase(Locale.ENGLISH);
 
-        setFilter(codeValue -> passesFilter(codeValue.getCodeType().getName(), this.filterText));
+        setFilter(codeValue -> passesFilter(codeValue.getName(), this.filterText));
     }
     /**
      * Sets the filter to use for this data provider and refreshes data.
