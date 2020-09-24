@@ -32,7 +32,7 @@ public class ApplicationView extends HorizontalLayout
     private final ApplicationViewLogic viewLogic = new ApplicationViewLogic(this);
     private Button newApplication;
 
-    private final ApplicationDataProvider dataProvider = new ApplicationDataProvider();
+    private ApplicationDataProvider dataProvider = new ApplicationDataProvider();
 
     public ApplicationView() {
         // Sets the width and the height of InventoryView to "100%".
@@ -131,6 +131,10 @@ public class ApplicationView extends HorizontalLayout
      */
     public void updateApplication(Application application) {
         dataProvider.save(application);
+        if (application.isNewApplication()) {
+            reloadFromServer();
+        }
+
     }
 
     /**
@@ -140,6 +144,12 @@ public class ApplicationView extends HorizontalLayout
      */
     public void removeApplication(Application application) {
         dataProvider.delete(application);
+        reloadFromServer();
+    }
+
+    private void reloadFromServer() {
+        this.dataProvider = new ApplicationDataProvider();
+        this.grid.setDataProvider(dataProvider);
     }
 
     /**

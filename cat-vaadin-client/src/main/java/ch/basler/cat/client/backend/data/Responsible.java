@@ -89,7 +89,7 @@ public class Responsible {
 
     @Override
     public String toString() {
-        return  projectName + "::" +prefix;
+        return prefix.trim() + " :: " + projectName.trim();
     }
 
     /*

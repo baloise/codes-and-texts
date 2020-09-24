@@ -34,7 +34,7 @@ public class ResponsibleView extends HorizontalLayout
     private final ResponsibleViewLogic viewLogic = new ResponsibleViewLogic(this);
     private Button newResponsible;
 
-    private final ResponsibleDataProvider dataProvider = new ResponsibleDataProvider();
+    private ResponsibleDataProvider dataProvider = new ResponsibleDataProvider();
 
     public ResponsibleView() {
         // Sets the width and the height of InventoryView to "100%".
@@ -133,6 +133,9 @@ public class ResponsibleView extends HorizontalLayout
      */
     public void updateResponsible(Responsible responsible) {
         dataProvider.save(responsible);
+        if (responsible.isNewResponsible()) {
+            reloadFromServer();
+        }
     }
 
     /**
@@ -142,7 +145,14 @@ public class ResponsibleView extends HorizontalLayout
      */
     public void removeResponsible(Responsible responsible) {
         dataProvider.delete(responsible);
+        reloadFromServer();
     }
+
+    private void reloadFromServer() {
+        this.dataProvider = new ResponsibleDataProvider();
+        this.grid.setDataProvider(dataProvider);
+    }
+
 
     /**
      * Displays user a form to edit a Responsible.
