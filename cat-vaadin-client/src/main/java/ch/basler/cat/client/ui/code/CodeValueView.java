@@ -45,6 +45,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
         final HorizontalLayout topLayout = createTopBar();
         codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
         codeValueGrid = new CodeValueGrid();
+        codeValueGrid.setVisible(false);
         codeValueGrid.setDataProvider(codeValueDataProvider);
         // Allows user to select a single row in the grid.
         codeValueGrid.asSingleSelect().addValueChangeListener(
@@ -73,8 +74,8 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
             if (changeEvent.getValue() != null) {
                 codeTypeSelect.setEnabled(true);
                 codeTypeDataProvider.setFilter(changeEvent.getValue().getId());
-
                 codeTypeSelect.setDataProvider(codeTypeDataProvider);
+                codeValueGrid.setVisible(false);
 
             }
         });
@@ -90,6 +91,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
                 codeValueGrid.setDataProvider(codeValueDataProvider);
                 newCodeValue.setEnabled(true);
                 codeValueDataProvider.setFilter(changeEvent.getValue());
+                codeValueGrid.setVisible(true);
             }
         });
         newCodeValue = new Button("New codeValue");

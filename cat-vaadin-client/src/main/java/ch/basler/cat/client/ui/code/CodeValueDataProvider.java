@@ -5,8 +5,10 @@ import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Utility class that encapsulates filtering and CRUD operations for
@@ -20,7 +22,10 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
 
 
     public CodeValueDataProvider(CodeType codeType) {
-        super(DataService.get().getAllCodeValues(codeType));
+        super(DataService.get().getAllCodeValues(codeType).stream()
+                .sorted(
+                        Comparator.comparing(CodeValue::getValue))
+                .collect(Collectors.toList()));
     }
 
     /**

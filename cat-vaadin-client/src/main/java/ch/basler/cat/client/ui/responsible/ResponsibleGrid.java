@@ -25,12 +25,12 @@ public class ResponsibleGrid extends Grid<Responsible> {
         setSizeFull();
         addColumn(Responsible::getId).setHeader("Id")
                 .setFlexGrow(20).setSortable(true).setKey(ID);
+        addColumn(Responsible::getPrefix).setHeader("Prefix")
+                .setFlexGrow(20).setSortable(true).setKey(PREFIX);
         addColumn(Responsible::getProjectName).setHeader("Project Name")
                 .setFlexGrow(20).setSortable(true).setKey(PROJECT_NAME);
         addColumn(Responsible::getPackageName).setHeader("Package Name")
                 .setFlexGrow(20).setSortable(true).setKey(PACKAGENAME);
-        addColumn(Responsible::getPrefix).setHeader("Prefix")
-                .setFlexGrow(20).setSortable(true).setKey(PREFIX);
         addColumn(Responsible::getEmail).setHeader("email")
                 .setFlexGrow(20).setSortable(true).setKey(EMAIL);
         addColumn(Responsible::getCreator).setHeader("Creator")

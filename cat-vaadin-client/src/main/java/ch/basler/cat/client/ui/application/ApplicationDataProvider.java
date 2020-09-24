@@ -3,9 +3,12 @@ package ch.basler.cat.client.ui.application;
 import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Application;
 import com.vaadin.flow.data.provider.ListDataProvider;
+import com.vaadin.flow.function.SerializableComparator;
 
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Utility class that encapsulates filtering and CRUD operations for
@@ -18,7 +21,10 @@ public class ApplicationDataProvider extends ListDataProvider<Application> {
     private String filterText = "";
 
     public ApplicationDataProvider() {
-        super(DataService.get().getAllApplications());
+        super(DataService.get().getAllApplications().stream()
+                .sorted(
+                    Comparator.comparing(Application::getName).thenComparing(Application::getPackageName))
+                .collect(Collectors.toList()));
     }
 
     /**

@@ -1,12 +1,15 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.DataService;
+import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.Responsible;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Utility class that encapsulates filtering and CRUD operations for
@@ -19,7 +22,10 @@ public class CodeTypeDataProvider extends ListDataProvider<CodeType> {
     private String filterText = "";
 
     public CodeTypeDataProvider() {
-        super(DataService.get().getAllCodeTypes());
+        super(DataService.get().getAllCodeTypes().stream()
+                .sorted(
+                        Comparator.comparing(CodeType::getName))
+                .collect(Collectors.toList()));
     }
 
     /**

@@ -4,8 +4,10 @@ import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Responsible;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Utility class that encapsulates filtering and CRUD operations for
@@ -18,7 +20,10 @@ public class ResponsibleDataProvider extends ListDataProvider<Responsible> {
     private String filterText = "";
 
     public ResponsibleDataProvider() {
-        super(DataService.get().getAllResponsibles());
+        super(DataService.get().getAllResponsibles().stream()
+                .sorted(
+                        Comparator.comparing(Responsible::getPrefix).thenComparing(Responsible::getProjectName))
+                .collect(Collectors.toList()));
     }
 
     /**
