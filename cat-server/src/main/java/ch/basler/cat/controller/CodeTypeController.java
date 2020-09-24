@@ -61,6 +61,7 @@ public class CodeTypeController {
     @PostMapping("/codetypes")
     public CodeTypeDto create(@RequestBody CodeTypeDto codeTypeDto) {
         CodeType codeType = convertToEntity(codeTypeDto);
+        codeType.setId(null);
         CodeType codeTypeCreated = repository.save(codeType);
         return convertToDto(codeTypeCreated);
     }

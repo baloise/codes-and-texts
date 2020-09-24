@@ -26,7 +26,6 @@ public class CodeTypeForm extends Div {
     private final VerticalLayout content;
     private final TextField id;
     private final TextField name;
-    private final TextField prefix;
     private final TextField creator;
 
     private Button save;
@@ -78,11 +77,6 @@ public class CodeTypeForm extends Div {
         name.setRequired(true);
         name.setValueChangeMode(ValueChangeMode.EAGER);
         content.add(name);
-
-        prefix = new TextField("Prefix (for codes)");
-        prefix.setRequired(true);
-        prefix.setValueChangeMode(ValueChangeMode.EAGER);
-        content.add(prefix);
 
         creator = new TextField("Creator");
         creator.setReadOnly(true);

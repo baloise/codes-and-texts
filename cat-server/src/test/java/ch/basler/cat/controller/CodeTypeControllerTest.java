@@ -19,14 +19,14 @@ public class CodeTypeControllerTest {
     @Test
     public void convertToDto() {
         CodeType type = new CodeType();
-        type.setId(1);
+        type.setId(1L);
         type.setResponsibleId(5);
         type.setName("testName");
         type.setCreator("testCreator");
 
         CodeTypeDto mapped = controller.convertToDto(type);
 
-        assertEquals(type.getId(), mapped.getId());
+        assertEquals(type.getId().longValue(), mapped.getId());
         assertEquals(type.getResponsibleId(), mapped.getResponsible());
         assertEquals(type.getName(), mapped.getName());
         assertEquals(type.getCreator(), mapped.getCreator());
@@ -43,7 +43,7 @@ public class CodeTypeControllerTest {
 
         CodeType mapped = controller.convertToEntity(dto);
 
-        assertEquals(dto.getId(), mapped.getId());
+        assertEquals(dto.getId(), mapped.getId().longValue());
         assertEquals(dto.getResponsible(), mapped.getResponsibleId());
         assertEquals(dto.getName(), mapped.getName());
         assertEquals(dto.getCreator(), mapped.getCreator());

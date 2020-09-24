@@ -43,7 +43,7 @@ public class CodeType {
     }
 
     public void setResponsible(Long responsibleId) {
-        this.responsible = responsible;
+        this.responsible = responsibleId;
     }
 
     public void setId(long id) {

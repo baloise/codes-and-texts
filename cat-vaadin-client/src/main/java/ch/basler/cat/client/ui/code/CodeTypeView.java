@@ -3,6 +3,7 @@ package ch.basler.cat.client.ui.code;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.Responsible;
 import ch.basler.cat.client.ui.MainLayout;
+import ch.basler.cat.client.ui.application.ApplicationDataProvider;
 import ch.basler.cat.client.ui.responsible.ResponsibleDataProvider;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
@@ -37,7 +38,7 @@ public class CodeTypeView extends HorizontalLayout
     private final CodeTypeViewLogic viewLogic = new CodeTypeViewLogic(this);
     private Button newCodeType;
 
-    private final CodeTypeDataProvider dataProvider = new CodeTypeDataProvider();
+    private CodeTypeDataProvider dataProvider = new CodeTypeDataProvider();
 
     public CodeTypeView() {
         // Sets the width and the height of InventoryView to "100%".
@@ -143,6 +144,9 @@ public class CodeTypeView extends HorizontalLayout
      */
     public void updateCodeType(CodeType codeType) {
         dataProvider.save(codeType);
+        if (codeType.isNewCodeType()) {
+            reloadFromServer();
+        }
     }
 
     /**
@@ -152,7 +156,15 @@ public class CodeTypeView extends HorizontalLayout
      */
     public void removeCodeType(CodeType codeType) {
         dataProvider.delete(codeType);
+        reloadFromServer();
     }
+
+    private void reloadFromServer() {
+        this.dataProvider = new CodeTypeDataProvider();
+        this.grid.setDataProvider(dataProvider);
+    }
+
+
 
     /**
      * Displays user a form to edit a CodeType.
@@ -160,11 +172,14 @@ public class CodeTypeView extends HorizontalLayout
      * @param codeType
      */
     public void editCodeType(CodeType codeType) {
-        showForm(codeType != null);
-        if (codeType.isNewCodeType()) {
-            codeType.setResponsible(responsibleSelect.getValue().getId());
+        if (codeType != null) {
+            showForm(codeType != null);
+            if (codeType.isNewCodeType() && responsibleSelect != null && responsibleSelect.getValue() != null ) {
+                long responsibleId = responsibleSelect.getValue().getId();
+                codeType.setResponsible(responsibleId);
+            }
+            form.editCodeType(codeType);
         }
-        form.editCodeType(codeType);
     }
 
     /**
