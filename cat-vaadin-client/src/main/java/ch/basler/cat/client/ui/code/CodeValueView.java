@@ -2,7 +2,9 @@ package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
+import ch.basler.cat.client.backend.data.Responsible;
 import ch.basler.cat.client.ui.MainLayout;
+import ch.basler.cat.client.ui.responsible.ResponsibleDataProvider;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -24,25 +26,26 @@ import com.vaadin.flow.router.Route;
  * operations and controlling the view based on events from outside.
  */
 @Route(value = "CodeValue", layout = MainLayout.class)
-public class CodeValueView extends HorizontalLayout
-        implements HasUrlParameter<String> {
+public class CodeValueView extends HorizontalLayout implements HasUrlParameter<String> {
 
     public static final String VIEW_NAME = "CodeValue";
     private final CodeValueGrid codeValueGrid;
     private final CodeValueForm form;
+    private Select<Responsible> responsibleSelect;
     private Select<CodeType> codeTypeSelect;
+    private CodeTypeDataProvider codeTypeDataProvider;
 
     private final CodeValueViewLogic viewLogic = new CodeValueViewLogic(this);
     private Button newCodeValue;
-    private CodeValueDataProvider dataProvider;
+    private CodeValueDataProvider codeValueDataProvider;
 
     public CodeValueView() {
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
-        dataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+        codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
         codeValueGrid = new CodeValueGrid();
-        codeValueGrid.setDataProvider(dataProvider);
+        codeValueGrid.setDataProvider(codeValueDataProvider);
         // Allows user to select a single row in the grid.
         codeValueGrid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
@@ -63,18 +66,31 @@ public class CodeValueView extends HorizontalLayout
     }
 
     public HorizontalLayout createTopBar() {
+        responsibleSelect = new Select<>();
+        responsibleSelect.setPlaceholder("Select responsible");
+        responsibleSelect.setItems(new ResponsibleDataProvider().getItems());
+        responsibleSelect.addValueChangeListener(changeEvent -> {
+            if (changeEvent.getValue() != null) {
+                codeTypeSelect.setEnabled(true);
+                codeTypeDataProvider.setFilter(changeEvent.getValue().getId());
+
+                codeTypeSelect.setDataProvider(codeTypeDataProvider);
+
+            }
+        });
 
         codeTypeSelect = new Select<>();
+        codeTypeSelect.setEnabled(false);
         codeTypeSelect.setPlaceholder("Select codeType");
-        codeTypeSelect.setItems(new CodeTypeDataProvider().getItems());
+        codeTypeDataProvider = new CodeTypeDataProvider();
+        codeTypeSelect.setItems(codeTypeDataProvider.getItems());
         codeTypeSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
-                dataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
-                codeValueGrid.setDataProvider(dataProvider);
+                codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+                codeValueGrid.setDataProvider(codeValueDataProvider);
                 newCodeValue.setEnabled(true);
-                dataProvider.setFilter(changeEvent.getValue());
+                codeValueDataProvider.setFilter(changeEvent.getValue());
             }
-
         });
         newCodeValue = new Button("New codeValue");
         // Setting theme variant of new codeValueion button to LUMO_PRIMARY that
@@ -88,6 +104,7 @@ public class CodeValueView extends HorizontalLayout
 
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
+        topLayout.add(responsibleSelect);
         topLayout.add(codeTypeSelect);
         topLayout.add(newCodeValue);
         topLayout.setVerticalComponentAlignment(Alignment.START, codeTypeSelect);
@@ -140,7 +157,7 @@ public class CodeValueView extends HorizontalLayout
      * @param codeValue
      */
     public void updateCodeValue(CodeValue codeValue) {
-        dataProvider.save(codeValue);
+        codeValueDataProvider.save(codeValue);
     }
 
     /**
@@ -149,7 +166,7 @@ public class CodeValueView extends HorizontalLayout
      * @param codeValue
      */
     public void removeCodeValue(CodeValue codeValue) {
-        dataProvider.delete(codeValue);
+        codeValueDataProvider.delete(codeValue);
     }
 
     /**
