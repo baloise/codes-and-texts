@@ -29,3 +29,8 @@ running on port 8089
 
 ## Start Generator
 todo
+
+
+## OpenShift Environment
+
+[Codes and Texts Deployments](https://github.com/baloise-incubator/codes-and-texts-deployment)
