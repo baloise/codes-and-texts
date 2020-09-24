@@ -53,7 +53,7 @@ public class CodeValueController {
 
     @GetMapping("/codetypes/{typeId}/codevalues")
     public List<CodeValueDto> all(@PathVariable long typeId) {
-        return IterableUtils.toList(repository.findByCodeTypeId(typeId)).stream()
+        return IterableUtils.toList(repository.findByTypeId(typeId)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }

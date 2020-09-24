@@ -15,13 +15,9 @@
  */
 package ch.basler.cat.controller;
 
-import ch.basler.cat.api.CodeTextDto;
 import ch.basler.cat.api.LabelTextDto;
-import ch.basler.cat.mapper.CodeTextDtoMapper;
 import ch.basler.cat.mapper.LabelTextDtoMapper;
-import ch.basler.cat.model.CodeText;
 import ch.basler.cat.model.LabelText;
-import ch.basler.cat.services.CodeTextRepository;
 import ch.basler.cat.services.LabelTextRepository;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;

@@ -24,17 +24,9 @@ public class CodeValue {
     private String id;
 
     private long value;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "codetype_id")
-    private CodeType codeType;
 
-    public CodeType getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(CodeType codeType) {
-        this.codeType = codeType;
-    }
+    @Column(name = "codetype_id")
+    private long typeId;
 
     private String creator;
     private String name;
@@ -45,6 +37,14 @@ public class CodeValue {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public long getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(long typeId) {
+        this.typeId = typeId;
     }
 
     public String getCreator() {

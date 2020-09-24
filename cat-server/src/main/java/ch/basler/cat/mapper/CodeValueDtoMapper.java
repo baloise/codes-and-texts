@@ -9,6 +9,7 @@ public class CodeValueDtoMapper extends DtoMapper<CodeValueDto, CodeValue> {
     protected CodeValueDto mapToDto(CodeValue entity) {
         CodeValueDto dto = new CodeValueDto();
         dto.setId(trim(entity.getId()));
+        dto.setTypeId(entity.getTypeId());
         dto.setValue(entity.getValue());
         dto.setName(trim(entity.getName()));
         return dto;

@@ -26,5 +26,5 @@ import java.util.List;
 @CrossOrigin
 public interface CodeValueRepository extends CrudRepository<CodeValue, String> {
 
-    List<CodeValue> findByCodeTypeId(@Param("type") long typeId);
+    List<CodeValue> findByTypeId(@Param("type") long typeId);
 }
