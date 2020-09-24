@@ -18,7 +18,10 @@ package ch.basler.cat;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.*;
+import springfox.documentation.builders.AuthorizationCodeGrantBuilder;
+import springfox.documentation.builders.OAuthBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
@@ -31,8 +34,8 @@ import java.util.Collections;
 @Configuration
 public class SpringFoxConfiguration {
 
-    private final String CLIENT_ID = "library-client";
-    private final String CLIENT_SECRET = "9584640c-3804-4dcd-997b-93593cfb9ea7";
+    private final String CLIENT_ID = "cat-server";
+    private final String CLIENT_SECRET = "8e9a6b52-ef2a-458e-9be3-feb7a4e494f9";
     private final String AUTH_SERVER_AUTHORIZE = "https://keycloak-okd4-sampleconfig.apps.okd.baloise.dev/auth/realms/workshop/protocol/openid-connect/auth";
     private final String AUTH_SERVER_TOKEN = "https://keycloak-okd4-sampleconfig.apps.okd.baloise.dev/auth/realms/workshop/protocol/openid-connect/token";
 
@@ -105,7 +108,6 @@ public class SpringFoxConfiguration {
         //GrantType grantType = new ClientCredentialsGrant(token_endpoint);
         SecurityScheme oauth = new OAuthBuilder().name("spring_oauth")
                 .grantTypes(Arrays.asList(grantType))
-                .scopes(Arrays.asList(scopes()))
                 .build();
         return oauth;
     }
@@ -113,17 +115,9 @@ public class SpringFoxConfiguration {
     public SecurityContext securityContext() {
         return SecurityContext.builder()
                 .securityReferences(
-                        Arrays.asList(new SecurityReference("spring_oauth", scopes()))
+                        Arrays.asList(SecurityReference.builder().reference("spring_oauth").scopes(new AuthorizationScope[0]).build())
                 )
                 .forPaths(PathSelectors.any())
                 .build();
-    }
-
-    private AuthorizationScope[] scopes() {
-        AuthorizationScope[] scopes = {
-                new AuthorizationScope("read", "for read operations"),
-                new AuthorizationScope("write", "for write operations"),
-                new AuthorizationScope("foo", "Access foo API") };
-        return scopes;
     }
 }
