@@ -24,6 +24,7 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,6 +46,7 @@ public class ApplicationController {
 
     // Aggregate root
     @GetMapping("/applications")
+    @PreAuthorize("isAuthenticated()")
     public List<ApplicationDto> all() {
         return IterableUtils.toList(this.repository.findAll()).stream()
                 .map(this::convertToDto)

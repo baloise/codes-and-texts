@@ -18,18 +18,24 @@ package ch.basler.cat;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
+import springfox.documentation.builders.*;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
 public class SpringFoxConfiguration {
+
+    private final String CLIENT_ID = "library-client";
+    private final String CLIENT_SECRET = "9584640c-3804-4dcd-997b-93593cfb9ea7";
+    private final String AUTH_SERVER_AUTHORIZE = "https://keycloak-okd4-sampleconfig.apps.okd.baloise.dev/auth/realms/workshop/protocol/openid-connect/auth";
+    private final String AUTH_SERVER_TOKEN = "https://keycloak-okd4-sampleconfig.apps.okd.baloise.dev/auth/realms/workshop/protocol/openid-connect/token";
+
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
@@ -50,7 +56,9 @@ public class SpringFoxConfiguration {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("ch.basler.cat.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .securitySchemes(Collections.singletonList(securityScheme()))
+                .securityContexts(Collections.singletonList(securityContext()));
     }
 
     /**
@@ -74,5 +82,48 @@ public class SpringFoxConfiguration {
                 .supportedSubmitMethods(UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS)
                 .validatorUrl(null)
                 .build();
+    }
+
+    @Bean
+    public SecurityConfiguration security() {
+        return SecurityConfigurationBuilder.builder()
+                .clientId(CLIENT_ID)
+                .clientSecret(CLIENT_SECRET)
+                .scopeSeparator(" ")
+                .useBasicAuthenticationWithAccessCodeGrant(true)
+                .build();
+    }
+
+    public SecurityScheme securityScheme() {
+
+        GrantType grantType = new AuthorizationCodeGrantBuilder()
+                .tokenEndpoint(new TokenEndpoint(AUTH_SERVER_TOKEN, "oauthtoken"))
+                .tokenRequestEndpoint(
+                        new TokenRequestEndpoint(AUTH_SERVER_AUTHORIZE, CLIENT_ID, CLIENT_SECRET))
+                .build();
+
+        //GrantType grantType = new ClientCredentialsGrant(token_endpoint);
+        SecurityScheme oauth = new OAuthBuilder().name("spring_oauth")
+                .grantTypes(Arrays.asList(grantType))
+                .scopes(Arrays.asList(scopes()))
+                .build();
+        return oauth;
+    }
+
+    public SecurityContext securityContext() {
+        return SecurityContext.builder()
+                .securityReferences(
+                        Arrays.asList(new SecurityReference("spring_oauth", scopes()))
+                )
+                .forPaths(PathSelectors.any())
+                .build();
+    }
+
+    private AuthorizationScope[] scopes() {
+        AuthorizationScope[] scopes = {
+                new AuthorizationScope("read", "for read operations"),
+                new AuthorizationScope("write", "for write operations"),
+                new AuthorizationScope("foo", "Access foo API") };
+        return scopes;
     }
 }
