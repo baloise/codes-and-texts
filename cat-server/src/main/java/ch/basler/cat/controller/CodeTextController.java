@@ -18,6 +18,7 @@ package ch.basler.cat.controller;
 import ch.basler.cat.api.CodeTextDto;
 import ch.basler.cat.mapper.CodeTextDtoMapper;
 import ch.basler.cat.model.CodeText;
+import ch.basler.cat.model.CodeTextId;
 import ch.basler.cat.services.CodeTextRepository;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
@@ -51,47 +52,49 @@ public class CodeTextController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/codetypes/{typeId}/codetexte")
-    public List<CodeTextDto> all(@PathVariable long typeId) {
-        return IterableUtils.toList(repository.findByTypeId(typeId)).stream()
+    @GetMapping("/codetypes/{type}/codetexte")
+    public List<CodeTextDto> all(@PathVariable long type) {
+        return IterableUtils.toList(repository.findByType(type)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/codetexte")
+    @PostMapping("/codetypes/{type}/codetexte")
     public CodeTextDto create(@RequestBody CodeTextDto codeTextDto) {
         CodeText codeText = convertToEntity(codeTextDto);
+        codeText.setValue(null);
         CodeText codeTextCreated = repository.save(codeText);
         return convertToDto(codeTextCreated);
     }
 
     // Single item
-    @GetMapping("/codetexte/{id}")
-    public CodeTextDto one(@PathVariable("id") String id) {
-        CodeText codeValue = repository.findById(id)
-                .orElseThrow(() -> new EntityFoundException("codeValue", id));
+    @GetMapping("/codetypes/{type}/codetexte/{value}")
+    public CodeTextDto one(@PathVariable long type, @PathVariable long value) {
+        CodeText codeValue = repository.findById(CodeTextId.of(type, value))
+                .orElseThrow(() -> new EntityFoundException("codeValue", type + ":" + value));
 
         return convertToDto(codeValue);
     }
 
-    @PutMapping("/codetexte/{id}")
+    @PutMapping("/codetypes/{type}/codetexte/{value}")
     public CodeTextDto update(@RequestBody CodeTextDto newCodeTextDto,
-                               @PathVariable("id") String id) {
+                               @PathVariable long type, @PathVariable long value) {
 
         CodeText newCodeText = convertToEntity(newCodeTextDto);
-        return repository.findById(id)
+        return repository.findById(CodeTextId.of(type, value))
                 .map((codeText -> {
                     modelMapper.map(newCodeText, codeText);
                     return convertToDto(repository.save(codeText));
                 })).orElseGet(() -> {
-                    newCodeText.setId(id);
+                    newCodeText.setType(type);
+                    newCodeText.setValue(value);
                     return convertToDto(repository.save(newCodeText));
                 });
     }
 
-    @DeleteMapping("/codetexte/{id}")
-    public void delete(@PathVariable("id") String id) {
-        repository.deleteById(id);
+    @DeleteMapping("/codetypes/{type}/codetexte/{value}")
+    public void delete(@PathVariable long type, @PathVariable long value) {
+        repository.deleteById(CodeTextId.of(type, value));
     }
 
     CodeTextDto convertToDto(CodeText codeText) {

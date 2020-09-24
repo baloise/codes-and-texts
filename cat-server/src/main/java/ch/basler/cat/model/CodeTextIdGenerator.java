@@ -10,15 +10,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CodeValueIdGenerator implements IdentifierGenerator {
+public class CodeTextIdGenerator implements IdentifierGenerator {
 
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 
         Connection connection = session.connection();
         try {
-            CodeValue codeValue = (CodeValue) object;
+            CodeText codeText = (CodeText) object;
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select max(value) from codevalue WHERE codetype_id = " + codeValue.getType());
+            ResultSet rs = statement.executeQuery("select max(value) from value WHERE type_id = " + codeText.getType());
             if (rs.next()) {
                 return rs.getLong(1) + 1L;
             }

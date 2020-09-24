@@ -18,14 +18,15 @@ package ch.basler.cat.model;
 import javax.persistence.*;
 
 @Entity(name = "codetext")
+@IdClass(CodeTextId.class)
 public class CodeText {
 
     @Id
-    private String id;
+    private Long value;
 
-    @Column(name="type_id")
-    private long typeId;
-    private long value;
+    @Id
+    private Long type;
+
     private String name;
 
     @Column(name="text_d")
@@ -37,27 +38,19 @@ public class CodeText {
     @Column(name="text_e")
     private String textE;
 
-    public String getId() {
-        return id;
+    public Long getType() {
+        return type;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setType(Long codeTyp) {
+        this.type = codeTyp;
     }
 
-    public long getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(long codeTyp) {
-        this.typeId = codeTyp;
-    }
-
-    public long getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(long value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 

@@ -17,8 +17,7 @@ package ch.basler.cat.api;
 
 public class CodeTextDto {
 
-    private String id;
-    private long typeId;
+    private long type;
     private long value;
     private String name;
 
@@ -27,20 +26,12 @@ public class CodeTextDto {
     private String textI;
     private String textE;
 
-    public String getId() {
-        return id;
+    public long getType() {
+        return type;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public long getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(long typeId) {
-        this.typeId = typeId;
+    public void setType(long type) {
+        this.type = type;
     }
 
     public long getValue() {

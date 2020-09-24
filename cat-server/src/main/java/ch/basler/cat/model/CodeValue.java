@@ -21,33 +21,21 @@ import javax.persistence.*;
 @IdClass(CodeValueId.class)
 public class CodeValue {
 
-    @Column(updatable=false, insertable=false)
-    private String id;
+    @Id
+    private Long value;
 
     @Id
-    private long value;
-
-    @Id
-    @Column(name = "codetype_id")
-    private long typeId;
+    private Long type;
 
     private String creator;
     private String name;
 
-    public String getId() {
-        return id;
+    public Long getType() {
+        return type;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public long getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(long typeId) {
-        this.typeId = typeId;
+    public void setType(Long typeId) {
+        this.type = typeId;
     }
 
     public String getCreator() {
@@ -66,11 +54,11 @@ public class CodeValue {
         this.name = name;
     }
 
-    public long getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(long value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 }
