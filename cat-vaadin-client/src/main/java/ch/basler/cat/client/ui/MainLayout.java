@@ -7,6 +7,7 @@ import ch.basler.cat.client.ui.application.ApplicationView;
 import ch.basler.cat.client.ui.code.CodeTypeView;
 import ch.basler.cat.client.ui.code.CodeValueView;
 import ch.basler.cat.client.ui.responsible.ResponsibleView;
+import ch.basler.cat.client.ui.text.TextDataView;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Key;
@@ -79,6 +80,8 @@ public class MainLayout extends AppLayout implements RouterLayout {
                 VaadinIcon.CODE.create()));
         addToDrawer(createMenuLink(CodeValueView.class, CodeValueView.VIEW_NAME,
                 VaadinIcon.FILE_CODE.create()));
+        addToDrawer(createMenuLink(TextDataView.class, TextDataView.VIEW_NAME,
+                VaadinIcon.FILE_TEXT.create()));
 
         addToDrawer(createMenuLink(AboutView.class, AboutView.VIEW_NAME,
                 VaadinIcon.INFO_CIRCLE.create()));

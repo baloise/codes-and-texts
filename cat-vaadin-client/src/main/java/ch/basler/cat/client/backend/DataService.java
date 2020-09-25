@@ -4,6 +4,7 @@ import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
 import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.TextData;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -33,6 +34,11 @@ public interface DataService extends Serializable {
     void saveCodeValue(CodeValue codeValue);
     void deleteCodeValue(long type,long value);
     CodeValue getCodeValue(long type, long value);
+
+    Collection<TextData> getAllTexts();
+    void saveText(TextData textData);
+    void deleteText(long id);
+    TextData getTextById(long id);
 
 
     static DataService get() {
