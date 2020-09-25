@@ -1,6 +1,7 @@
 package ch.basler.cat.client.ui.text;
 
 import ch.basler.cat.client.backend.data.TextData;
+import ch.basler.cat.client.backend.data.TextType;
 import ch.basler.cat.client.ui.MainLayout;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
@@ -10,11 +11,14 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
+
+import java.util.Arrays;
 
 /**
  * A view for performing create-read-update-delete operations on Texts.
@@ -30,6 +34,7 @@ public class TextDataView extends HorizontalLayout
     private final TextDataGrid grid;
     private final TextDataForm form;
     private TextField filter;
+    private Select<TextType> typeSelect;
 
     private final TextDataViewLogic viewLogic = new TextDataViewLogic(this);
     private Button newText;
@@ -62,8 +67,17 @@ public class TextDataView extends HorizontalLayout
     }
 
     public HorizontalLayout createTopBar() {
+        typeSelect = new Select<>();
+        typeSelect.setPlaceholder("Select type");
+        typeSelect.setItems(TextType.values());
+        typeSelect.addValueChangeListener(changeEvent -> {
+            if (changeEvent.getValue() != null) {
+                Integer selectedValue = changeEvent.getValue().getValue();
+                dataProvider.setFilter(t -> (selectedValue == null) || Long.valueOf(selectedValue).equals(t.getType()));
+            }
+        });
         filter = new TextField();
-        filter.setPlaceholder("Filter projekt-name, package-name or creator");
+        filter.setPlaceholder("Filter text or creator");
         // Apply the filter to grid's data provider. TextField value is never
         filter.addValueChangeListener(
                 event -> dataProvider.setFilter(event.getValue()));
@@ -80,6 +94,7 @@ public class TextDataView extends HorizontalLayout
         newText.addClickShortcut(Key.KEY_N, KeyModifier.ALT);
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
+        topLayout.add(typeSelect);
         topLayout.add(filter);
         topLayout.add(newText);
         topLayout.setVerticalComponentAlignment(Alignment.START, filter);

@@ -69,10 +69,11 @@ public class TextDataProvider extends ListDataProvider<TextData> {
         }
         this.filterText = filterText.trim().toLowerCase(Locale.ENGLISH);
 
-        setFilter(Text -> passesFilter(Text.getTextD(), this.filterText)
-                || passesFilter(Text.getTextF(), this.filterText)
-                || passesFilter(Text.getTextI(), this.filterText)
-                || passesFilter(Text.getTextE(), this.filterText));
+        setFilter(textData -> passesFilter(textData.getTextD(), this.filterText)
+                || passesFilter(textData.getTextF(), this.filterText)
+                || passesFilter(textData.getTextI(), this.filterText)
+                || passesFilter(textData.getTextE(), this.filterText)
+                || passesFilter(textData.getCreator(), this.filterText));
     }
 
     @Override
