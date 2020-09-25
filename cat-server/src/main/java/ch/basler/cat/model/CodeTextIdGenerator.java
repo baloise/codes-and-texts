@@ -18,7 +18,7 @@ public class CodeTextIdGenerator implements IdentifierGenerator {
         try {
             CodeText codeText = (CodeText) object;
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select max(value) from value WHERE type_id = " + codeText.getType());
+            ResultSet rs = statement.executeQuery("select max(value) from codetext WHERE type_id = " + codeText.getType());
             if (rs.next()) {
                 return rs.getLong(1) + 1L;
             }
