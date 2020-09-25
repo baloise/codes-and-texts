@@ -27,8 +27,8 @@ public class CodeTextControllerTest {
 
         CodeText mapped = controller.convertToEntity(dto);
 
-        assertEquals(dto.getType(), mapped.getType().longValue());
-        assertEquals(dto.getValue(), mapped.getValue().longValue());
+        assertEquals(dto.getType(), mapped.getType());
+        assertEquals(dto.getValue(), mapped.getValue());
         assertEquals(dto.getName(), mapped.getName());
         assertEquals(dto.getTextD(), mapped.getTextD());
     }
@@ -43,8 +43,8 @@ public class CodeTextControllerTest {
 
         CodeTextDto mapped = controller.convertToDto(entity);
 
-        assertEquals(entity.getType().longValue(), mapped.getType());
-        assertEquals(entity.getValue().longValue(), mapped.getValue());
+        assertEquals(entity.getType(), mapped.getType());
+        assertEquals(entity.getValue(), mapped.getValue());
         assertEquals(entity.getName(), mapped.getName());
         assertEquals(entity.getTextD(), mapped.getTextD());
     }

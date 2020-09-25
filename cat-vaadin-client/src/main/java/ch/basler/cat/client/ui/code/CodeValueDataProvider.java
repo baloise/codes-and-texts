@@ -52,7 +52,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
      *            the codeValue to be deleted
      */
     public void delete(CodeValue codeValue) {
-        DataService.get().deleteCodeValue(codeValue.getId());
+        DataService.get().deleteCodeValue(codeValue.getType(), codeValue.getValue());
         refreshAll();
     }
 
@@ -83,7 +83,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
         Objects.requireNonNull(codeValue,
                 "Cannot provide an id for a null codeValue.");
 
-        return codeValue.getId();
+        return codeValue.getType() + ":" + codeValue.getValue();
     }
 
     private boolean passesFilter(Object object, String filterText) {

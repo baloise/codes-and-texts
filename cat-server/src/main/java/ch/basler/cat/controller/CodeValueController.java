@@ -62,7 +62,7 @@ public class CodeValueController {
     @PostMapping("/codetypes/{type}/codevalues")
     public CodeValueDto create(@RequestBody CodeValueDto codeValueDto) {
         CodeValue codeValue = convertToEntity(codeValueDto);
-        codeValue.setValue(null);
+        codeValue.setValue(-1);
         if (codeValue.getCreator() == null) {
             codeValue.setCreator("");
         }

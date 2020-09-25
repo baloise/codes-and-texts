@@ -97,26 +97,34 @@ public class RestDataService extends AbstractRestDataService implements DataServ
         if (codeType == null) {
             return Collections.emptyList();
         }
-        String route = CODETYPES + "/" + codeType.getId() + "/" + CODEVALUES;
+        String route = getCodeValueRoute(codeType.getId());
         return getAllData(route, CodeValue[].class);
     }
 
     @Override
     public void saveCodeValue(CodeValue codeValue) {
+        String route = getCodeValueRoute(codeValue.getType());
         if (codeValue.isNewCodeValue()) {
-            createData(CODEVALUES, codeValue, CodeValue.class);
+            createData(route, codeValue, CodeValue.class);
         } else {
-            updateData(CODEVALUES, codeValue.getId(), codeValue);
+            updateData(route, codeValue.getValue(), codeValue);
         }
     }
 
     @Override
-    public void deleteCodeValue(String codeValueId) {
-        deleteData(CODEVALUES, codeValueId);
+    public void deleteCodeValue(long type, long value) {
+        String route = getCodeValueRoute(type);
+        deleteData(route, value);
     }
 
     @Override
-    public CodeValue getCodeValueById(String codeValueId) {
-        return getById(CODEVALUES, codeValueId, CodeValue.class);
+    public CodeValue getCodeValue(long type, long value) {
+        String route = getCodeValueRoute(type);
+        return getById(route, value, CodeValue.class);
     }
+
+    private String getCodeValueRoute(long type) {
+        return combine(CODETYPES, type, CODEVALUES);
+    }
+
 }

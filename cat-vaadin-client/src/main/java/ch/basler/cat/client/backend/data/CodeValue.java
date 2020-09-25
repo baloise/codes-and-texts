@@ -21,32 +21,21 @@ import java.util.Objects;
 
 public class CodeValue {
 
-    // Combined key : codeType.id : codeValue.value
-    @NotNull
-    private String id ="";
     @NotNull
     private long value = -1;
     @NotNull
     private String name;
     @NotNull
-    private Long typeId;
+    private long type;
     @NotNull
     private String creator;
 
-    public Long getTypeId() {
-        return typeId;
+    public long getType() {
+        return type;
     }
 
-    public void setTypeId(Long typeId) {
-        this.typeId = typeId;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setType(long type) {
+        this.type = type;
     }
 
     public String getCreator() {
@@ -74,7 +63,7 @@ public class CodeValue {
     }
 
     public boolean isNewCodeValue() {
-        return getId().isEmpty();
+        return value < 0;
     }
 
     /*
@@ -83,22 +72,23 @@ public class CodeValue {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || id.isEmpty()) {
+        if (obj == null || isNewCodeValue()) {
             return false;
         }
         if (obj instanceof CodeValue) {
-            return id.equals(((CodeValue) obj).id);
+            CodeValue other = (CodeValue) obj;
+            return (this.type == other.type) && (this.value == other.value);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        if (id.isEmpty()) {
+        if (isNewCodeValue()) {
             return super.hashCode();
         }
 
-        return Objects.hash(id);
+        return Objects.hash(type, value);
     }
 }
 

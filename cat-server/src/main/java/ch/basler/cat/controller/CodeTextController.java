@@ -62,7 +62,7 @@ public class CodeTextController {
     @PostMapping("/codetypes/{type}/codetexte")
     public CodeTextDto create(@RequestBody CodeTextDto codeTextDto) {
         CodeText codeText = convertToEntity(codeTextDto);
-        codeText.setValue(null);
+        codeText.setValue(-1);
         CodeText codeTextCreated = repository.save(codeText);
         return convertToDto(codeTextCreated);
     }

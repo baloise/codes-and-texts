@@ -22,10 +22,10 @@ import javax.persistence.*;
 public class CodeText {
 
     @Id
-    private Long value;
+    private long value;
 
     @Id
-    private Long type;
+    private long type;
 
     private String name;
 
@@ -38,19 +38,19 @@ public class CodeText {
     @Column(name="text_e")
     private String textE;
 
-    public Long getType() {
+    public long getType() {
         return type;
     }
 
-    public void setType(Long codeTyp) {
+    public void setType(long codeTyp) {
         this.type = codeTyp;
     }
 
-    public Long getValue() {
+    public long getValue() {
         return value;
     }
 
-    public void setValue(Long value) {
+    public void setValue(long value) {
         this.value = value;
     }
 

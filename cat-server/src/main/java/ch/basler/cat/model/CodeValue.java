@@ -22,20 +22,20 @@ import javax.persistence.*;
 public class CodeValue {
 
     @Id
-    private Long value;
+    private long value;
 
     @Id
-    private Long type;
+    private long type;
 
     private String creator;
     private String name;
 
-    public Long getType() {
+    public long getType() {
         return type;
     }
 
-    public void setType(Long typeId) {
-        this.type = typeId;
+    public void setType(long type) {
+        this.type = type;
     }
 
     public String getCreator() {
@@ -54,11 +54,11 @@ public class CodeValue {
         this.name = name;
     }
 
-    public Long getValue() {
+    public long getValue() {
         return value;
     }
 
-    public void setValue(Long value) {
+    public void setValue(long value) {
         this.value = value;
     }
 }

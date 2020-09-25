@@ -31,8 +31,8 @@ public interface DataService extends Serializable {
 
     Collection<CodeValue> getAllCodeValues(CodeType codeType);
     void saveCodeValue(CodeValue codeValue);
-    void deleteCodeValue(String codeValueId);
-    CodeValue getCodeValueById(String codeValueId);
+    void deleteCodeValue(long type,long value);
+    CodeValue getCodeValue(long type, long value);
 
 
     static DataService get() {

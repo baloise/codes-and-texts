@@ -23,7 +23,7 @@ public class CodeValueGrid extends Grid<CodeValue> {
 
         setSizeFull();
 
-        addColumn(CodeValue::getId).setHeader("Id")
+        addColumn(CodeValue::getType).setHeader("Type")
                 .setFlexGrow(4).setSortable(true).setKey(ID);
         addColumn(CodeValue::getValue).setHeader("Value")
                 .setFlexGrow(5).setSortable(true).setKey(VALUE);

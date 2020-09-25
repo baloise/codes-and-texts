@@ -25,9 +25,9 @@ public class CodeValueControllerTest {
 
         CodeValue value = controller.convertToEntity(dto);
 
-        assertEquals(3L, value.getType().longValue());
+        assertEquals(3L, value.getType());
         assertEquals("testCode", value.getName());
-        assertEquals(123L, value.getValue().longValue());
+        assertEquals(123L, value.getValue());
     }
 
     @Test
