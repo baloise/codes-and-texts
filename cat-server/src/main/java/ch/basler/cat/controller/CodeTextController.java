@@ -45,21 +45,21 @@ public class CodeTextController {
     }
 
     // Aggregate root
-    @GetMapping("/codetexte")
+    @GetMapping("/codetexts")
     public List<CodeTextDto> all() {
         return IterableUtils.toList(repository.findAll()).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/codetypes/{type}/codetexte")
+    @GetMapping("/codetypes/{type}/codetexts")
     public List<CodeTextDto> all(@PathVariable long type) {
         return IterableUtils.toList(repository.findByType(type)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/codetypes/{type}/codetexte")
+    @PostMapping("/codetypes/{type}/codetexts")
     public CodeTextDto create(@RequestBody CodeTextDto codeTextDto) {
         CodeText codeText = convertToEntity(codeTextDto);
         codeText.setValue(-1);
@@ -68,7 +68,7 @@ public class CodeTextController {
     }
 
     // Single item
-    @GetMapping("/codetypes/{type}/codetexte/{value}")
+    @GetMapping("/codetypes/{type}/codetexts/{value}")
     public CodeTextDto one(@PathVariable long type, @PathVariable long value) {
         CodeText codeValue = repository.findById(CodeTextId.of(type, value))
                 .orElseThrow(() -> new EntityFoundException("codeValue", type + ":" + value));
@@ -76,7 +76,7 @@ public class CodeTextController {
         return convertToDto(codeValue);
     }
 
-    @PutMapping("/codetypes/{type}/codetexte/{value}")
+    @PutMapping("/codetypes/{type}/codetexts/{value}")
     public CodeTextDto update(@RequestBody CodeTextDto newCodeTextDto,
                                @PathVariable long type, @PathVariable long value) {
 
@@ -92,7 +92,7 @@ public class CodeTextController {
                 });
     }
 
-    @DeleteMapping("/codetypes/{type}/codetexte/{value}")
+    @DeleteMapping("/codetypes/{type}/codetexts/{value}")
     public void delete(@PathVariable long type, @PathVariable long value) {
         repository.deleteById(CodeTextId.of(type, value));
     }
