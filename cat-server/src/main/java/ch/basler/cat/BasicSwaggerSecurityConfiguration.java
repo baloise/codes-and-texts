@@ -15,17 +15,20 @@
  */
 package ch.basler.cat;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.service.SecurityScheme;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 
 import java.util.Collections;
 import java.util.List;
 
-@Profile("dev")
 @Configuration
+@ConditionalOnProperty(
+        value = "security.type",
+        havingValue = "basic"
+)
 public class BasicSwaggerSecurityConfiguration {
 
     @Bean

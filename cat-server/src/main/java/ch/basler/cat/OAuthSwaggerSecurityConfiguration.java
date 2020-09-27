@@ -16,9 +16,9 @@
 package ch.basler.cat;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.AuthorizationCodeGrantBuilder;
 import springfox.documentation.builders.OAuthBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -31,8 +31,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@Profile("docker")
 @Configuration
+@ConditionalOnProperty(
+        value = "security.type",
+        havingValue = "keycloak",
+        matchIfMissing = true
+)
 public class OAuthSwaggerSecurityConfiguration {
 
 
