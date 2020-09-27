@@ -22,12 +22,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "responsible")
-public class Responsible {
+@Entity(name = "domain")
+public class Domain {
 
     @Id
-    @GenericGenerator(name = "responsible_id", strategy = "ch.basler.cat.model.ResponsibleIdGenerator")
-    @GeneratedValue(generator = "responsible_id")
+    @GenericGenerator(name = "domain_id", strategy = "ch.basler.cat.model.DomainIdGenerator")
+    @GeneratedValue(generator = "domain_id")
     @Column(name="id")
     private Long id;
     @Column(name = "projectname")

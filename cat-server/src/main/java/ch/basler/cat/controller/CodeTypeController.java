@@ -51,9 +51,9 @@ public class CodeTypeController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/responsibles/{responsibleId}/codetypes")
-    public List<CodeTypeDto> all(@PathVariable long responsibleId) {
-        return IterableUtils.toList(repository.findByResponsibleId(responsibleId)).stream()
+    @GetMapping("/domains/{domainId}/codetypes")
+    public List<CodeTypeDto> all(@PathVariable long domainId) {
+        return IterableUtils.toList(repository.findByDomainId(domainId)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }

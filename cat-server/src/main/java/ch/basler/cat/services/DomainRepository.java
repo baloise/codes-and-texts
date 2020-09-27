@@ -16,11 +16,11 @@
 package ch.basler.cat.services;
 
 
-import ch.basler.cat.model.Responsible;
+import ch.basler.cat.model.Domain;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-public interface ResponsibleRepository extends CrudRepository<Responsible, Long> {
+public interface DomainRepository extends CrudRepository<Domain, Long> {
 
 }

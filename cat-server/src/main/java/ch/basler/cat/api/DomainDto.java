@@ -15,7 +15,7 @@
  */
 package ch.basler.cat.api;
 
-public class ResponsibleDto {
+public class DomainDto {
 
     private long id;
     private String projectName;

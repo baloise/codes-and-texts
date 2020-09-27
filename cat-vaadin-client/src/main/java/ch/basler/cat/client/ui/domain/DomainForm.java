@@ -1,6 +1,6 @@
-package ch.basler.cat.client.ui.responsible;
+package ch.basler.cat.client.ui.domain;
 
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -19,9 +19,9 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
- * A form for editing a single responsible.
+ * A form for editing a single domain.
  */
-public class ResponsibleForm extends Div {
+public class DomainForm extends Div {
 
     private final VerticalLayout content;
     private final TextField id;
@@ -36,13 +36,13 @@ public class ResponsibleForm extends Div {
     private Button cancel;
     private final Button delete;
 
-    private final ResponsibleViewLogic viewLogic;
-    private final Binder<Responsible> binder;
-    private Responsible currentResponsible;
+    private final DomainViewLogic viewLogic;
+    private final Binder<Domain> binder;
+    private Domain currentDomain;
 
-    private static class ResponsibleIdConverter extends StringToLongConverter {
+    private static class DomainIdConverter extends StringToLongConverter {
 
-        public ResponsibleIdConverter() {
+        public DomainIdConverter() {
             super(Long.valueOf(0), "Could not convert value to " + Long.class.getName()
                     + ".");
         }
@@ -61,12 +61,12 @@ public class ResponsibleForm extends Div {
             return format;
         }
     }
-    public ResponsibleForm(ResponsibleViewLogic sampleCrudLogic) {
-        setClassName("responsible-form");
+    public DomainForm(DomainViewLogic sampleCrudLogic) {
+        setClassName("domain-form");
 
         content = new VerticalLayout();
         content.setSizeUndefined();
-        content.addClassName("responsible-form-content");
+        content.addClassName("domain-form-content");
         add(content);
 
         viewLogic = sampleCrudLogic;
@@ -101,8 +101,8 @@ public class ResponsibleForm extends Div {
         creator.addThemeVariants(TextFieldVariant.LUMO_ALIGN_RIGHT);
         content.add(creator);
 
-        binder = new BeanValidationBinder<>(Responsible.class);
-        binder.forField(id).withConverter(new ResponsibleIdConverter() )
+        binder = new BeanValidationBinder<>(Domain.class);
+        binder.forField(id).withConverter(new DomainIdConverter() )
                 .bind("id");
         binder.bindInstanceFields(this);
 
@@ -117,9 +117,9 @@ public class ResponsibleForm extends Div {
         save.setWidth("100%");
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         save.addClickListener(event -> {
-            if (currentResponsible != null
-                    && binder.writeBeanIfValid(currentResponsible)) {
-                viewLogic.saveResponsible(currentResponsible);
+            if (currentDomain != null
+                    && binder.writeBeanIfValid(currentDomain)) {
+                viewLogic.saveDomain(currentDomain);
             }
         });
         save.addClickShortcut(Key.KEY_S, KeyModifier.CONTROL);
@@ -127,14 +127,14 @@ public class ResponsibleForm extends Div {
         discard = new Button("Discard changes");
         discard.setWidth("100%");
         discard.addClickListener(
-                event -> viewLogic.editResponsible(currentResponsible));
+                event -> viewLogic.editDomain(currentDomain));
 
         cancel = new Button("Cancel");
         cancel.setWidth("100%");
-        cancel.addClickListener(event -> viewLogic.cancelResponsible());
+        cancel.addClickListener(event -> viewLogic.cancelDomain());
         cancel.addClickShortcut(Key.ESCAPE);
         getElement()
-                .addEventListener("keydown", event -> viewLogic.cancelResponsible())
+                .addEventListener("keydown", event -> viewLogic.cancelDomain())
                 .setFilter("event.key == 'Escape'");
 
         delete = new Button("Delete");
@@ -142,8 +142,8 @@ public class ResponsibleForm extends Div {
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR,
                 ButtonVariant.LUMO_PRIMARY);
         delete.addClickListener(event -> {
-            if (currentResponsible != null) {
-                viewLogic.deleteResponsible(currentResponsible);
+            if (currentDomain != null) {
+                viewLogic.deleteDomain(currentDomain);
             }
         });
 
@@ -151,12 +151,12 @@ public class ResponsibleForm extends Div {
     }
 
 
-    public void editResponsible(Responsible responsible) {
-        if (responsible == null) {
-            responsible = new Responsible();
+    public void editDomain(Domain Domain) {
+        if (Domain == null) {
+            Domain = new Domain();
         }
-        delete.setVisible(!responsible.isNewResponsible());
-        currentResponsible = responsible;
-        binder.readBean(responsible);
+        delete.setVisible(!Domain.isNewDomain());
+        currentDomain = Domain;
+        binder.readBean(Domain);
     }
 }

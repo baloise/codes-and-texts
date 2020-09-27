@@ -1,13 +1,13 @@
 package ch.basler.cat.mapper;
 
-import ch.basler.cat.api.ResponsibleDto;
-import ch.basler.cat.model.Responsible;
+import ch.basler.cat.api.DomainDto;
+import ch.basler.cat.model.Domain;
 
-public class ResponsibleDtoMapper extends DtoMapper<ResponsibleDto, Responsible> {
+public class DomainDtoMapper extends DtoMapper<DomainDto, Domain> {
 
     @Override
-    protected ResponsibleDto entityToDto(Responsible entity) {
-        ResponsibleDto mapped = new ResponsibleDto();
+    protected DomainDto entityToDto(Domain entity) {
+        DomainDto mapped = new DomainDto();
         mapped.setId(entity.getId());
         mapped.setPrefix(trim(entity.getPrefix()));
         mapped.setProjectName(trim(entity.getProjectName()));
@@ -18,8 +18,8 @@ public class ResponsibleDtoMapper extends DtoMapper<ResponsibleDto, Responsible>
     }
 
     @Override
-    protected Responsible dtoToEntity(ResponsibleDto dto) {
-        Responsible mapped = new Responsible();
+    protected Domain dtoToEntity(DomainDto dto) {
+        Domain mapped = new Domain();
         mapped.setId(dto.getId());
         mapped.setPrefix(trim(dto.getPrefix()));
         mapped.setProjectName(trim(dto.getProjectName()));

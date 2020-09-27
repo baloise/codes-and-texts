@@ -1,25 +1,24 @@
 package ch.basler.cat.controller;
 
-import ch.basler.cat.api.ResponsibleDto;
-import ch.basler.cat.model.Responsible;
+import ch.basler.cat.api.DomainDto;
+import ch.basler.cat.model.Domain;
 import org.junit.Before;
 import org.junit.Test;
-import org.modelmapper.ModelMapper;
 
 import static org.junit.Assert.*;
 
-public class ResponsibleControllerTest {
+public class DomainControllerTest {
 
-    private ResponsibleController controller;
+    private DomainController controller;
 
     @Before
     public void setUp() throws Exception {
-        controller = new ResponsibleController(null);
+        controller = new DomainController(null);
     }
 
     @Test
     public void convertToDto() {
-        Responsible entity = new Responsible();
+        Domain entity = new Domain();
         entity.setId(1L);
         entity.setCreator("testCreator");
         entity.setPrefix("testPrefix");
@@ -27,7 +26,7 @@ public class ResponsibleControllerTest {
         entity.setProjectName("testProject");
         entity.setEmail("testEmail");
 
-        ResponsibleDto mapped = controller.convertToDto(entity);
+        DomainDto mapped = controller.convertToDto(entity);
 
         assertEquals(entity.getId().longValue(), mapped.getId());
         assertEquals(entity.getCreator(), mapped.getCreator());
@@ -39,7 +38,7 @@ public class ResponsibleControllerTest {
 
     @Test
     public void convertToEntity() {
-        ResponsibleDto dto = new ResponsibleDto();
+        DomainDto dto = new DomainDto();
         dto.setId(1);
         dto.setCreator("testCreator");
         dto.setPrefix("testPrefix");
@@ -47,7 +46,7 @@ public class ResponsibleControllerTest {
         dto.setProjectName("testProject");
         dto.setEmail("testEmail");
 
-        Responsible mapped = controller.convertToEntity(dto);
+        Domain mapped = controller.convertToEntity(dto);
 
         assertEquals(dto.getId(), mapped.getId().longValue());
         assertEquals(dto.getCreator(), mapped.getCreator());

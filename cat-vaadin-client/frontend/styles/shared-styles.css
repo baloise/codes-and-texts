@@ -78,7 +78,7 @@ a[highlight] {
     margin-top: var(--_vaadin-app-layout-navbar-offset-size);
 }
 
-.responsible-form {
+.domain-form {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -88,7 +88,7 @@ a[highlight] {
     box-shadow: var(--overlay-box-shadow);
 }
 
-.responsible-form-content {
+.domain-form-content {
     margin-top: var(--_vaadin-app-layout-navbar-offset-size);
 }
 

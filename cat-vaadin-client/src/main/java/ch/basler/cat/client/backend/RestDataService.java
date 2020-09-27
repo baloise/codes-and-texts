@@ -8,7 +8,7 @@ import java.util.Collections;
 public class RestDataService extends AbstractRestDataService implements DataService {
 
     public static final String APPLICATIONS = "applications";
-    public static final String RESPONSIBLES = "responsibles";
+    public static final String DOMAINS = "domains";
     public static final String CODETYPES = "codetypes";
     public static final String CODEVALUES = "codevalues";
     private static RestDataService INSTANCE;
@@ -45,27 +45,27 @@ public class RestDataService extends AbstractRestDataService implements DataServ
     }
 
     @Override
-    public Collection<Responsible> getAllResponsibles() {
-        return getAllData(RESPONSIBLES, Responsible[].class);
+    public Collection<Domain> getAllDomains() {
+        return getAllData(DOMAINS, Domain[].class);
     }
 
     @Override
-    public void saveResponsible(Responsible responsible) {
-        if (responsible.isNewResponsible()) {
-            createData(RESPONSIBLES, responsible, Responsible.class);
+    public void saveDomain(Domain domain) {
+        if (domain.isNewDomain()) {
+            createData(DOMAINS, domain, Domain.class);
         } else {
-            updateData(RESPONSIBLES, responsible.getId(), responsible);
+            updateData(DOMAINS, domain.getId(), domain);
         }
     }
 
     @Override
-    public void deleteResponsible(long responsibleId) {
-        deleteData(RESPONSIBLES, responsibleId);
+    public void deleteDomain(long domainId) {
+        deleteData(DOMAINS, domainId);
     }
 
     @Override
-    public Responsible getResponsibleById(long responsibleId) {
-        return getById(RESPONSIBLES, responsibleId, Responsible.class);
+    public Domain getDomainById(long domainId) {
+        return getById(DOMAINS, domainId, Domain.class);
     }
 
     @Override

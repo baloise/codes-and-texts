@@ -1,10 +1,9 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeType;
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 import ch.basler.cat.client.ui.MainLayout;
-import ch.basler.cat.client.ui.application.ApplicationDataProvider;
-import ch.basler.cat.client.ui.responsible.ResponsibleDataProvider;
+import ch.basler.cat.client.ui.domain.DomainDataProvider;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -33,7 +32,7 @@ public class CodeTypeView extends HorizontalLayout
     private final CodeTypeGrid grid;
     private final CodeTypeForm form;
     //    private TextField filter;
-    private Select<Responsible> responsibleSelect;
+    private Select<Domain> domainSelect;
 
     private final CodeTypeViewLogic viewLogic = new CodeTypeViewLogic(this);
     private Button newCodeType;
@@ -67,10 +66,10 @@ public class CodeTypeView extends HorizontalLayout
     }
 
     private HorizontalLayout createTopBar() {
-        responsibleSelect = new Select<>();
-        responsibleSelect.setPlaceholder("Select responsible");
-        responsibleSelect.setItems(new ResponsibleDataProvider().getItems());
-        responsibleSelect.addValueChangeListener(changeEvent -> {
+        domainSelect = new Select<>();
+        domainSelect.setPlaceholder("Select Domain");
+        domainSelect.setItems(new DomainDataProvider().getItems());
+        domainSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 newCodeType.setEnabled(true);
                 dataProvider.setFilter(changeEvent.getValue().getId());
@@ -91,10 +90,10 @@ public class CodeTypeView extends HorizontalLayout
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
 //        topLayout.add(filter);
-        topLayout.add(responsibleSelect);
+        topLayout.add(domainSelect);
         topLayout.add(newCodeType);
-        topLayout.setVerticalComponentAlignment(Alignment.START, responsibleSelect);
-        topLayout.expand(responsibleSelect);
+        topLayout.setVerticalComponentAlignment(Alignment.START, domainSelect);
+        topLayout.expand(domainSelect);
         return topLayout;
     }
 
@@ -174,9 +173,9 @@ public class CodeTypeView extends HorizontalLayout
     public void editCodeType(CodeType codeType) {
         if (codeType != null) {
             showForm(codeType != null);
-            if (codeType.isNewCodeType() && responsibleSelect != null && responsibleSelect.getValue() != null ) {
-                long responsibleId = responsibleSelect.getValue().getId();
-                codeType.setResponsible(responsibleId);
+            if (codeType.isNewCodeType() && domainSelect != null && domainSelect.getValue() != null ) {
+                long DomainId = domainSelect.getValue().getId();
+                codeType.setDomain(DomainId);
             }
             form.editCodeType(codeType);
         }

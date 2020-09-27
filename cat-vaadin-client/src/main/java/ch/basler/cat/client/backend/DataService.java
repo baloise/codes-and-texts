@@ -3,7 +3,7 @@ package ch.basler.cat.client.backend;
 import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -18,10 +18,10 @@ public interface DataService extends Serializable {
     void deleteApplication(long applicationId);
     Application getApplicationById(long applicationId);
     
-    Collection<Responsible> getAllResponsibles();
-    void saveResponsible(Responsible r);
-    void deleteResponsible(long responsibleId);
-    Responsible getResponsibleById(long responsibleId);
+    Collection<Domain> getAllDomains();
+    void saveDomain(Domain r);
+    void deleteDomain(long domainId);
+    Domain getDomainById(long domainId);
 
     Collection<CodeType> getAllCodeTypes();
     void saveCodeType(CodeType ct);

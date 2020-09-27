@@ -20,7 +20,7 @@ public class CodeTypeDto {
     private long id;
     private String creator;
     private String name;
-    private long responsible;
+    private long domain;
 
     public long getId() {
         return id;
@@ -46,11 +46,11 @@ public class CodeTypeDto {
         this.name = name;
     }
 
-    public long getResponsible() {
-        return responsible;
+    public long getDomain() {
+        return domain;
     }
 
-    public void setResponsible(long responsible) {
-        this.responsible = responsible;
+    public void setDomain(long Domain) {
+        this.domain = Domain;
     }
 }

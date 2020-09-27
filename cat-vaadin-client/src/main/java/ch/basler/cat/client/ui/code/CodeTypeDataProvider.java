@@ -1,9 +1,7 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.DataService;
-import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.backend.data.CodeType;
-import ch.basler.cat.client.backend.data.Responsible;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
 import java.util.Comparator;
@@ -74,8 +72,8 @@ public class CodeTypeDataProvider extends ListDataProvider<CodeType> {
         this.setFilter(codeType -> passesFilter(codeType.getName(), this.filterText));
     }
 
-    public void setFilter(Long responsibleId) {
-        super.setFilter(codeType -> codeType.getResponsible().equals(responsibleId));
+    public void setFilter(Long domainId) {
+        super.setFilter(codeType -> codeType.getDomain().equals(domainId));
     }
 
     @Override

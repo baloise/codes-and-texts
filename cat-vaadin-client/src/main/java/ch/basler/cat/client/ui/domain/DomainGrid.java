@@ -1,17 +1,17 @@
-package ch.basler.cat.client.ui.responsible;
+package ch.basler.cat.client.ui.domain;
 
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.notification.Notification;
 
 /**
- * Grid of responsibles, handling the visual presentation and filtering of a set of
+ * Grid of Domains, handling the visual presentation and filtering of a set of
  * items. This version uses an in-memory data source that is suitable for small
  * data sets.
  */
-public class ResponsibleGrid extends Grid<Responsible> {
+public class DomainGrid extends Grid<Domain> {
 
     public static final String ID = "id";
     public static final String PROJECT_NAME = "project name";
@@ -20,20 +20,20 @@ public class ResponsibleGrid extends Grid<Responsible> {
     public static final String PACKAGENAME = "packagename";
     public static final String CREATOR = "creator";
 
-    public ResponsibleGrid() {
+    public DomainGrid() {
 
         setSizeFull();
-        addColumn(Responsible::getId).setHeader("Id")
+        addColumn(Domain::getId).setHeader("Id")
                 .setFlexGrow(20).setSortable(true).setKey(ID);
-        addColumn(Responsible::getPrefix).setHeader("Prefix")
+        addColumn(Domain::getPrefix).setHeader("Prefix")
                 .setFlexGrow(20).setSortable(true).setKey(PREFIX);
-        addColumn(Responsible::getProjectName).setHeader("Project Name")
+        addColumn(Domain::getProjectName).setHeader("Project Name")
                 .setFlexGrow(20).setSortable(true).setKey(PROJECT_NAME);
-        addColumn(Responsible::getPackageName).setHeader("Package Name")
+        addColumn(Domain::getPackageName).setHeader("Package Name")
                 .setFlexGrow(20).setSortable(true).setKey(PACKAGENAME);
-        addColumn(Responsible::getEmail).setHeader("email")
+        addColumn(Domain::getEmail).setHeader("email")
                 .setFlexGrow(20).setSortable(true).setKey(EMAIL);
-        addColumn(Responsible::getCreator).setHeader("Creator")
+        addColumn(Domain::getCreator).setHeader("Creator")
                 .setFlexGrow(20).setSortable(true).setKey(CREATOR);
 
 
@@ -80,13 +80,13 @@ public class ResponsibleGrid extends Grid<Responsible> {
         });
     }
 
-    public Responsible getSelectedRow() {
+    public Domain getSelectedRow() {
         Notification.show("asdasd");
         return asSingleSelect().getValue();
     }
 
-    public void refresh(Responsible  responsible) {
-        getDataCommunicator().refresh(responsible);
+    public void refresh(Domain  Domain) {
+        getDataCommunicator().refresh(Domain);
     }
 
 }

@@ -6,7 +6,7 @@ import ch.basler.cat.client.ui.about.AboutView;
 import ch.basler.cat.client.ui.application.ApplicationView;
 import ch.basler.cat.client.ui.code.CodeTypeView;
 import ch.basler.cat.client.ui.code.CodeValueView;
-import ch.basler.cat.client.ui.responsible.ResponsibleView;
+import ch.basler.cat.client.ui.domain.DomainView;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Key;
@@ -73,7 +73,7 @@ public class MainLayout extends AppLayout implements RouterLayout {
         // Navigation items
         addToDrawer(createMenuLink(ApplicationView.class, ApplicationView.VIEW_NAME,
                 VaadinIcon.AUTOMATION.create()));
-        addToDrawer(createMenuLink(ResponsibleView.class, ResponsibleView.VIEW_NAME,
+        addToDrawer(createMenuLink(DomainView.class, DomainView.VIEW_NAME,
                 VaadinIcon.GROUP.create()));
         addToDrawer(createMenuLink(CodeTypeView.class, CodeTypeView.VIEW_NAME,
                 VaadinIcon.CODE.create()));
