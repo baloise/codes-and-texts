@@ -28,7 +28,6 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 /** JWT converter that takes the roles from 'groups' claim of JWT token. */
-@SuppressWarnings("unused")
 public class JwtTokenConverter
         implements Converter<Jwt, AbstractAuthenticationToken> {
     private static final String REALM_ACCESS_CLAIM = "realm_access";
@@ -48,7 +47,6 @@ public class JwtTokenConverter
                 .collect(Collectors.toList());
     }
 
-    @SuppressWarnings("unchecked")
     private Collection<String> getRoles(Jwt jwt) {
         Object realms = jwt.getClaims().get(REALM_ACCESS_CLAIM);
 

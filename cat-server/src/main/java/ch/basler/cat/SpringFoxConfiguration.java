@@ -30,17 +30,18 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @Configuration
 public class SpringFoxConfiguration {
 
-    private final SecurityScheme securityScheme;
-    private final SecurityContext securityContext;
+    private final List<SecurityScheme> securitySchemes;
+    private final List<SecurityContext> securityContexts;
 
     @Autowired
-    public SpringFoxConfiguration(SecurityScheme securityScheme, SecurityContext securityContext) {
-        this.securityScheme = securityScheme;
-        this.securityContext = securityContext;
+    public SpringFoxConfiguration(List<SecurityScheme> securitySchemes, List<SecurityContext> securityContexts) {
+        this.securitySchemes = securitySchemes;
+        this.securityContexts = securityContexts;
     }
 
     private ApiInfo apiInfo() {
@@ -63,8 +64,8 @@ public class SpringFoxConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("ch.basler.cat.controller"))
                 .paths(PathSelectors.any())
                 .build()
-                .securitySchemes(Collections.singletonList(securityScheme))
-                .securityContexts(Collections.singletonList(securityContext));
+                .securitySchemes(securitySchemes)
+                .securityContexts(securityContexts);
     }
 
     /**

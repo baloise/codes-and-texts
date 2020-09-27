@@ -18,6 +18,7 @@ package ch.basler.cat;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.AuthorizationCodeGrantBuilder;
 import springfox.documentation.builders.OAuthBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -27,7 +28,10 @@ import springfox.documentation.swagger.web.SecurityConfiguration;
 import springfox.documentation.swagger.web.SecurityConfigurationBuilder;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
+@Profile("docker")
 @Configuration
 public class OAuthSwaggerSecurityConfiguration {
 
@@ -52,7 +56,7 @@ public class OAuthSwaggerSecurityConfiguration {
     }
 
     @Bean
-    public SecurityScheme securityScheme() {
+    public List<SecurityScheme> securitySchemes() {
 
         GrantType grantType = new AuthorizationCodeGrantBuilder()
                 .tokenEndpoint(new TokenEndpoint(host + "/protocol/openid-connect/token", "oauthtoken"))
@@ -63,16 +67,16 @@ public class OAuthSwaggerSecurityConfiguration {
         SecurityScheme oauth = new OAuthBuilder().name(SECURITY_SCHEME_NAME)
                 .grantTypes(Arrays.asList(grantType))
                 .build();
-        return oauth;
+        return Collections.singletonList(oauth);
     }
 
     @Bean
-    public SecurityContext securityContext() {
-        return SecurityContext.builder()
+    public List<SecurityContext> securityContexts() {
+        return Collections.singletonList(SecurityContext.builder()
                 .securityReferences(
                         Arrays.asList(SecurityReference.builder().reference(SECURITY_SCHEME_NAME).scopes(new AuthorizationScope[0]).build())
                 )
                 .forPaths(PathSelectors.any())
-                .build();
+                .build());
     }
 }
