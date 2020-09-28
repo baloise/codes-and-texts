@@ -1,6 +1,7 @@
 package ch.basler.cat.config;
 
 import ch.basler.cat.security.JwtTokenConverter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -19,6 +20,11 @@ import java.util.Collections;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
+@ConditionalOnProperty(
+        value = "security.type",
+        havingValue = "keycloak",
+        matchIfMissing = true
+)
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class OAuthWebSecurityConfiguration extends WebSecurityConfigurerAdapter {

@@ -16,6 +16,7 @@
 package ch.basler.cat;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.AuthorizationCodeGrantBuilder;
@@ -31,6 +32,11 @@ import java.util.Collections;
 import java.util.List;
 
 @Configuration
+@ConditionalOnProperty(
+        value = "security.type",
+        havingValue = "keycloak",
+        matchIfMissing = true
+)
 public class OAuthSwaggerSecurityConfiguration {
 
 
