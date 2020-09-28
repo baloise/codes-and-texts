@@ -1,6 +1,7 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeType;
+import ch.basler.cat.client.common.converter.UpperCaseNoSpacesConverter;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -44,6 +45,8 @@ public class CodeTypeForm extends Div {
                     + ".");
         }
 
+
+
         @Override
         protected NumberFormat getFormat(Locale locale) {
             // Do not use a thousands separator, as HTML5 input type
@@ -58,6 +61,7 @@ public class CodeTypeForm extends Div {
             return format;
         }
     }
+
     public CodeTypeForm(CodeTypeViewLogic sampleCrudLogic) {
         setClassName("codeType-form");
 
@@ -76,6 +80,8 @@ public class CodeTypeForm extends Div {
         name = new TextField("CodeType name");
         name.setRequired(true);
         name.setValueChangeMode(ValueChangeMode.EAGER);
+
+        // name.setClassName("uppercase");
         content.add(name);
 
         creator = new TextField("Creator");
@@ -84,8 +90,9 @@ public class CodeTypeForm extends Div {
         content.add(creator);
 
         binder = new BeanValidationBinder<>(CodeType.class);
-        binder.forField(id).withConverter(new CodeTypeIdConverter() )
-                .bind("id");
+
+        binder.forField(name).withConverter(new UpperCaseNoSpacesConverter()).bind("name");
+        binder.forField(id).withConverter(new CodeTypeIdConverter()).bind("id");
         binder.bindInstanceFields(this);
 
         // enable/disable save button while editing

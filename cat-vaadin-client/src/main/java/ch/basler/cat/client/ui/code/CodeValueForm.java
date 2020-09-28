@@ -1,6 +1,7 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeValue;
+import ch.basler.cat.client.common.converter.UpperCaseNoSpacesConverter;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -90,8 +91,8 @@ public class CodeValueForm extends Div {
         content.add(creator);
 
         binder = new BeanValidationBinder<>(CodeValue.class);
-        binder.forField(value).withConverter(new CodeValueValueConverter() )
-                .bind("value");
+        binder.forField(value).withConverter(new CodeValueValueConverter()).bind("value");
+        binder.forField(name).withConverter(new UpperCaseNoSpacesConverter()).bind("name");
         binder.bindInstanceFields(this);
 
         // enable/disable save button while editing
