@@ -17,7 +17,7 @@ package ch.basler.cat.services;
 
 
 import ch.basler.cat.model.CodeText;
-import ch.basler.cat.model.CodeValue;
+import ch.basler.cat.model.CodeTextId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin
-public interface CodeTextRepository extends CrudRepository<CodeText, String> {
+public interface CodeTextRepository extends CrudRepository<CodeText, CodeTextId> {
 
-    List<CodeText> findByTypeId(@Param("typeId") long typeId);
+    List<CodeText> findByType(@Param("type") long type);
 }

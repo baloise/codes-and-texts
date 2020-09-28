@@ -20,32 +20,33 @@ public class CodeTextControllerTest {
     @Test
     public void convertToEntity() {
         CodeTextDto dto = new CodeTextDto();
-        dto.setId("1");
-//        dto.setCodeType(3L);
-        dto.setName("testCode");
+        dto.setType(3L);
         dto.setValue(123L);
+        dto.setName("testCode");
+        dto.setTextD("testText");
 
-        CodeText value = controller.convertToEntity(dto);
+        CodeText mapped = controller.convertToEntity(dto);
 
-        assertEquals("1", value.getId());
-        assertEquals("testCode", value.getName());
-        assertEquals(123L, value.getValue());
+        assertEquals(dto.getType(), mapped.getType());
+        assertEquals(dto.getValue(), mapped.getValue());
+        assertEquals(dto.getName(), mapped.getName());
+        assertEquals(dto.getTextD(), mapped.getTextD());
     }
 
     @Test
     public void convertToDto() {
-        CodeType testType = new CodeType();
-        testType.setId(3L);
-        CodeText value = new CodeText();
-        value.setId("1");
-        value.setName("testCode");
-        value.setValue(123L);
+        CodeText entity = new CodeText();
+        entity.setType(1L);
+        entity.setValue(123L);
+        entity.setName("testCode");
+        entity.setTextD("testText");
 
-        CodeTextDto dto = controller.convertToDto(value);
+        CodeTextDto mapped = controller.convertToDto(entity);
 
-        assertEquals("1", dto.getId());
-        assertEquals("testCode", dto.getName());
-        assertEquals(123L, dto.getValue());
+        assertEquals(entity.getType(), mapped.getType());
+        assertEquals(entity.getValue(), mapped.getValue());
+        assertEquals(entity.getName(), mapped.getName());
+        assertEquals(entity.getTextD(), mapped.getTextD());
     }
 
 }

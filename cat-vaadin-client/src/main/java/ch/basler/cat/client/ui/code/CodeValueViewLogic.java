@@ -3,6 +3,7 @@ package ch.basler.cat.client.ui.code;
 import ch.basler.cat.client.authentication.AccessControl;
 import ch.basler.cat.client.authentication.AccessControlFactory;
 import ch.basler.cat.client.backend.DataService;
+import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
 import com.vaadin.flow.component.UI;
 
@@ -64,20 +65,16 @@ public class CodeValueViewLogic implements Serializable {
      * entering a new codeValue if codeValueId is null, otherwise loads the codeValue
      * with the given codeValueId and shows its data in the form fields so the
      * user can edit them.
-     *
-     * 
-     * @param codeValueId
      */
-    public void enter(String codeValueId) {
-        if (codeValueId != null && !codeValueId.isEmpty()) {
-            if (codeValueId.equals("new")) {
+    public void enter(CodeType codeType, String valueString) {
+        if (valueString != null && !valueString.isEmpty()) {
+            if (valueString.equals("new")) {
                 newCodeValue();
             } else {
                 // Ensure this is selected even if coming directly here from
                 // login
                 try {
-
-                    final CodeValue codeValue = findCodeValue(codeValueId);
+                    final CodeValue codeValue = findCodeValue(codeType, Long.parseLong(valueString));
                     view.selectRow(codeValue);
                 } catch (final NumberFormatException e) {
                 }
@@ -87,8 +84,8 @@ public class CodeValueViewLogic implements Serializable {
         }
     }
 
-    private CodeValue findCodeValue(String codeValueId) {
-        return DataService.get().getCodeValueById(codeValueId);
+    private CodeValue findCodeValue(CodeType codeType, long value) {
+        return DataService.get().getCodeValue(codeType.getId(), value);
     }
 
     public void saveCodeValue(CodeValue codeValue) {
@@ -111,7 +108,7 @@ public class CodeValueViewLogic implements Serializable {
         if (codeValue == null) {
             setFragmentParameter("");
         } else {
-            setFragmentParameter(codeValue.getId() + "");
+            setFragmentParameter(codeValue.getType() + ":" + codeValue.getValue());
         }
         view.editCodeValue(codeValue);
     }

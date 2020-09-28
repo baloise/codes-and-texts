@@ -52,17 +52,17 @@ public class CodeValueController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/codetypes/{typeId}/codevalues")
-    public List<CodeValueDto> all(@PathVariable long typeId) {
-        return IterableUtils.toList(repository.findByTypeId(typeId)).stream()
+    @GetMapping("/codetypes/{type}/codevalues")
+    public List<CodeValueDto> all(@PathVariable long type) {
+        return IterableUtils.toList(repository.findByType(type)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/codevalues")
+    @PostMapping("/codetypes/{type}/codevalues")
     public CodeValueDto create(@RequestBody CodeValueDto codeValueDto) {
         CodeValue codeValue = convertToEntity(codeValueDto);
-        codeValue.setId(null);
+        codeValue.setValue(-1);
         if (codeValue.getCreator() == null) {
             codeValue.setCreator("");
         }
@@ -71,32 +71,33 @@ public class CodeValueController {
     }
 
     // Single item
-    @GetMapping("/codevalues/{id}")
-    public CodeValueDto one(@PathVariable("id") String id) {
-        CodeValue codeValue = repository.findById(CodeValueId.of(id))
-                .orElseThrow(() -> new EntityFoundException("codeValue", id));
+    @GetMapping("/codetypes/{type}/codevalues/{value}")
+    public CodeValueDto one(@PathVariable long type, @PathVariable long value) {
+        CodeValue codeValue = repository.findById(CodeValueId.of(type, value))
+                .orElseThrow(() -> new EntityFoundException("codeValue", type + ":" + value));
 
         return convertToDto(codeValue);
     }
 
-    @PutMapping("/codevalues/{id}")
+    @PutMapping("/codetypes/{type}/codevalues/{value}")
     public CodeValueDto update(@RequestBody CodeValueDto newCodeValueDto,
-                               @PathVariable("id") String id) {
+                               @PathVariable long type, @PathVariable long value) {
 
         CodeValue newCodeValue = convertToEntity(newCodeValueDto);
-        return repository.findById(CodeValueId.of(id))
+        return repository.findById(CodeValueId.of(type, value))
                 .map((codeValue -> {
                     modelMapper.map(newCodeValue, codeValue);
                     return convertToDto(repository.save(codeValue));
                 })).orElseGet(() -> {
-                    newCodeValue.setId(id);
+                    newCodeValue.setType(type);
+                    newCodeValue.setValue(value);
                     return convertToDto(repository.save(newCodeValue));
                 });
     }
 
-    @DeleteMapping("/codevalues/{id}")
-    public void delete(@PathVariable("id") String id) {
-        repository.deleteById(CodeValueId.of(id));
+    @DeleteMapping("/codetypes/{type}/codevalues/{value}")
+    public void delete(@PathVariable long type, @PathVariable long value) {
+        repository.deleteById(CodeValueId.of(type, value));
     }
 
     CodeValueDto convertToDto(CodeValue codeValue) {

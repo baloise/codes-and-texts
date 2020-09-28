@@ -16,7 +16,7 @@
 package ch.basler.cat.services;
 
 
-import ch.basler.cat.model.LabelText;
+import ch.basler.cat.model.Text;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin
-public interface LabelTextRepository extends CrudRepository<LabelText, String> {
+public interface TextRepository extends CrudRepository<Text, Long> {
 
-    List<LabelText> findByAppId(@Param("appId") long appId);
 }

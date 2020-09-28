@@ -13,41 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat.api;
+package ch.basler.cat.client.backend.data;
 
-public class LabelTextDto {
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
-    private String id;
-    private long appId;
-    private String name;
+public class TextData {
+
+    @NotNull
+    private long id;
+    @NotNull
+    private long type;
 
     private String textD;
     private String textF;
     private String textI;
     private String textE;
 
-    public String getId() {
+    private String creator;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public long getAppId() {
-        return appId;
+    public long getType() {
+        return type;
     }
 
-    public void setAppId(long appId) {
-        this.appId = appId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setType(long type) {
+        this.type = type;
     }
 
     public String getTextD() {
@@ -80,5 +78,35 @@ public class LabelTextDto {
 
     public void setTextE(String textE) {
         this.textE = textE;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    @Override
+    public String toString() {
+        return id + "::[" + textD.trim() + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TextData textData = (TextData) o;
+        return id == textData.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public boolean isNewText() {
+        return id < 0;
     }
 }

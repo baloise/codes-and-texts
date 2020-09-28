@@ -15,10 +15,10 @@
  */
 package ch.basler.cat.controller;
 
-import ch.basler.cat.api.LabelTextDto;
-import ch.basler.cat.mapper.LabelTextDtoMapper;
-import ch.basler.cat.model.LabelText;
-import ch.basler.cat.services.LabelTextRepository;
+import ch.basler.cat.api.TextDto;
+import ch.basler.cat.mapper.TextDtoMapper;
+import ch.basler.cat.model.Text;
+import ch.basler.cat.services.TextRepository;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -30,75 +30,68 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class LabelTextController {
+public class TextController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LabelTextController.class);
-    private final LabelTextRepository repository;
+    private static final Logger logger = LoggerFactory.getLogger(TextController.class);
+    private final TextRepository repository;
 
     private final ModelMapper modelMapper = new ModelMapper();
-    private final LabelTextDtoMapper dtoMapper = new LabelTextDtoMapper();
+    private final TextDtoMapper dtoMapper = new TextDtoMapper();
 
     @Autowired
-    public LabelTextController(LabelTextRepository repository) {
+    public TextController(TextRepository repository) {
         this.repository = repository;
     }
 
     // Aggregate root
-    @GetMapping("/labeltexte")
-    public List<LabelTextDto> all() {
+    @GetMapping("/texts")
+    public List<TextDto> all() {
         return IterableUtils.toList(repository.findAll()).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/applications/{appId}/labeltexte")
-    public List<LabelTextDto> all(@PathVariable long appId) {
-        return IterableUtils.toList(repository.findByAppId(appId)).stream()
-                .map(this::convertToDto)
-                .collect(Collectors.toList());
-    }
-
-    @PostMapping("/labeltexte")
-    public LabelTextDto create(@RequestBody LabelTextDto dto) {
-        LabelText entity = convertToEntity(dto);
-        LabelText entityCreated = repository.save(entity);
+    @PostMapping("/texts")
+    public TextDto create(@RequestBody TextDto dto) {
+        Text entity = convertToEntity(dto);
+        Text entityCreated = repository.save(entity);
         return convertToDto(entityCreated);
     }
 
     // Single item
-    @GetMapping("/labeltexte/{id}")
-    public LabelTextDto one(@PathVariable("id") String id) {
-        LabelText codeValue = repository.findById(id)
+    @GetMapping("/texts/{id}")
+    public TextDto one(@PathVariable long id) {
+        Text codeValue = repository.findById(id)
                 .orElseThrow(() -> new EntityFoundException("codeValue", id));
 
         return convertToDto(codeValue);
     }
 
-    @PutMapping("/labeltexte/{id}")
-    public LabelTextDto update(@RequestBody LabelTextDto newLabelTextDto,
-                               @PathVariable("id") String id) {
+    @PutMapping("/texts/{id}")
+    public TextDto update(@RequestBody TextDto newTextDto,
+                          @PathVariable long id) {
 
-        LabelText newLabelText = convertToEntity(newLabelTextDto);
+        Text newText = convertToEntity(newTextDto);
         return repository.findById(id)
                 .map((labelText -> {
-                    modelMapper.map(newLabelText, labelText);
+                    modelMapper.map(newText, labelText);
                     return convertToDto(repository.save(labelText));
                 })).orElseGet(() -> {
-                    newLabelText.setId(id);
-                    return convertToDto(repository.save(newLabelText));
+                    newText.setId(id);
+                    return convertToDto(repository.save(newText));
                 });
     }
 
-    @DeleteMapping("/labeltexte/{id}")
-    public void delete(@PathVariable("id") String id) {
+    @DeleteMapping("/texts/{id}")
+    public void delete(@PathVariable long id) {
         repository.deleteById(id);
     }
 
-    LabelTextDto convertToDto(LabelText codeText) {
+    TextDto convertToDto(Text codeText) {
         return dtoMapper.mapToDto(codeText);
     }
 
-    LabelText convertToEntity(LabelTextDto codeTextDto) {
+    Text convertToEntity(TextDto codeTextDto) {
         return dtoMapper.maptoEntity(codeTextDto);
     }
 }

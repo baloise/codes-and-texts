@@ -8,9 +8,8 @@ public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
     @Override
     protected CodeTextDto entityToDto(CodeText entity) {
         CodeTextDto mapped = new CodeTextDto();
-        mapped.setId(trim(entity.getId()));
         mapped.setValue(entity.getValue());
-        mapped.setTypeId(entity.getTypeId());
+        mapped.setType(entity.getType());
         mapped.setName(trim(entity.getName()));
         mapped.setTextD(trim(entity.getTextD()));
         mapped.setTextF(trim(entity.getTextF()));
@@ -22,9 +21,8 @@ public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
     @Override
     protected CodeText dtoToEntity(CodeTextDto dto) {
         CodeText mapped = new CodeText();
-        mapped.setId(trim(dto.getId()));
         mapped.setValue(dto.getValue());
-        mapped.setTypeId(dto.getTypeId());
+        mapped.setType(dto.getType());
         mapped.setName(trim(dto.getName()));
         mapped.setTextD(trim(dto.getTextD()));
         mapped.setTextF(trim(dto.getTextF()));
