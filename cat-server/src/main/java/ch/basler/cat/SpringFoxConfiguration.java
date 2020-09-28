@@ -79,7 +79,7 @@ public class SpringFoxConfiguration {
                 .defaultModelsExpandDepth(1)
                 .defaultModelExpandDepth(1)
                 .defaultModelRendering(ModelRendering.EXAMPLE)
-                .displayRequestDuration(false)
+                .displayRequestDuration(true)
                 .docExpansion(DocExpansion.NONE)
                 .filter(false)
                 .maxDisplayedTags(null)
