@@ -16,20 +16,33 @@
 package ch.basler.cat;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+import springfox.documentation.service.SecurityScheme;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @Configuration
 public class SpringFoxConfiguration {
+
+    private final List<SecurityScheme> securitySchemes;
+    private final List<SecurityContext> securityContexts;
+
+    @Autowired
+    public SpringFoxConfiguration(List<SecurityScheme> securitySchemes, List<SecurityContext> securityContexts) {
+        this.securitySchemes = securitySchemes;
+        this.securityContexts = securityContexts;
+    }
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
@@ -50,7 +63,9 @@ public class SpringFoxConfiguration {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("ch.basler.cat.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .securitySchemes(securitySchemes)
+                .securityContexts(securityContexts);
     }
 
     /**
