@@ -24,8 +24,10 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,6 +47,7 @@ public class ApplicationController {
 
     // Aggregate root
     @GetMapping("/applications")
+    @PreAuthorize("isAuthenticated()")
     public List<ApplicationDto> all() {
         return IterableUtils.toList(this.repository.findAll()).stream()
                 .map(this::convertToDto)
@@ -52,6 +55,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/applications")
+    @RolesAllowed("DEVELOPER")
     public ApplicationDto create(@RequestBody ApplicationDto applicationDto) {
 
         Application application = convertToEntity(applicationDto);
