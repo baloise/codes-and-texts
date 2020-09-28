@@ -188,7 +188,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     public void editCodeValue(CodeValue codeValue) {
         showForm(codeValue != null);
         if (codeValue != null && codeValue.isNewCodeValue() && codeTypeSelect != null && codeTypeSelect.getValue() != null) {
-            codeValue.setTypeId(codeTypeSelect.getValue().getId());
+            codeValue.setType(codeTypeSelect.getValue().getId());
         }
         form.editCodeValue(codeValue);
     }
@@ -206,6 +206,6 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     @Override
     public void setParameter(BeforeEvent event,
                              @OptionalParameter String parameter) {
-        viewLogic.enter(parameter);
+        viewLogic.enter(codeTypeSelect.getValue(), parameter);
     }
 }

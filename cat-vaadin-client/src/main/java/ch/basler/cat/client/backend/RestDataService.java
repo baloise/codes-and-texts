@@ -11,6 +11,7 @@ public class RestDataService extends AbstractRestDataService implements DataServ
     public static final String DOMAINS = "domains";
     public static final String CODETYPES = "codetypes";
     public static final String CODEVALUES = "codevalues";
+    public static final String TEXTS = "texts";
     private static RestDataService INSTANCE;
 
     public static synchronized DataService getInstance() {
@@ -97,26 +98,57 @@ public class RestDataService extends AbstractRestDataService implements DataServ
         if (codeType == null) {
             return Collections.emptyList();
         }
-        String route = CODETYPES + "/" + codeType.getId() + "/" + CODEVALUES;
+        String route = getCodeValueRoute(codeType.getId());
         return getAllData(route, CodeValue[].class);
     }
 
     @Override
     public void saveCodeValue(CodeValue codeValue) {
+        String route = getCodeValueRoute(codeValue.getType());
         if (codeValue.isNewCodeValue()) {
-            createData(CODEVALUES, codeValue, CodeValue.class);
+            createData(route, codeValue, CodeValue.class);
         } else {
-            updateData(CODEVALUES, codeValue.getId(), codeValue);
+            updateData(route, codeValue.getValue(), codeValue);
         }
     }
 
     @Override
-    public void deleteCodeValue(String codeValueId) {
-        deleteData(CODEVALUES, codeValueId);
+    public void deleteCodeValue(long type, long value) {
+        String route = getCodeValueRoute(type);
+        deleteData(route, value);
     }
 
     @Override
-    public CodeValue getCodeValueById(String codeValueId) {
-        return getById(CODEVALUES, codeValueId, CodeValue.class);
+    public CodeValue getCodeValue(long type, long value) {
+        String route = getCodeValueRoute(type);
+        return getById(route, value, CodeValue.class);
+    }
+
+    private String getCodeValueRoute(long type) {
+        return combine(CODETYPES, type, CODEVALUES);
+    }
+
+    @Override
+    public Collection<TextData> getAllTexts() {
+        return getAllData(TEXTS, TextData[].class);
+    }
+
+    @Override
+    public void saveText(TextData textData) {
+        if (textData.isNewText()) {
+            createData(TEXTS, textData, TextData.class);
+        } else {
+            updateData(TEXTS, textData.getId(), textData);
+        }
+    }
+
+    @Override
+    public void deleteText(long id) {
+        deleteData(TEXTS, id);
+    }
+
+    @Override
+    public TextData getTextById(long id) {
+        return getById(TEXTS, id, TextData.class);
     }
 }

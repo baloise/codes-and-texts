@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Baloise Group
+ * Copyright 2019 Baloise Group
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,18 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat.api;
+package ch.basler.cat.model;
 
-public class CodeTextDto {
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "text")
+public class Text {
+
+    @Id
+    @GenericGenerator(name = "text_id", strategy = "ch.basler.cat.model.TextIdGenerator")
+    @GeneratedValue(generator = "text_id")
+    private long id;
 
     private long type;
-    private long value;
-    private String name;
 
+    @Column(name="text_d")
     private String textD;
+    @Column(name="text_f")
     private String textF;
+    @Column(name="text_i")
     private String textI;
+    @Column(name="text_e")
     private String textE;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getType() {
         return type;
@@ -32,22 +55,6 @@ public class CodeTextDto {
 
     public void setType(long type) {
         this.type = type;
-    }
-
-    public long getValue() {
-        return value;
-    }
-
-    public void setValue(long value) {
-        this.value = value;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getTextD() {
@@ -82,3 +89,5 @@ public class CodeTextDto {
         this.textE = textE;
     }
 }
+
+

@@ -8,8 +8,7 @@ public class CodeValueDtoMapper extends DtoMapper<CodeValueDto, CodeValue> {
     @Override
     protected CodeValueDto entityToDto(CodeValue entity) {
         CodeValueDto mapped = new CodeValueDto();
-        mapped.setId(trim(entity.getId()));
-        mapped.setTypeId(entity.getTypeId());
+        mapped.setType(entity.getType());
         mapped.setValue(entity.getValue());
         mapped.setName(trim(entity.getName()));
         return mapped;
@@ -18,8 +17,7 @@ public class CodeValueDtoMapper extends DtoMapper<CodeValueDto, CodeValue> {
     @Override
     protected CodeValue dtoToEntity(CodeValueDto dto) {
         CodeValue mapped = new CodeValue();
-        mapped.setId(trim(dto.getId()));
-        mapped.setTypeId(dto.getTypeId());
+        mapped.setType(dto.getType());
         mapped.setValue(dto.getValue());
         mapped.setName(trim(dto.getName()));
         return mapped;

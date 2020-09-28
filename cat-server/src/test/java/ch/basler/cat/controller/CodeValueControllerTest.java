@@ -19,15 +19,13 @@ public class CodeValueControllerTest {
     @Test
     public void convertToEntity() {
         CodeValueDto dto = new CodeValueDto();
-        dto.setId("1");
-        dto.setTypeId(3L);
+        dto.setType(3L);
         dto.setName("testCode");
         dto.setValue(123L);
 
         CodeValue value = controller.convertToEntity(dto);
 
-        assertEquals("1", value.getId());
-        assertEquals(3L, value.getTypeId());
+        assertEquals(3L, value.getType());
         assertEquals("testCode", value.getName());
         assertEquals(123L, value.getValue());
     }
@@ -35,15 +33,13 @@ public class CodeValueControllerTest {
     @Test
     public void convertToDto() {
         CodeValue value = new CodeValue();
-        value.setId("1");
-        value.setTypeId(3L);
+        value.setType(3L);
         value.setName("testCode");
         value.setValue(123L);
 
         CodeValueDto dto = controller.convertToDto(value);
 
-        assertEquals("1", dto.getId());
-        assertEquals(3L, dto.getTypeId());
+        assertEquals(3L, dto.getType());
         assertEquals("testCode", dto.getName());
         assertEquals(123L, dto.getValue());
     }
