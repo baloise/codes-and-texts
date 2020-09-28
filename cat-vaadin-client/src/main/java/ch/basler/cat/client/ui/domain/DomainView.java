@@ -1,6 +1,6 @@
-package ch.basler.cat.client.ui.responsible;
+package ch.basler.cat.client.ui.domain;
 
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 import ch.basler.cat.client.ui.MainLayout;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
@@ -17,35 +17,35 @@ import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
 
 /**
- * A view for performing create-read-update-delete operations on responsibles.
+ * A view for performing create-read-update-delete operations on domains.
  *
- * See also {@link ResponsibleViewLogic} for fetching the data, the actual CRUD
+ * See also {@link DomainViewLogic} for fetching the data, the actual CRUD
  * operations and controlling the view based on events from outside.
  */
-@Route(value = "Responsible", layout = MainLayout.class)
-public class ResponsibleView extends HorizontalLayout
+@Route(value = "Domain", layout = MainLayout.class)
+public class DomainView extends HorizontalLayout
         implements HasUrlParameter<String> {
 
-    public static final String VIEW_NAME = "Responsible";
-    private final ResponsibleGrid grid;
-    private final ResponsibleForm form;
+    public static final String VIEW_NAME = "Domain";
+    private final DomainGrid grid;
+    private final DomainForm form;
     private TextField filter;
 
-    private final ResponsibleViewLogic viewLogic = new ResponsibleViewLogic(this);
-    private Button newResponsible;
+    private final DomainViewLogic viewLogic = new DomainViewLogic(this);
+    private Button newDomain;
 
-    private ResponsibleDataProvider dataProvider = new ResponsibleDataProvider();
+    private DomainDataProvider dataProvider = new DomainDataProvider();
 
-    public ResponsibleView() {
+    public DomainView() {
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
-        grid = new ResponsibleGrid();
+        grid = new DomainGrid();
         grid.setDataProvider(dataProvider);
         // Allows user to select a single row in the grid.
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
-        form = new ResponsibleForm(viewLogic);
+        form = new DomainForm(viewLogic);
         
         final VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.add(topLayout);
@@ -70,18 +70,18 @@ public class ResponsibleView extends HorizontalLayout
         // A shortcut to focus on the textField by pressing ctrl + F
         filter.addFocusShortcut(Key.KEY_F, KeyModifier.CONTROL);
 
-        newResponsible = new Button("New responsible");
-        // Setting theme variant of new responsibleion button to LUMO_PRIMARY that
+        newDomain = new Button("New Domain");
+        // Setting theme variant of new domain button to LUMO_PRIMARY that
         // changes its background color to blue and its text color to white
-        newResponsible.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        newResponsible.setIcon(VaadinIcon.PLUS_CIRCLE.create());
-        newResponsible.addClickListener(click -> viewLogic.newResponsible());
-        // A shortcut to click the new responsible button by pressing ALT + N
-        newResponsible.addClickShortcut(Key.KEY_N, KeyModifier.ALT);
+        newDomain.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        newDomain.setIcon(VaadinIcon.PLUS_CIRCLE.create());
+        newDomain.addClickListener(click -> viewLogic.newDomain());
+        // A shortcut to click the new Domain button by pressing ALT + N
+        newDomain.addClickShortcut(Key.KEY_N, KeyModifier.ALT);
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
         topLayout.add(filter);
-        topLayout.add(newResponsible);
+        topLayout.add(newDomain);
         topLayout.setVerticalComponentAlignment(Alignment.START, filter);
         topLayout.expand(filter);
         return topLayout;
@@ -102,12 +102,12 @@ public class ResponsibleView extends HorizontalLayout
     }
 
     /**
-     * Enables/Disables the new responsible button.
+     * Enables/Disables the new romain button.
      * 
      * @param enabled
      */
-    public void setNewResponsibleEnabled(boolean enabled) {
-        newResponsible.setEnabled(enabled);
+    public void setNewDomainEnabled(boolean enabled) {
+        newDomain.setEnabled(enabled);
     }
 
     /**
@@ -122,50 +122,50 @@ public class ResponsibleView extends HorizontalLayout
      * 
      * @param row
      */
-    public void selectRow(Responsible row) {
+    public void selectRow(Domain row) {
         grid.getSelectionModel().select(row);
     }
 
     /**
-     * Updates a responsible in the list of responsibles.
+     * Updates a domain in the list of domains.
      * 
-     * @param responsible
+     * @param domain
      */
-    public void updateResponsible(Responsible responsible) {
-        dataProvider.save(responsible);
-        if (responsible.isNewResponsible()) {
+    public void updateDomain(Domain domain) {
+        dataProvider.save(domain);
+        if (domain.isNewDomain()) {
             reloadFromServer();
         }
     }
 
     /**
-     * Removes a responsible from the list of responsibles.
-     * 
-     * @param responsible
+     * Removes a domain from the list of domains.
+     *
+     * @param domain
      */
-    public void removeResponsible(Responsible responsible) {
-        dataProvider.delete(responsible);
+    public void removeDomain(Domain domain) {
+        dataProvider.delete(domain);
         reloadFromServer();
     }
 
     private void reloadFromServer() {
-        this.dataProvider = new ResponsibleDataProvider();
+        this.dataProvider = new DomainDataProvider();
         this.grid.setDataProvider(dataProvider);
     }
 
 
     /**
-     * Displays user a form to edit a Responsible.
+     * Displays user a form to edit a domain.
      * 
-     * @param responsible
+     * @param domain
      */
-    public void editResponsible(Responsible responsible) {
-        showForm(responsible != null);
-        form.editResponsible(responsible);
+    public void editDomain(Domain domain) {
+        showForm(domain != null);
+        form.editDomain(domain);
     }
 
     /**
-     * Shows and hides the new responsible form
+     * Shows and hides the new domain form
      * 
      * @param show
      */

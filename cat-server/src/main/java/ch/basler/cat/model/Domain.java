@@ -13,33 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat.client.backend.data;
+package ch.basler.cat.model;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
+import org.hibernate.annotations.GenericGenerator;
 
-public class Responsible {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-    @NotNull
-    private long id = -1;
-    @NotNull
+@Entity(name = "domain")
+public class Domain {
+
+    @Id
+    @GenericGenerator(name = "domain_id", strategy = "ch.basler.cat.model.DomainIdGenerator")
+    @GeneratedValue(generator = "domain_id")
+    @Column(name="id")
+    private Long id;
+    @Column(name = "projectname")
     private String projectName;
-    @NotNull
+    @Column(name = "package")
     private String packageName;
-    @NotNull
     private String prefix;
-    @NotNull
-    @Email
     private String email;
-    @NotNull
     private String creator;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -81,39 +84,6 @@ public class Responsible {
 
     public void setCreator(String creator) {
         this.creator = creator;
-    }
-
-    public boolean isNewResponsible() {
-        return getId() == -1;
-    }
-
-    @Override
-    public String toString() {
-        return prefix.trim() + " :: " + projectName.trim();
-    }
-
-    /*
-     * Vaadin DataProviders rely on properly implemented equals and hashcode
-     * methods.
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null || id == -1) {
-            return false;
-        }
-        if (obj instanceof Responsible) {
-            return id == ((Responsible) obj).id;
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        if (id == -1) {
-            return super.hashCode();
-        }
-
-        return Objects.hash(id);
     }
 }
 

@@ -13,36 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.basler.cat.model;
+package ch.basler.cat.client.backend.data;
 
-import org.hibernate.annotations.GenericGenerator;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+public class Domain {
 
-@Entity(name = "responsible")
-public class Responsible {
-
-    @Id
-    @GenericGenerator(name = "responsible_id", strategy = "ch.basler.cat.model.ResponsibleIdGenerator")
-    @GeneratedValue(generator = "responsible_id")
-    @Column(name="id")
-    private Long id;
-    @Column(name = "projectname")
+    @NotNull
+    private long id = -1;
+    @NotNull
     private String projectName;
-    @Column(name = "package")
+    @NotNull
     private String packageName;
+    @NotNull
     private String prefix;
+    @NotNull
+    @Email
     private String email;
+    @NotNull
     private String creator;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -84,6 +81,39 @@ public class Responsible {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public boolean isNewDomain() {
+        return getId() == -1;
+    }
+
+    @Override
+    public String toString() {
+        return prefix.trim() + " :: " + projectName.trim();
+    }
+
+    /*
+     * Vaadin DataProviders rely on properly implemented equals and hashcode
+     * methods.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || id == -1) {
+            return false;
+        }
+        if (obj instanceof Domain) {
+            return id == ((Domain) obj).id;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        if (id == -1) {
+            return super.hashCode();
+        }
+
+        return Objects.hash(id);
     }
 }
 

@@ -2,9 +2,9 @@ package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.CodeValue;
-import ch.basler.cat.client.backend.data.Responsible;
+import ch.basler.cat.client.backend.data.Domain;
 import ch.basler.cat.client.ui.MainLayout;
-import ch.basler.cat.client.ui.responsible.ResponsibleDataProvider;
+import ch.basler.cat.client.ui.domain.DomainDataProvider;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -31,7 +31,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     public static final String VIEW_NAME = "CodeValue";
     private final CodeValueGrid codeValueGrid;
     private final CodeValueForm form;
-    private Select<Responsible> responsibleSelect;
+    private Select<Domain> domainSelect;
     private Select<CodeType> codeTypeSelect;
     private CodeTypeDataProvider codeTypeDataProvider;
 
@@ -67,10 +67,10 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     }
 
     public HorizontalLayout createTopBar() {
-        responsibleSelect = new Select<>();
-        responsibleSelect.setPlaceholder("Select responsible");
-        responsibleSelect.setItems(new ResponsibleDataProvider().getItems());
-        responsibleSelect.addValueChangeListener(changeEvent -> {
+        domainSelect = new Select<>();
+        domainSelect.setPlaceholder("Select Domain");
+        domainSelect.setItems(new DomainDataProvider().getItems());
+        domainSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 codeTypeSelect.setEnabled(true);
                 codeTypeDataProvider.setFilter(changeEvent.getValue().getId());
@@ -106,7 +106,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
 
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
-        topLayout.add(responsibleSelect);
+        topLayout.add(domainSelect);
         topLayout.add(codeTypeSelect);
         topLayout.add(newCodeValue);
         topLayout.setVerticalComponentAlignment(Alignment.START, codeTypeSelect);

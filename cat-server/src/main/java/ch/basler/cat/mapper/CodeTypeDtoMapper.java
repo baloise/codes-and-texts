@@ -10,7 +10,7 @@ public class CodeTypeDtoMapper extends DtoMapper<CodeTypeDto, CodeType> {
         CodeTypeDto mapped = new CodeTypeDto();
         mapped.setId(entity.getId());
         mapped.setName(trim(entity.getName()));
-        mapped.setResponsible(entity.getResponsibleId());
+        mapped.setDomain(entity.getDomainId());
         mapped.setCreator(trim(entity.getCreator()));
         return mapped;
     }
@@ -20,7 +20,7 @@ public class CodeTypeDtoMapper extends DtoMapper<CodeTypeDto, CodeType> {
         CodeType mapped = new CodeType();
         mapped.setId(dto.getId());
         mapped.setName(trim(dto.getName()));
-        mapped.setResponsibleId(dto.getResponsible());
+        mapped.setDomainId(dto.getDomain());
         mapped.setCreator(trim(dto.getCreator()));
         return mapped;
     }

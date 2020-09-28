@@ -16,8 +16,6 @@
 package ch.basler.cat.client.backend.data;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class CodeType {
@@ -30,7 +28,7 @@ public class CodeType {
     private String name;
 
 
-    private Long responsible;
+    private Long domain;
 
     public CodeType() {
     }
@@ -38,12 +36,12 @@ public class CodeType {
     public long getId() {
         return id;
     }
-    public Long getResponsible() {
-        return responsible;
+    public Long getDomain() {
+        return domain;
     }
 
-    public void setResponsible(Long responsibleId) {
-        this.responsible = responsibleId;
+    public void setDomain(Long domainId) {
+        this.domain = domainId;
     }
 
     public void setId(long id) {

@@ -29,8 +29,8 @@ public class CodeType {
 
     private String creator;
     private String name;
-    @Column(name = "responsible_id")
-    private long responsibleId;
+    @Column(name = "domain_id")
+    private long domainId;
 
     public Long getId() {
         return id;
@@ -56,11 +56,11 @@ public class CodeType {
         this.name = name;
     }
 
-    public long getResponsibleId() {
-        return this.responsibleId;
+    public long getDomainId() {
+        return this.domainId;
     }
 
-    public void setResponsibleId(long responsibleId) {
-        this.responsibleId = responsibleId;
+    public void setDomainId(long domainId) {
+        this.domainId = domainId;
     }
 }
