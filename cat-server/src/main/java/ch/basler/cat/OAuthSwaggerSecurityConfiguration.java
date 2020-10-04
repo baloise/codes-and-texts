@@ -65,7 +65,7 @@ public class OAuthSwaggerSecurityConfiguration {
         GrantType grantType = new AuthorizationCodeGrantBuilder()
                 .tokenEndpoint(new TokenEndpoint(host + "/protocol/openid-connect/token", "oauthtoken"))
                 .tokenRequestEndpoint(
-                        new TokenRequestEndpoint(host + "/protocol/openid-connect/auth", clientId, clientSecret))
+                        new TokenRequestEndpoint(host + "/protocol/openid-connect/auth", clientId.trim(), clientSecret.trim()))
                 .build();
 
         SecurityScheme oauth = new OAuthBuilder().name(SECURITY_SCHEME_NAME)
