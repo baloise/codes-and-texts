@@ -1,6 +1,5 @@
 package ch.basler.cat.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -9,10 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
-@ConditionalOnProperty(
-        value = "security.type",
-        havingValue = "basic"
-)
 @EnableWebSecurity
 public class BasicWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
