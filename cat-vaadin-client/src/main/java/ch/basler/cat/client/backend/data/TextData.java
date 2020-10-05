@@ -16,14 +16,15 @@
 package ch.basler.cat.client.backend.data;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.soap.Text;
 import java.util.Objects;
 
 public class TextData {
 
     @NotNull
-    private long id;
+    private Long id = -1L;
     @NotNull
-    private long type;
+    private Long type;
 
     private String textD;
     private String textF;
@@ -42,6 +43,10 @@ public class TextData {
 
     public long getType() {
         return type;
+    }
+
+    public TextType getTextType() {
+        return TextType.of(type);
     }
 
     public void setType(long type) {

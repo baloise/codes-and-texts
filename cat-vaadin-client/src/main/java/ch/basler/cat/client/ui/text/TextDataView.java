@@ -18,6 +18,7 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
 
+import java.security.AllPermission;
 import java.util.Arrays;
 
 /**
@@ -67,13 +68,25 @@ public class TextDataView extends HorizontalLayout
     }
 
     public HorizontalLayout createTopBar() {
+
+        newText = new Button("New Text");
+        // Setting theme variant of new Textion button to LUMO_PRIMARY that
+        // changes its background color to blue and its text color to white
+        newText.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        newText.setIcon(VaadinIcon.PLUS_CIRCLE.create());
+        newText.addClickListener(click -> viewLogic.newText());
+        // A shortcut to click the new Text button by pressing ALT + N
+        newText.addClickShortcut(Key.KEY_N, KeyModifier.ALT);
+        newText.setEnabled(false);
         typeSelect = new Select<>();
         typeSelect.setPlaceholder("Select type");
         typeSelect.setItems(TextType.values());
         typeSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
-                Integer selectedValue = changeEvent.getValue().getValue();
-                dataProvider.setFilter(t -> (selectedValue == null) || Long.valueOf(selectedValue).equals(t.getType()));
+                TextType selectedValue = changeEvent.getValue();
+                dataProvider.setFilter(textData -> (selectedValue == TextType.ALL)
+                        || selectedValue == textData.getTextType());
+                    newText.setEnabled(TextType.ALL != selectedValue);
             }
         });
         filter = new TextField();
@@ -84,14 +97,7 @@ public class TextDataView extends HorizontalLayout
         // A shortcut to focus on the textField by pressing ctrl + F
         filter.addFocusShortcut(Key.KEY_F, KeyModifier.CONTROL);
 
-        newText = new Button("New Text");
-        // Setting theme variant of new Textion button to LUMO_PRIMARY that
-        // changes its background color to blue and its text color to white
-        newText.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        newText.setIcon(VaadinIcon.PLUS_CIRCLE.create());
-        newText.addClickListener(click -> viewLogic.newText());
-        // A shortcut to click the new Text button by pressing ALT + N
-        newText.addClickShortcut(Key.KEY_N, KeyModifier.ALT);
+
         final HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setWidth("100%");
         topLayout.add(typeSelect);
@@ -176,6 +182,9 @@ public class TextDataView extends HorizontalLayout
      */
     public void editText(TextData textData) {
         showForm(textData != null);
+        if (textData != null && textData.isNewText() && typeSelect != null && typeSelect.getValue() != null) {
+            textData.setType(typeSelect.getValue().getValue());
+        }
         form.editText(textData);
     }
 

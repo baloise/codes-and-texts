@@ -105,6 +105,34 @@ a[highlight] {
     background: var(--lumo-base-color);
     box-shadow: var(--overlay-box-shadow);
 }
+.codeValue-form-content {
+    margin-top: var(--_vaadin-app-layout-navbar-offset-size);
+}
+
+.codeValue-form {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: auto;
+    background: var(--lumo-base-color);
+    box-shadow: var(--overlay-box-shadow);
+}
+
+.text-form-content {
+    margin-top: var(--_vaadin-app-layout-navbar-offset-size);
+}
+
+.text-form {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 60%;
+    overflow: auto;
+    background: var(--lumo-base-color);
+    box-shadow: var(--overlay-box-shadow);
+}
 
 /* 
  * Special rules for narrow screens (responsive design rules)

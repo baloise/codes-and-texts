@@ -1,6 +1,7 @@
 package ch.basler.cat.client.ui.text;
 
 import ch.basler.cat.client.backend.data.TextData;
+import ch.basler.cat.client.backend.data.TextType;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
@@ -14,7 +15,7 @@ import com.vaadin.flow.component.notification.Notification;
 public class TextDataGrid extends Grid<TextData> {
 
     public static final String ID = "id";
-    public static final String TYPE = "type";
+    public static final String TEXTTYPE = "textType";
     public static final String DE = "de";
     public static final String FR = "fr";
     public static final String IT = "it";
@@ -26,15 +27,15 @@ public class TextDataGrid extends Grid<TextData> {
         setSizeFull();
         addColumn(TextData::getId).setHeader("Id")
                 .setFlexGrow(10).setSortable(true).setKey(ID);
-        addColumn(TextData::getType).setHeader("Type")
-                .setFlexGrow(10).setSortable(true).setKey(TYPE);
+        addColumn(TextData::getTextType).setHeader("TextType")
+                .setFlexGrow(10).setSortable(true).setKey(TEXTTYPE);
         addColumn(TextData::getTextD).setHeader("DE")
                 .setFlexGrow(20).setSortable(true).setKey(DE);
         addColumn(TextData::getTextF).setHeader("FR")
                 .setFlexGrow(20).setSortable(true).setKey(FR);
         addColumn(TextData::getTextI).setHeader("IT")
                 .setFlexGrow(20).setSortable(true).setKey(IT);
-        addColumn(TextData::getTextE).setHeader("EM")
+        addColumn(TextData::getTextE).setHeader("EN")
                 .setFlexGrow(20).setSortable(true).setKey(EN);
         addColumn(TextData::getCreator).setHeader("Creator")
                 .setFlexGrow(20).setSortable(true).setKey(CREATOR);
@@ -50,7 +51,7 @@ public class TextDataGrid extends Grid<TextData> {
     private void setColumnVisibility(int width) {
         if (width > 800) {
             getColumnByKey(ID).setVisible(true);
-            getColumnByKey(TYPE).setVisible(true);
+            getColumnByKey(TEXTTYPE).setVisible(true);
             getColumnByKey(DE).setVisible(true);
             getColumnByKey(FR).setVisible(true);
             getColumnByKey(IT).setVisible(true);
@@ -58,7 +59,7 @@ public class TextDataGrid extends Grid<TextData> {
             getColumnByKey(CREATOR).setVisible(true);
         } else if (width > 550) {
             getColumnByKey(ID).setVisible(true);
-            getColumnByKey(TYPE).setVisible(true);
+            getColumnByKey(TEXTTYPE).setVisible(true);
             getColumnByKey(DE).setVisible(true);
             getColumnByKey(FR).setVisible(true);
             getColumnByKey(IT).setVisible(true);
@@ -66,7 +67,7 @@ public class TextDataGrid extends Grid<TextData> {
             getColumnByKey(CREATOR).setVisible(true);
         } else {
             getColumnByKey(ID).setVisible(true);
-            getColumnByKey(TYPE).setVisible(true);
+            getColumnByKey(TEXTTYPE).setVisible(true);
             getColumnByKey(DE).setVisible(true);
             getColumnByKey(FR).setVisible(true);
             getColumnByKey(IT).setVisible(true);

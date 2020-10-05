@@ -1,6 +1,7 @@
 package ch.basler.cat.client.ui.text;
 
 import ch.basler.cat.client.backend.data.TextData;
+import ch.basler.cat.client.backend.data.TextType;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -11,6 +12,9 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.Result;
+import com.vaadin.flow.data.binder.ValueContext;
+import com.vaadin.flow.data.converter.Converter;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
@@ -62,12 +66,28 @@ public class TextDataForm extends Div {
             return format;
         }
     }
+
+    private static class TextTypeConverter implements Converter<String, Long> {
+        @Override
+        public Result<Long> convertToModel(String textTypeName, ValueContext context) {
+            if (textTypeName.isEmpty()) {
+                return Result.ok(null);
+            }
+            return Result.ok(TextType.valueOf(textTypeName).getValue());
+        }
+
+        @Override
+        public String convertToPresentation(Long value, ValueContext context) {
+            return TextType.of(value).name();
+        }
+    }
+
     public TextDataForm(TextDataViewLogic sampleCrudLogic) {
-        setClassName("Text-form");
+        setClassName("text-form");
 
         content = new VerticalLayout();
         content.setSizeUndefined();
-        content.addClassName("Text-form-content");
+        content.addClassName("text-form-content");
         add(content);
 
         viewLogic = sampleCrudLogic;
@@ -85,21 +105,25 @@ public class TextDataForm extends Div {
         textD = new TextField("DE");
         textD.setRequired(true);
         textD.setValueChangeMode(ValueChangeMode.EAGER);
+        textD.setWidth("100%");
         content.add(textD);
 
         textF = new TextField("FR");
         textF.setRequired(true);
         textF.setValueChangeMode(ValueChangeMode.EAGER);
+        textF.setWidth("100%");
         content.add(textF);
 
         textI = new TextField("IT");
         textI.setRequired(true);
         textI.setValueChangeMode(ValueChangeMode.EAGER);
+        textI.setWidth("100%");
         content.add(textI);
 
         textE = new TextField("EN");
         textE.setRequired(true);
         textE.setValueChangeMode(ValueChangeMode.EAGER);
+        textE.setWidth("100%");
         content.add(textE);
 
         creator = new TextField("Creator");
@@ -110,7 +134,7 @@ public class TextDataForm extends Div {
         binder = new BeanValidationBinder<>(TextData.class);
         binder.forField(id).withConverter(new TextIdConverter() )
                 .bind("id");
-        binder.forField(type).withConverter(new TextIdConverter())
+        binder.forField(type).withConverter(new TextTypeConverter())
                 .bind("type");
         binder.bindInstanceFields(this);
 

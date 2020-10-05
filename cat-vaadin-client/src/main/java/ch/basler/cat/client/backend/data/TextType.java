@@ -1,16 +1,25 @@
 package ch.basler.cat.client.backend.data;
 
+import java.util.Arrays;
+
 public enum TextType {
 
-    ALL(null), LABEL(1), MESSAGE(2), CODE(3);
+    ALL(0L), LABEL(1L), MESSAGE(2L), CODE(3L);
 
-    Integer value;
+    Long value;
 
-    TextType(Integer value) {
+    TextType(Long value) {
         this.value = value;
     }
 
-    public Integer getValue() {
+    public static TextType of(Long textTypeValue) {
+        return Arrays.stream(TextType.values())
+                .filter(textType -> textType.value.equals(textTypeValue))
+                .findFirst()
+                .orElse(TextType.ALL);
+    }
+
+    public Long getValue() {
         return value;
     }
 }
