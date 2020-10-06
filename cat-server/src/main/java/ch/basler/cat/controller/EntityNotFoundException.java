@@ -15,12 +15,12 @@
  */
 package ch.basler.cat.controller;
 
-public class EntityFoundException extends RuntimeException {
-    public EntityFoundException(String entityName, Long id) {
+public class EntityNotFoundException extends RuntimeException {
+    public EntityNotFoundException(String entityName, Long id) {
         super("Could not find " + entityName + " " + id);
     }
 
-    public EntityFoundException(String entityName, String id) {
+    public EntityNotFoundException(String entityName, String id) {
         super("Could not find " + entityName + " " + id);
     }
 }

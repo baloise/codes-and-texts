@@ -68,7 +68,7 @@ public class ApplicationController {
     @GetMapping("/applications/{id}")
     public ApplicationDto one(@PathVariable("id") Long id) {
         Application application = this.repository.findById(id)
-                .orElseThrow(() -> new EntityFoundException("application", id));
+                .orElseThrow(() -> new EntityNotFoundException("application", id));
 
         return convertToDto(application);
     }

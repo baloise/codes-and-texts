@@ -70,7 +70,7 @@ public class CodeTypeController {
     @GetMapping("/codetypes/{id}")
     public CodeTypeDto one(@PathVariable("id") Long id) {
         CodeType codeType = repository.findById(id)
-                .orElseThrow(() -> new EntityFoundException("codeType", id));
+                .orElseThrow(() -> new EntityNotFoundException("codeType", id));
 
         return convertToDto(codeType);
     }

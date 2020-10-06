@@ -74,7 +74,7 @@ public class CodeValueController {
     @GetMapping("/codetypes/{type}/codevalues/{value}")
     public CodeValueDto one(@PathVariable long type, @PathVariable long value) {
         CodeValue codeValue = repository.findById(CodeValueId.of(type, value))
-                .orElseThrow(() -> new EntityFoundException("codeValue", type + ":" + value));
+                .orElseThrow(() -> new EntityNotFoundException("codeValue", type + ":" + value));
 
         return convertToDto(codeValue);
     }

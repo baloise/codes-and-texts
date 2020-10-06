@@ -63,7 +63,7 @@ public class DomainController {
     @GetMapping("/domains/{id}")
     public DomainDto one(@PathVariable("id") Long id) {
         Domain Domain = this.repository.findById(id)
-                .orElseThrow(() -> new EntityFoundException("Domain", id));
+                .orElseThrow(() -> new EntityNotFoundException("Domain", id));
 
         return convertToDto(Domain);
     }

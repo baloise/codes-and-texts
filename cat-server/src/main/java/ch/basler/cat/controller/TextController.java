@@ -62,7 +62,7 @@ public class TextController {
     @GetMapping("/texts/{id}")
     public TextDto one(@PathVariable long id) {
         Text codeValue = repository.findById(id)
-                .orElseThrow(() -> new EntityFoundException("codeValue", id));
+                .orElseThrow(() -> new EntityNotFoundException("codeValue", id));
 
         return convertToDto(codeValue);
     }
