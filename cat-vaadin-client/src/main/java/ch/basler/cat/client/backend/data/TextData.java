@@ -24,14 +24,14 @@ public class TextData {
     @NotNull
     private Long id = -1L;
     @NotNull
-    private Long type;
+    private Long type = TextType.ALL.getValue();
 
-    private String textD;
-    private String textF;
-    private String textI;
-    private String textE;
+    private String textD = "";
+    private String textF = "";
+    private String textI = "";
+    private String textE = "";
 
-    private String creator;
+    private String creator = "";
 
     public long getId() {
         return id;

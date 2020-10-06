@@ -97,7 +97,7 @@ public class TextDataForm extends Div {
         id.setValueChangeMode(ValueChangeMode.EAGER);
         content.add(id);
 
-        type = new TextField("type");
+        type = new TextField("text-type");
         type.setRequired(true);
         type.setValueChangeMode(ValueChangeMode.EAGER);
         content.add(type);

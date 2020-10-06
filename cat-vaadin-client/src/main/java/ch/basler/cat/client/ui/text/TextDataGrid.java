@@ -27,7 +27,7 @@ public class TextDataGrid extends Grid<TextData> {
         setSizeFull();
         addColumn(TextData::getId).setHeader("Id")
                 .setFlexGrow(10).setSortable(true).setKey(ID);
-        addColumn(TextData::getTextType).setHeader("TextType")
+        addColumn(TextData::getTextType).setHeader("text-type")
                 .setFlexGrow(10).setSortable(true).setKey(TEXTTYPE);
         addColumn(TextData::getTextD).setHeader("DE")
                 .setFlexGrow(20).setSortable(true).setKey(DE);
