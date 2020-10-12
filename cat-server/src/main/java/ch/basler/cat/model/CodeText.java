@@ -27,6 +27,9 @@ public class CodeText {
     @Id
     private long type;
 
+    @Id
+    private long domain;
+
     private String name;
 
     @Column(name="text_d")
@@ -52,6 +55,14 @@ public class CodeText {
 
     public void setValue(long value) {
         this.value = value;
+    }
+
+    public long getDomain() {
+        return domain;
+    }
+
+    public void setDomain(long domain) {
+        this.domain = domain;
     }
 
     public String getName() {
