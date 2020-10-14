@@ -1,0 +1,17 @@
+Codetext Statistics:
+
+Total entries in Table tbti_codetext: 25164
+Total entries in Table tbti_codewert: 20156
+Total entries in Table tbti_codetyp: 1102
+
+Total entries in View codetext: 17783
+Total entries in View codevalue: 20150
+Total entries in View codetype: 1102
+
+Codetypes with style 1: 851/798
+Codetypes with style 2: 83/101
+Codetypes with style 3: 17/25
+Codetypes with style 4: 5/6 (1 [PS], 17 [AL], 185 [TAS], 252 [AL], 499 [UK_BETRIEB], 924 [BIA])
+Codetypes with style 5: 3 (Types 1: CodeNation [PS], 17: Logischer Ausdruck [AL], 185: Leistungen [TAS])
+Codetypes with style 6-10: 1 (Types 1: CodeNation)
+

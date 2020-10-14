@@ -1,0 +1,17 @@
+[ {
+  "name" : "LBL_FirstLabel",
+  "textD" : "erstes Label",
+  "textE" : "first Label"
+}, {
+  "name" : "LBL_SecondLabel",
+  "textD" : "zweites Label",
+  "textE" : "second Label"
+}, {
+  "name" : "LBL_ThirdLabel",
+  "textD" : "drittes Label",
+  "textE" : "third Label"
+}, {
+  "name" : "LBL_FourthLabel",
+  "textD" : "viertes Label",
+  "textE" : "fourth Label"
+} ]

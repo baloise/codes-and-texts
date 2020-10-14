@@ -1,0 +1,13 @@
+[ {
+  "messageId" : 123,
+  "textD" : "erste Meldung",
+  "textE" : "first Message"
+}, {
+  "messageId" : 456,
+  "textD" : "zweite Meldung",
+  "textE" : "second Message"
+}, {
+  "messageId" : 789,
+  "textD" : "dritte Meldung",
+  "textE" : "third Message"
+} ]

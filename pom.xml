@@ -31,6 +31,7 @@
         <!-- <module>cat-client</module> -->
         <module>cat-vaadin-client</module>
         <module>cat-server</module>
+        <module>cat-api</module>
     </modules>
 
     <scm>

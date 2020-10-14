@@ -1,0 +1,19 @@
+[ {
+  "domain" : 3,
+  "type" : 1,
+  "value" : 1,
+  "name" : "OESTERREICH",
+  "textD" : "Österreich",
+  "textF" : "Autriche",
+  "textI" : "Austria",
+  "textE" : "Austria"
+}, {
+  "domain" : 3,
+  "type" : 1,
+  "value" : 2,
+  "name" : "JEMEN_DEMOK_VOLKSREP_DEPRECATED",
+  "textD" : "Jemen, Demok. Volksrep.",
+  "textF" : "Rép. dém. et pop. Yémen",
+  "textI" : "Yemen, Rep. popolare dem.",
+  "textE" : "Yemen"
+} ]

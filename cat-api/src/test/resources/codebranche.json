@@ -1,0 +1,185 @@
+[ {
+  "type" : 186,
+  "value" : 1,
+  "name" : "SACH",
+  "textD" : "Sach",
+  "textF" : "Choses",
+  "textI" : "Cose",
+  "textE" : "Property"
+}, {
+  "type" : 186,
+  "value" : 2,
+  "name" : "HAFTPFLICHT",
+  "textD" : "Haftpflicht",
+  "textF" : "Responsabilité civile",
+  "textI" : "Responsabilità civile",
+  "textE" : "Liability"
+}, {
+  "type" : 186,
+  "value" : 3,
+  "name" : "LEBEN_PRIVATGESCHAEFT",
+  "textD" : "Leben Privatgeschäft",
+  "textF" : "Vie affaires privées",
+  "textI" : "Vita Affari privati",
+  "textE" : "Life, private business"
+}, {
+  "type" : 186,
+  "value" : 4,
+  "name" : "LEBEN_UNTERNEHMENSGESCHAEFT",
+  "textD" : "Leben Unternehmen Vertrag",
+  "textF" : "Vie entreprises contrat",
+  "textI" : "Vita imprese contratto",
+  "textE" : "Life, company contract"
+}, {
+  "type" : 186,
+  "value" : 5,
+  "name" : "UNFALL",
+  "textD" : "Unfall",
+  "textF" : "Accident",
+  "textI" : "Infortuni",
+  "textE" : "Accident"
+}, {
+  "type" : 186,
+  "value" : 6,
+  "name" : "UVG",
+  "textD" : "UVG",
+  "textF" : "LAA",
+  "textI" : "LAINF",
+  "textE" : "UVG"
+}, {
+  "type" : 186,
+  "value" : 7,
+  "name" : "VOLK",
+  "textD" : "Volk",
+  "textF" : "Populaire",
+  "textI" : "Popolare",
+  "textE" : "Public"
+}, {
+  "type" : 186,
+  "value" : 8,
+  "name" : "MOTORFAHRZEUG",
+  "textD" : "Motorfahrzeug",
+  "textF" : "Véhicule à moteur",
+  "textI" : "Veicolo a motore",
+  "textE" : "Motor vehicle"
+}, {
+  "type" : 186,
+  "value" : 9,
+  "name" : "LEIBRENTEN",
+  "textD" : "Leibrenten",
+  "textF" : "Rentes viagères",
+  "textI" : "Rendite vitalizie",
+  "textE" : "Life annuity"
+}, {
+  "type" : 186,
+  "value" : 10,
+  "name" : "KRANKEN",
+  "textD" : "Kranken",
+  "textF" : "Maladie",
+  "textI" : "Malattia",
+  "textE" : "Health"
+}, {
+  "type" : 186,
+  "value" : 11,
+  "name" : "TRANSPORT",
+  "textD" : "Transport",
+  "textF" : "Transport",
+  "textI" : "Trasporto",
+  "textE" : "Marine"
+}, {
+  "type" : 186,
+  "value" : 12,
+  "name" : "RECHTSSCHUTZ",
+  "textD" : "Rechtsschutz",
+  "textF" : "Protection juridique",
+  "textI" : "Protezione giuridica",
+  "textE" : "Legal expenses"
+}, {
+  "type" : 186,
+  "value" : 13,
+  "name" : "EINZELKRANKEN",
+  "textD" : "Einzelkranken",
+  "textF" : "Maladie individuelle",
+  "textI" : "Malattia individuale",
+  "textE" : "Individual health"
+}, {
+  "type" : 186,
+  "value" : 14,
+  "name" : "KRANKENKASSE_KOLLEKTIV",
+  "textD" : "Krankenkasse Kollektiv",
+  "textF" : "Caisse maladie collective",
+  "textI" : "Cassa malattia collettiva",
+  "textE" : "Collective health insurance fund"
+}, {
+  "type" : 186,
+  "value" : 15,
+  "name" : "TRANSPORT_FILIALPOLICEN",
+  "textD" : "Transport Filialpolicen",
+  "textF" : "Transport polices succursales",
+  "textI" : "Trasporto polizze succursali",
+  "textE" : "Marine branch policies"
+}, {
+  "type" : 186,
+  "value" : 16,
+  "name" : "EINZELLEBEN_OFFERTE",
+  "textD" : "Einzelleben(Offerte)",
+  "textF" : "Vie individuelle (offre)",
+  "textI" : "Vita individuale (Offerta)",
+  "textE" : "Individual life (quotes)"
+}, {
+  "type" : 186,
+  "value" : 17,
+  "name" : "RENTEN_RENTENNUMMER",
+  "textD" : "Renten-Rentennummer",
+  "textF" : "Rentes-Numéro Rentes",
+  "textI" : "Rendita-numero rendita",
+  "textE" : "Pension/pension number"
+}, {
+  "type" : 186,
+  "value" : 20,
+  "name" : "SONSTIGE",
+  "textD" : "Sonstige",
+  "textF" : "Autres",
+  "textI" : "Altro",
+  "textE" : "Others"
+}, {
+  "type" : 186,
+  "value" : 21,
+  "name" : "ASSISTANCE",
+  "textD" : "Assistance",
+  "textF" : "Assistance",
+  "textI" : "Assistenza",
+  "textE" : "Assistance"
+}, {
+  "type" : 186,
+  "value" : 22,
+  "name" : "BANK",
+  "textD" : "Bank",
+  "textF" : "Banque",
+  "textI" : "Banca",
+  "textE" : "Bank"
+}, {
+  "type" : 186,
+  "value" : 23,
+  "name" : "LEBEN_U_VERSICHERTE",
+  "textD" : "Kollektivlebensversicherung (Einzel)",
+  "textF" : "Assurance vie collective (indiv.)",
+  "textI" : "Assicurazioni vita collectiva (indiv.)",
+  "textE" : "Collective life insurance (individual)"
+}, {
+  "type" : 186,
+  "value" : 24,
+  "name" : "VIP",
+  "textD" : "VIP",
+  "textF" : "VIP",
+  "textI" : "VIP",
+  "textE" : "en_VIP"
+}, {
+  "type" : 186,
+  "value" : 25,
+  "name" : "BIA",
+  "textD" : "Baloise Life Advice",
+  "textF" : "Baloise Life Advice",
+  "textI" : "Baloise Life Advice",
+  "textE" : "Baloise Life Advice"
+} ]

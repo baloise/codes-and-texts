@@ -1,0 +1,146 @@
+[ {
+  "type" : 2,
+  "value" : 1,
+  "creator" : null,
+  "name" : "ZUERICH"
+}, {
+  "type" : 2,
+  "value" : 2,
+  "creator" : null,
+  "name" : "BERN"
+}, {
+  "type" : 2,
+  "value" : 3,
+  "creator" : null,
+  "name" : "LUZERN"
+}, {
+  "type" : 2,
+  "value" : 4,
+  "creator" : null,
+  "name" : "URI"
+}, {
+  "type" : 2,
+  "value" : 5,
+  "creator" : null,
+  "name" : "SCHWYZ"
+}, {
+  "type" : 2,
+  "value" : 6,
+  "creator" : null,
+  "name" : "OBWALDEN"
+}, {
+  "type" : 2,
+  "value" : 7,
+  "creator" : null,
+  "name" : "NIDWALDEN"
+}, {
+  "type" : 2,
+  "value" : 8,
+  "creator" : null,
+  "name" : "GLARUS"
+}, {
+  "type" : 2,
+  "value" : 9,
+  "creator" : null,
+  "name" : "ZUG"
+}, {
+  "type" : 2,
+  "value" : 10,
+  "creator" : null,
+  "name" : "FRIBOURG"
+}, {
+  "type" : 2,
+  "value" : 11,
+  "creator" : null,
+  "name" : "SOLOTHURN"
+}, {
+  "type" : 2,
+  "value" : 12,
+  "creator" : null,
+  "name" : "BASEL_STADT"
+}, {
+  "type" : 2,
+  "value" : 13,
+  "creator" : null,
+  "name" : "BASEL_LAND"
+}, {
+  "type" : 2,
+  "value" : 14,
+  "creator" : null,
+  "name" : "SCHAFFHAUSEN"
+}, {
+  "type" : 2,
+  "value" : 15,
+  "creator" : null,
+  "name" : "APPENZELL_AR"
+}, {
+  "type" : 2,
+  "value" : 16,
+  "creator" : null,
+  "name" : "APPENZELL_AI"
+}, {
+  "type" : 2,
+  "value" : 17,
+  "creator" : null,
+  "name" : "ST_GALLEN"
+}, {
+  "type" : 2,
+  "value" : 18,
+  "creator" : null,
+  "name" : "GRAUBUENDEN"
+}, {
+  "type" : 2,
+  "value" : 19,
+  "creator" : null,
+  "name" : "AARGAU"
+}, {
+  "type" : 2,
+  "value" : 20,
+  "creator" : null,
+  "name" : "THURGAU"
+}, {
+  "type" : 2,
+  "value" : 21,
+  "creator" : null,
+  "name" : "TESSIN"
+}, {
+  "type" : 2,
+  "value" : 22,
+  "creator" : null,
+  "name" : "WAADT"
+}, {
+  "type" : 2,
+  "value" : 23,
+  "creator" : null,
+  "name" : "WALLIS"
+}, {
+  "type" : 2,
+  "value" : 24,
+  "creator" : null,
+  "name" : "NEUENBURG"
+}, {
+  "type" : 2,
+  "value" : 25,
+  "creator" : null,
+  "name" : "GENF"
+}, {
+  "type" : 2,
+  "value" : 26,
+  "creator" : null,
+  "name" : "JURA"
+}, {
+  "type" : 2,
+  "value" : 27,
+  "creator" : null,
+  "name" : "LIECHTENSTEIN"
+}, {
+  "type" : 2,
+  "value" : 28,
+  "creator" : null,
+  "name" : "ENKLAVE_BUESINGEN"
+}, {
+  "type" : 2,
+  "value" : 29,
+  "creator" : null,
+  "name" : "ENKLAVE_CAMPIONE"
+} ]
