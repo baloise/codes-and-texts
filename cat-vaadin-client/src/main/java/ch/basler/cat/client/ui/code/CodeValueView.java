@@ -1,10 +1,10 @@
 package ch.basler.cat.client.ui.code;
 
-import ch.basler.cat.client.backend.data.CodeType;
-import ch.basler.cat.client.backend.data.CodeValue;
-import ch.basler.cat.client.backend.data.Domain;
+import ch.basler.cat.client.backend.data.*;
 import ch.basler.cat.client.ui.MainLayout;
 import ch.basler.cat.client.ui.domain.DomainDataProvider;
+import ch.basler.cat.client.ui.text.TextDataGrid;
+import ch.basler.cat.client.ui.text.TextDataProvider;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
@@ -30,6 +30,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
 
     public static final String VIEW_NAME = "CodeValue";
     private final CodeValueGrid codeValueGrid;
+    private final TextDataGrid textDataGrid;
     private final CodeValueForm form;
     private Select<Domain> domainSelect;
     private Select<CodeType> codeTypeSelect;
@@ -38,6 +39,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     private final CodeValueViewLogic viewLogic = new CodeValueViewLogic(this);
     private Button newCodeValue;
     private CodeValueDataProvider codeValueDataProvider;
+    private TextDataProvider textDataProvider = new TextDataProvider(1);
 
     public CodeValueView() {
         // Sets the width and the height of InventoryView to "100%".
@@ -47,18 +49,40 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
         codeValueGrid = new CodeValueGrid();
         codeValueGrid.setVisible(false);
         codeValueGrid.setDataProvider(codeValueDataProvider);
-        // Allows user to select a single row in the grid.
-        codeValueGrid.asSingleSelect().addValueChangeListener(
-                event -> viewLogic.rowSelected(event.getValue()));
+
+
+        textDataGrid = new TextDataGrid();
+        textDataGrid.setVisible(false);
+        textDataGrid.setDataProvider(textDataProvider);
+
+
         form = new CodeValueForm(viewLogic);
 
         final VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.add(topLayout);
         barAndGridLayout.add(codeValueGrid);
+        barAndGridLayout.add(textDataGrid);
         barAndGridLayout.setFlexGrow(1, codeValueGrid);
+        barAndGridLayout.setFlexGrow(0, topLayout);
+        barAndGridLayout.setFlexGrow(1, textDataGrid);
         barAndGridLayout.setFlexGrow(0, topLayout);
         barAndGridLayout.setSizeFull();
         barAndGridLayout.expand(codeValueGrid);
+        barAndGridLayout.expand(textDataGrid);
+
+        // Allows user to select a single row in the grid.
+        codeValueGrid.asSingleSelect().addValueChangeListener(
+                event -> {
+                    CodeValue codeValue = event.getValue();
+                    viewLogic.rowSelected(codeValue);
+                    CodeTextDataProvider codeTextDataProvider = new CodeTextDataProvider(codeValue.getType(), codeValue.getValue());
+                    if (!codeTextDataProvider.getItems().isEmpty()) {
+                        CodeText codeText = codeTextDataProvider.getItems().iterator().next();
+                        textDataProvider = new TextDataProvider(codeText.getTextId());
+                        textDataGrid.setDataProvider(textDataProvider);
+                        textDataGrid.setVisible(true);
+                    }
+                });
 
         add(barAndGridLayout);
         add(form);

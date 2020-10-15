@@ -25,7 +25,6 @@ import java.util.Locale;
 public class CodeValueForm extends Div {
 
     private final VerticalLayout content;
-    private final TextField id;
     private final TextField name;
     private final TextField value;
     private final TextField creator;
@@ -69,11 +68,6 @@ public class CodeValueForm extends Div {
         add(content);
 
         viewLogic = sampleCrudLogic;
-        id = new TextField("id");
-        id.setWidth("100%");
-        id.setReadOnly(true);
-        id.setValueChangeMode(ValueChangeMode.EAGER);
-        content.add(id);
 
         name = new TextField("name");
         name.setRequired(true);

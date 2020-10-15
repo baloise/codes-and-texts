@@ -12,6 +12,7 @@ public class RestDataService extends AbstractRestDataService implements DataServ
     public static final String CODETYPES = "codetypes";
     public static final String CODEVALUES = "codevalues";
     public static final String TEXTS = "texts";
+    public static final String CODETEXTS = "codetexts";
     private static RestDataService INSTANCE;
 
     public static synchronized DataService getInstance() {
@@ -150,5 +151,32 @@ public class RestDataService extends AbstractRestDataService implements DataServ
     @Override
     public TextData getTextById(long id) {
         return getById(TEXTS, id, TextData.class);
+    }
+
+    @Override
+    public Collection<CodeText> getAllCodeTexts() {
+        return getAllData(CODETEXTS, CodeText[].class);
+    }
+
+    @Override
+    public void saveCodeText(CodeText codeText) {
+        if (codeText.isNewCodeText()) {
+            createData(CODETEXTS, codeText, CodeText.class);
+        } else {
+            String uri = combine(CODETYPES, codeText.getType(), CODETEXTS);
+            updateData(uri, codeText.getValue(), codeText);
+        }
+    }
+
+    @Override
+    public void deleteCodeText(long type, long value) {
+        String uri = combine(CODETYPES, type, CODETEXTS);
+        deleteData(uri, value);
+    }
+
+    @Override
+    public CodeText getCodeTextByIds(long type, long value) {
+        String uri = combine(CODETYPES, type, CODETEXTS);
+        return getById(uri, value, CodeText.class);
     }
 }

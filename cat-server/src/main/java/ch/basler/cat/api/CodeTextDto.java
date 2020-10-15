@@ -20,6 +20,7 @@ public class CodeTextDto {
     private long type;
     private long value;
     private String name;
+    private long textId;
 
     private String textD;
     private String textF;
@@ -48,6 +49,14 @@ public class CodeTextDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getTextId() {
+        return textId;
+    }
+
+    public void setTextId(long textId) {
+        this.textId = textId;
     }
 
     public String getTextD() {

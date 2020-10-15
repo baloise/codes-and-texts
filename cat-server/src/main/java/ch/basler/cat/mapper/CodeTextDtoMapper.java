@@ -11,6 +11,7 @@ public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
         mapped.setValue(entity.getValue());
         mapped.setType(entity.getType());
         mapped.setName(trim(entity.getName()));
+        mapped.setTextId(entity.getTextId());
         mapped.setTextD(trim(entity.getTextD()));
         mapped.setTextF(trim(entity.getTextF()));
         mapped.setTextI(trim(entity.getTextI()));
@@ -24,6 +25,7 @@ public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
         mapped.setValue(dto.getValue());
         mapped.setType(dto.getType());
         mapped.setName(trim(dto.getName()));
+        mapped.setTextId(dto.getTextId());
         mapped.setTextD(trim(dto.getTextD()));
         mapped.setTextF(trim(dto.getTextF()));
         mapped.setTextI(trim(dto.getTextI()));

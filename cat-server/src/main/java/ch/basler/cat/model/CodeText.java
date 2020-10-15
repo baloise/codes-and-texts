@@ -29,6 +29,9 @@ public class CodeText {
 
     private String name;
 
+    @Column(name="text_nr")
+    private long textId;
+
     @Column(name="text_d")
     private String textD;
     @Column(name="text_f")
@@ -60,6 +63,14 @@ public class CodeText {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getTextId() {
+        return textId;
+    }
+
+    public void setTextId(long textId) {
+        this.textId = textId;
     }
 
     public String getTextD() {

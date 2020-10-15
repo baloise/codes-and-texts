@@ -17,4 +17,13 @@ public class RestDataServiceTest {
         assertNotNull(allApplications);
 
     }
+
+    @Test
+    public void combine() {
+        RestDataService restDataService = new RestDataService();
+        String routeLevel1 = restDataService.combine("group", 1, "element");
+        assertEquals("group/1/element", routeLevel1);
+        String routeLevel2 = restDataService.combine(routeLevel1, 2);
+        assertEquals("group/1/element/2", routeLevel2);
+    }
 }

@@ -1,10 +1,6 @@
 package ch.basler.cat.client.backend;
 
-import ch.basler.cat.client.backend.data.Application;
-import ch.basler.cat.client.backend.data.CodeType;
-import ch.basler.cat.client.backend.data.CodeValue;
-import ch.basler.cat.client.backend.data.Domain;
-import ch.basler.cat.client.backend.data.TextData;
+import ch.basler.cat.client.backend.data.*;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -39,6 +35,11 @@ public interface DataService extends Serializable {
     void saveText(TextData textData);
     void deleteText(long id);
     TextData getTextById(long id);
+
+    Collection<CodeText> getAllCodeTexts();
+    void saveCodeText(CodeText codeText);
+    void deleteCodeText(long type, long value);
+    CodeText getCodeTextByIds(long type, long value);
 
 
     static DataService get() {

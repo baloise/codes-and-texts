@@ -81,19 +81,20 @@ public class TextDataView extends HorizontalLayout
         typeSelect = new Select<>();
         typeSelect.setPlaceholder("Select type");
         typeSelect.setItems(TextType.values());
+        typeSelect.setValue(TextType.ALL);
         typeSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 TextType selectedValue = changeEvent.getValue();
-                dataProvider.setFilter(textData -> (selectedValue == TextType.ALL)
-                        || selectedValue == textData.getTextType());
-                    newText.setEnabled(TextType.ALL != selectedValue);
+                dataProvider.setFilter(selectedValue);
+                newText.setEnabled(TextType.ALL != selectedValue);
             }
         });
         filter = new TextField();
         filter.setPlaceholder("Filter text or creator");
         // Apply the filter to grid's data provider. TextField value is never
         filter.addValueChangeListener(
-                event -> dataProvider.setFilter(event.getValue()));
+                event ->
+                        dataProvider.setFilter(event.getValue()));
         // A shortcut to focus on the textField by pressing ctrl + F
         filter.addFocusShortcut(Key.KEY_F, KeyModifier.CONTROL);
 

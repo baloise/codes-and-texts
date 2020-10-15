@@ -2,8 +2,10 @@ package ch.basler.cat.client.ui.text;
 
 import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.TextData;
+import ch.basler.cat.client.backend.data.TextType;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
@@ -17,7 +19,12 @@ import java.util.stream.Collectors;
 public class TextDataProvider extends ListDataProvider<TextData> {
 
     /** Text filter that can be changed separately. */
-    private String filterText = "";
+    private String filterTextD = "";
+    private String filterTextF = "";
+    private String filterTextI = "";
+    private String filterTextE = "";
+    private TextType filterTextType = TextType.ALL;
+    private Long textIdFilter;
 
     public TextDataProvider() {
         super(DataService.get().getAllTexts().stream()
@@ -25,7 +32,9 @@ public class TextDataProvider extends ListDataProvider<TextData> {
                         Comparator.comparing(TextData::getId).thenComparing(TextData::getType))
                 .collect(Collectors.toList()));
     }
-
+    public TextDataProvider(long textId) {
+        super(Arrays.asList(DataService.get().getTextById(textId)));
+    }
     /**
      * Store given text to the backing data service.
      *
@@ -64,16 +73,45 @@ public class TextDataProvider extends ListDataProvider<TextData> {
      */
     public void setFilter(String filterText) {
         Objects.requireNonNull(filterText, "Filter text cannot be null.");
-        if (Objects.equals(this.filterText, filterText.trim())) {
-            return;
-        }
-        this.filterText = filterText.trim().toLowerCase(Locale.ENGLISH);
+//        if (Objects.equals(this.filterTextD, filterText.trim().toLowerCase(Locale.GERMAN)) ) {
+//            return;
+//        }
+        this.filterTextD = filterText.trim().toLowerCase(Locale.GERMAN);
+        this.filterTextF = filterText.trim().toLowerCase(Locale.FRENCH);
+        this.filterTextI = filterText.trim().toLowerCase(Locale.ITALIAN);
+        this.filterTextE = filterText.trim().toLowerCase(Locale.ENGLISH);
 
-        setFilter(textData -> passesFilter(textData.getTextD(), this.filterText)
-                || passesFilter(textData.getTextF(), this.filterText)
-                || passesFilter(textData.getTextI(), this.filterText)
-                || passesFilter(textData.getTextE(), this.filterText)
-                || passesFilter(textData.getCreator(), this.filterText));
+        applyFilter();
+    }
+
+    public void setFilter(long textId) {
+        this.textIdFilter = textId;
+        applyFilter();
+    }
+
+    private void applyFilter() {
+        if (textIdFilter != null) {
+            setFilter(textData -> textData.getId() == textIdFilter.longValue());
+        }
+        else {
+            setFilter(textData -> {
+                boolean textPasses = passesFilter(textData.getTextD(), this.filterTextD, Locale.GERMAN)
+                        || passesFilter(textData.getTextF(), this.filterTextF, Locale.FRENCH)
+                        || passesFilter(textData.getTextI(), this.filterTextI, Locale.ITALIAN)
+                        || passesFilter(textData.getTextE(), this.filterTextE, Locale.ENGLISH)
+                        || passesFilter(textData.getCreator(), this.filterTextD, Locale.GERMAN);
+                boolean textTypePasses = this.filterTextType == TextType.ALL || this.filterTextType == textData.getTextType();
+                boolean passes = textPasses && textTypePasses;
+                return passes;
+            });
+        }
+    }
+
+    public void setFilter(TextType textType) {
+        Objects.requireNonNull(textType, "Filter muss be a Text type");
+
+        this.filterTextType = textType;
+        applyFilter();
     }
 
     @Override
@@ -84,8 +122,8 @@ public class TextDataProvider extends ListDataProvider<TextData> {
         return textData.getId();
     }
 
-    private boolean passesFilter(Object object, String filterText) {
-        return object != null && object.toString().toLowerCase(Locale.ENGLISH)
+    private boolean passesFilter(Object object, String filterText, Locale locale) {
+        return object != null && object.toString().toLowerCase(locale)
                 .contains(filterText);
     }
 }
