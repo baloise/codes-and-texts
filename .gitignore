@@ -6,6 +6,9 @@ target/
 /data/
 node/
 
+### Vaadin ###
+webpack.generated.js
+
 ### STS ###
 .apt_generated
 .classpath
