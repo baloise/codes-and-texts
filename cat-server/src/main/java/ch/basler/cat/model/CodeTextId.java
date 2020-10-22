@@ -10,8 +10,6 @@ import java.io.Serializable;
 public class CodeTextId implements Serializable {
 
     @Id
-    @GenericGenerator(name = "codetext_id", strategy = "ch.basler.cat.model.CodeTextIdGenerator")
-    @GeneratedValue(generator = "codetext_id")
     private long value;
 
     @Id

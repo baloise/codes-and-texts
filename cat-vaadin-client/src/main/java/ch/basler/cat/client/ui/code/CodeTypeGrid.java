@@ -63,7 +63,6 @@ public class CodeTypeGrid extends Grid<CodeType> {
     }
 
     public CodeType getSelectedRow() {
-        Notification.show("asdasd");
         return asSingleSelect().getValue();
     }
 

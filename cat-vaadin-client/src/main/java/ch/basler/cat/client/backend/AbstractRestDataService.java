@@ -1,6 +1,7 @@
 package ch.basler.cat.client.backend;
 
 import com.google.gson.Gson;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -19,18 +20,19 @@ public class AbstractRestDataService {
         return Arrays.asList(gson.fromJson(response, clazz));
     }
 
-    protected <I,T> T getById(String route, I id, Class<T> clazz) {
+    protected <I, T> T getById(String route, I id, Class<T> clazz) {
         final String uri = combine(URL_PREFIX, route, id);
-        String response = restTemplate.getForObject(uri, String.class);
+        String response = null;
+        response = restTemplate.getForObject(uri, String.class);
         return gson.fromJson(response, clazz);
     }
 
-    protected <T> void createData(String route, T data, Class<T> clazz) {
+    protected <T> void  createData(String route, T data, Class<T> clazz) {
         final String uri = combine(URL_PREFIX, route);
         restTemplate.postForObject(uri, data, clazz);
     }
 
-    protected <I,T> void updateData(String route, I id, T data) {
+    protected <I, T> void updateData(String route, I id, T data) {
         String uri = combine(URL_PREFIX, route, id);
         restTemplate.put(uri, data);
     }

@@ -81,7 +81,6 @@ public class DomainGrid extends Grid<Domain> {
     }
 
     public Domain getSelectedRow() {
-        Notification.show("asdasd");
         return asSingleSelect().getValue();
     }
 

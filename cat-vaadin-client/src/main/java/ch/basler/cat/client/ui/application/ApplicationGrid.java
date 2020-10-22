@@ -69,7 +69,7 @@ public class ApplicationGrid extends Grid<Application> {
     }
 
     public Application getSelectedRow() {
-        Notification.show("asdasd");
+
         return asSingleSelect().getValue();
     }
 

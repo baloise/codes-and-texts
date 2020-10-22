@@ -2,6 +2,7 @@ package ch.basler.cat.mapper;
 
 import ch.basler.cat.api.CodeTextDto;
 import ch.basler.cat.model.CodeText;
+import ch.basler.cat.model.CodeTextRaw;
 
 public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
 
@@ -33,4 +34,11 @@ public class CodeTextDtoMapper extends DtoMapper<CodeTextDto, CodeText> {
         return mapped;
     }
 
+    protected CodeTextDto entityToDto(CodeTextRaw entity) {
+        CodeTextDto mapped = new CodeTextDto();
+        mapped.setValue(entity.getValue());
+        mapped.setType(entity.getType());
+        mapped.setTextId(entity.getTextId());
+        return mapped;
+    }
 }

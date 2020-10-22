@@ -13,8 +13,8 @@ public class CodeTextControllerTest {
     private CodeTextController controller;
 
     @Before
-    public void setUp() throws Exception {
-        controller = new CodeTextController(null);
+    public void setUp() {
+        controller = new CodeTextController(null, null);
     }
 
     @Test

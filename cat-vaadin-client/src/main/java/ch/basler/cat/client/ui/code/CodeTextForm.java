@@ -1,6 +1,6 @@
 package ch.basler.cat.client.ui.code;
 
-import ch.basler.cat.client.backend.data.CodeValue;
+import ch.basler.cat.client.backend.data.CodeText;
 import ch.basler.cat.client.common.converter.UpperCaseNoSpacesConverter;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
@@ -13,6 +13,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.ValueContext;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
@@ -21,28 +22,36 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
- * A form for editing a single codeValue.
+ * A form for editing a single codeText.
  */
-public class CodeValueForm extends Div {
+public class CodeTextForm extends Div {
 
     private final VerticalLayout content;
-    private final TextField name;
-    private final TextField value;
+    private final TextField textId;
 
     private Button save;
     private Button discard;
     private Button cancel;
     private final Button delete;
 
-    private final CodeValueViewLogic viewLogic;
-    private final Binder<CodeValue> binder;
-    private CodeValue currentCodeValue;
+    private final CodeTextViewLogic viewLogic;
+    private final Binder<CodeText> binder;
+    private CodeText currentCodeText;
 
-    private static class CodeValueValueConverter extends StringToLongConverter {
+    private static class StringToLongValueConverter extends StringToLongConverter {
 
-        public CodeValueValueConverter() {
-            super(Long.valueOf(0), "Could not convert value to " + Long.class.getName()
+        public StringToLongValueConverter() {
+            super(null, "Could not convert value to " + Long.class.getName()
                     + ".");
+        }
+
+
+        @Override
+        public String convertToPresentation(Long value, ValueContext context) {
+            if (value == null) {
+                return "";
+            }
+            return super.convertToPresentation(value, context);
         }
 
         @Override
@@ -59,29 +68,24 @@ public class CodeValueForm extends Div {
             return format;
         }
     }
-    public CodeValueForm(CodeValueViewLogic sampleCrudLogic) {
-        setClassName("codeValue-form");
+    public CodeTextForm(CodeTextViewLogic sampleCrudLogic) {
+        setClassName("codeText-form");
 
         content = new VerticalLayout();
         content.setSizeUndefined();
-        content.addClassName("codeValue-form-content");
+        content.addClassName("codeText-form-content");
         add(content);
 
         viewLogic = sampleCrudLogic;
 
-        name = new TextField("name");
-        name.setRequired(true);
-        name.setValueChangeMode(ValueChangeMode.EAGER);
-        content.add(name);
+        textId = new TextField("assigned-text-id");
+        textId.setRequired(true);
+        textId.setValueChangeMode(ValueChangeMode.EAGER);
+        content.add(textId);
 
-        value = new TextField("value");
-        value.setReadOnly(true);
-        value.setValueChangeMode(ValueChangeMode.EAGER);
-        content.add(value);
 
-        binder = new BeanValidationBinder<>(CodeValue.class);
-        binder.forField(value).withConverter(new CodeValueValueConverter()).bind("value");
-        binder.forField(name).withConverter(new UpperCaseNoSpacesConverter()).bind("name");
+        binder = new BeanValidationBinder<>(CodeText.class);
+        binder.forField(textId).withConverter(new StringToLongValueConverter()).bind("textId");
         binder.bindInstanceFields(this);
 
         // enable/disable save button while editing
@@ -95,9 +99,9 @@ public class CodeValueForm extends Div {
         save.setWidth("100%");
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         save.addClickListener(event -> {
-            if (currentCodeValue != null
-                    && binder.writeBeanIfValid(currentCodeValue)) {
-                viewLogic.saveCodeValue(currentCodeValue);
+            if (currentCodeText != null
+                    && binder.writeBeanIfValid(currentCodeText)) {
+                viewLogic.saveCodeText(currentCodeText);
             }
         });
         save.addClickShortcut(Key.KEY_S, KeyModifier.CONTROL);
@@ -105,14 +109,14 @@ public class CodeValueForm extends Div {
         discard = new Button("Discard changes");
         discard.setWidth("100%");
         discard.addClickListener(
-                event -> viewLogic.editCodeValue(currentCodeValue));
+                event -> viewLogic.editCodeText(currentCodeText));
 
         cancel = new Button("Cancel");
         cancel.setWidth("100%");
-        cancel.addClickListener(event -> viewLogic.cancelCodeValue());
+        cancel.addClickListener(event -> viewLogic.cancelCodeText());
         cancel.addClickShortcut(Key.ESCAPE);
         getElement()
-                .addEventListener("keydown", event -> viewLogic.cancelCodeValue())
+                .addEventListener("keydown", event -> viewLogic.cancelCodeText())
                 .setFilter("event.key == 'Escape'");
 
         delete = new Button("Delete");
@@ -120,8 +124,8 @@ public class CodeValueForm extends Div {
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR,
                 ButtonVariant.LUMO_PRIMARY);
         delete.addClickListener(event -> {
-            if (currentCodeValue != null) {
-                viewLogic.deleteCodeValue(currentCodeValue);
+            if (currentCodeText != null) {
+                viewLogic.deleteCodeText(currentCodeText);
             }
         });
 
@@ -129,12 +133,12 @@ public class CodeValueForm extends Div {
     }
 
 
-    public void editCodeValue(CodeValue codeValue) {
-        if (codeValue == null) {
-            codeValue = new CodeValue();
+    public void editCodeText(CodeText codeText) {
+        if (codeText == null) {
+            codeText = new CodeText();
         }
-        delete.setVisible(!codeValue.isNewCodeValue());
-        currentCodeValue = codeValue;
-        binder.readBean(codeValue);
+        delete.setVisible(!codeText.isNewCodeText());
+        currentCodeText = codeText;
+        binder.readBean(codeText);
     }
 }

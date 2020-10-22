@@ -74,7 +74,6 @@ public class CodeValueGrid extends Grid<CodeValue> {
     }
 
     public CodeValue getSelectedRow() {
-        Notification.show("asdasd");
         return asSingleSelect().getValue();
     }
 

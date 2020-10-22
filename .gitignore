@@ -3,9 +3,7 @@ HELP.md
 build/
 target/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
-!**/src/test/**
-data
+/data/
 node/
 
 ### STS ###

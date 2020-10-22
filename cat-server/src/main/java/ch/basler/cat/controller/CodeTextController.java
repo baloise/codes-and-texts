@@ -19,7 +19,9 @@ import ch.basler.cat.api.CodeTextDto;
 import ch.basler.cat.mapper.CodeTextDtoMapper;
 import ch.basler.cat.model.CodeText;
 import ch.basler.cat.model.CodeTextId;
+import ch.basler.cat.model.CodeTextRaw;
 import ch.basler.cat.services.CodeTextRepository;
+import ch.basler.cat.services.CodeTextRepositoryRaw;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -28,6 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,13 +38,15 @@ public class CodeTextController {
 
     private static final Logger logger = LoggerFactory.getLogger(CodeTextController.class);
     private final CodeTextRepository repository;
+    private final CodeTextRepositoryRaw repositoryRaw;
 
     private final ModelMapper modelMapper = new ModelMapper();
     private final CodeTextDtoMapper dtoMapper = new CodeTextDtoMapper();
 
     @Autowired
-    public CodeTextController(CodeTextRepository repository) {
+    public CodeTextController(CodeTextRepository repository, CodeTextRepositoryRaw repositoryRaw) {
         this.repository = repository;
+        this.repositoryRaw = repositoryRaw;
     }
 
     // Aggregate root
@@ -59,12 +64,11 @@ public class CodeTextController {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/codetypes/{type}/codetexts")
+    @PostMapping("/codetexts")
     public CodeTextDto create(@RequestBody CodeTextDto codeTextDto) {
         CodeText codeText = convertToEntity(codeTextDto);
-        codeText.setValue(-1);
-        CodeText codeTextCreated = repository.save(codeText);
-        return convertToDto(codeTextCreated);
+        Optional<CodeText> codeTextOpt = saveCodeText(codeText);
+        return codeTextOpt.isPresent() ? convertToDto(codeTextOpt.get()) : null;
     }
 
     // Single item
@@ -78,23 +82,28 @@ public class CodeTextController {
 
     @PutMapping("/codetypes/{type}/codetexts/{value}")
     public CodeTextDto update(@RequestBody CodeTextDto newCodeTextDto,
-                               @PathVariable long type, @PathVariable long value) {
+                                     @PathVariable long type, @PathVariable long value) {
 
         CodeText newCodeText = convertToEntity(newCodeTextDto);
-        return repository.findById(CodeTextId.of(type, value))
-                .map((codeText -> {
+
+        CodeTextId id = CodeTextId.of(type, value);
+        Optional<CodeText> codeTextOpt = repositoryRaw.findById(id)
+                .map(codeText -> {
                     modelMapper.map(newCodeText, codeText);
-                    return convertToDto(repository.save(codeText));
-                })).orElseGet(() -> {
-                    newCodeText.setType(type);
-                    newCodeText.setValue(value);
-                    return convertToDto(repository.save(newCodeText));
-                });
+                    return saveCodeText(newCodeText);
+                }).orElseGet(() -> saveCodeText(newCodeText));
+        return codeTextOpt.isPresent() ? convertToDto(codeTextOpt.get()) : null;
+    }
+
+    private Optional<CodeText> saveCodeText(CodeText newCodeText) {
+        CodeTextRaw codeTextRaw = new CodeTextRaw(newCodeText);
+        CodeTextRaw savedCodeTextRaw = repositoryRaw.save(codeTextRaw);
+        return repository.findById(CodeTextId.of(savedCodeTextRaw.getType(), savedCodeTextRaw.getValue()));
     }
 
     @DeleteMapping("/codetypes/{type}/codetexts/{value}")
     public void delete(@PathVariable long type, @PathVariable long value) {
-        repository.deleteById(CodeTextId.of(type, value));
+        repositoryRaw.deleteById(CodeTextId.of(type, value));
     }
 
     CodeTextDto convertToDto(CodeText codeText) {

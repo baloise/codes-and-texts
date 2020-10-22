@@ -3,11 +3,9 @@ package ch.basler.cat.client.ui.code;
 import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.CodeText;
 import com.vaadin.flow.data.provider.ListDataProvider;
+import org.springframework.web.client.RestClientException;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -21,7 +19,16 @@ public class CodeTextDataProvider extends ListDataProvider<CodeText> {
     private String filterText = "";
 
     public CodeTextDataProvider(long type, long value) {
-        super(Arrays.asList(DataService.get().getCodeTextByIds(type, value)));
+        super(load(type, value));
+    }
+
+    private static List<CodeText> load(long type, long value) {
+        try {
+            return Arrays.asList(DataService.get().getCodeTextByIds(type, value));
+        }
+        catch (RestClientException rce) {
+            return Arrays.asList();
+        }
     }
 
     /**

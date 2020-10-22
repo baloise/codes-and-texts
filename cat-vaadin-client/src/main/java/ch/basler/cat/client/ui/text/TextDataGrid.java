@@ -88,7 +88,6 @@ public class TextDataGrid extends Grid<TextData> {
     }
 
     public TextData getSelectedRow() {
-        Notification.show("asdasd");
         return asSingleSelect().getValue();
     }
 
