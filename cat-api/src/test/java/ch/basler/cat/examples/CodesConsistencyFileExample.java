@@ -1,4 +1,4 @@
-package ch.basler.cat.api.examples;
+package ch.basler.cat.examples;
 
 import ch.basler.cat.api.code.CodeType;
 import ch.basler.cat.api.code.CodeValue;
@@ -10,7 +10,7 @@ import java.util.Collection;
 
 public class CodesConsistencyFileExample {
 
-    private static final Path BASE_DIR = Paths.get("src", "test", "resources");
+    private static final Path BASE_DIR = Paths.get("cat-api", "src", "test", "resources");
 
     public static final CodeType CODE_TYPE_KANTON = new CodeType((short) 2);
 

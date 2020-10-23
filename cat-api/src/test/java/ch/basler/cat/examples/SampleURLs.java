@@ -1,4 +1,4 @@
-package ch.basler.cat.api.examples;
+package ch.basler.cat.examples;
 
 import java.net.URI;
 
