@@ -1,4 +1,4 @@
-package ch.basler.cat.examples;
+package ch.basler.cat.examples.codetexts;
 
 import ch.basler.cat.api.code.CodeType;
 import ch.basler.cat.api.code.CodeValue;

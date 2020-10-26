@@ -23,21 +23,23 @@ public class CatServiceTexts implements TextAPI {
 
     @Override
     public String getTextForCode(CodeValue codeValue, Language language) {
+        Objects.requireNonNull(codeTextProvider, "codeTextProvider is not defined");
         return getText(codeTextProvider, CodeTextId.fromCodeValue(codeValue), language);
     }
 
     @Override
     public String getTextForLabel(String labelName, Language language) {
+        Objects.requireNonNull(labelTextProvider, "labelTextProvider is not defined");
         return getText(labelTextProvider, labelName, language);
     }
 
     @Override
     public String getTextForMessage(Number messageId, Language language) {
+        Objects.requireNonNull(messageTextProvider, "messageTextProvider is not defined");
         return getText(messageTextProvider, messageId, language);
     }
 
     private <T,I> String getText(TextItemProvider<? extends TextItem<I>, I> provider, I identifier, Language language) {
-        Objects.requireNonNull(provider, "provider");
         return provider.getItem(identifier).map(t -> t.getText(language)).orElse(null);
     }
 
