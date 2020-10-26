@@ -57,8 +57,15 @@ public class CodeTextController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/domains/{domain}/codetexts")
+    public List<CodeTextDto> byDomain(@PathVariable long domain) {
+        return IterableUtils.toList(repository.findByDomain(domain)).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
     @GetMapping("/codetypes/{type}/codetexts")
-    public List<CodeTextDto> all(@PathVariable long type) {
+    public List<CodeTextDto> byType(@PathVariable long type) {
         return IterableUtils.toList(repository.findByType(type)).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());

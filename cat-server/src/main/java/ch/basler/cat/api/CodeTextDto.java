@@ -17,6 +17,7 @@ package ch.basler.cat.api;
 
 public class CodeTextDto {
 
+    private long domain;
     private long type;
     private long value;
     private String name;
@@ -26,6 +27,14 @@ public class CodeTextDto {
     private String textF;
     private String textI;
     private String textE;
+
+    public long getDomain() {
+        return domain;
+    }
+
+    public void setDomain(long domain) {
+        this.domain = domain;
+    }
 
     public long getType() {
         return type;

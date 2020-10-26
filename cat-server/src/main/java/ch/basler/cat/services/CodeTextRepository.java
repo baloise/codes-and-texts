@@ -27,5 +27,7 @@ import java.util.List;
 @CrossOrigin
 public interface CodeTextRepository extends CrudRepository<CodeText, CodeTextId> {
 
+    List<CodeText> findByDomain(@Param("domain") long domain);
+
     List<CodeText> findByType(@Param("type") long type);
 }
