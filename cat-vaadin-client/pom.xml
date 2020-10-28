@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>cat-vaadin-client</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>CAT Vaadin Client</name>
 
@@ -22,7 +22,6 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <!-- Replace artifactId with vaadin-core to use only free components -->
             <artifactId>vaadin-core</artifactId>
             <exclusions>
                 <!-- Webjars are only needed when running in Vaadin 13 compatibility mode -->
@@ -52,40 +51,26 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!-- Added to provide logging output as Vaadin uses -->
-        <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
-
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring-boot-starter</artifactId>
+            <exclusions>
+                <!-- Excluding so that webjars are not included. -->
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
-        <!-- Bean validation implementation -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-
         <!-- Vaadin Testbench -->
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -95,36 +80,28 @@
     </dependencies>
 
     <build>
-        <defaultGoal>jetty:run</defaultGoal>
+        <defaultGoal>spring-boot:run</defaultGoal>
         <plugins>
+            <!-- The Spring Boot Maven plugin for easy
+                 execution from CLI and packaging -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <httpConnector>
-                        <!--host>localhost</host-->
-                        <port>8089</port>
-                    </httpConnector>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
-                    <!-- Use war output directory to get the webpack files -->
-                    <webAppConfig>
-                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
-                    </webAppConfig>
+                    <wait>500</wait>
+                    <maxAttempts>240</maxAttempts>
                 </configuration>
             </plugin>
 
             <!--
-                Take care of synchronizing java dependencies and imports.
+                Take care of synchronizing java dependencies and imports in
+                package.json and main.js files.
                 It also creates webpack.config.js if not exists yet.
             -->
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -154,8 +131,16 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <jvmArguments>-Dvaadin.productionMode</jvmArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
                         <groupId>com.vaadin</groupId>
                         <artifactId>vaadin-maven-plugin</artifactId>
+                        <version>${vaadin.version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -168,31 +153,24 @@
                 </plugins>
             </build>
         </profile>
-        
+
         <profile>
             <id>it</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                        <configuration>
-                            <stopPort>8081</stopPort>
-                            <stopWait>5</stopWait>
-                            <daemon>false</daemon>
-                            <stopKey>stopit</stopKey>
-                            <scanIntervalSeconds>-1</scanIntervalSeconds>
-                        </configuration>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>start-jetty</id>
+                                <id>start-spring-boot</id>
                                 <phase>pre-integration-test</phase>
                                 <goals>
                                     <goal>start</goal>
                                 </goals>
                             </execution>
                             <execution>
-                                <id>stop-jetty</id>
+                                <id>stop-spring-boot</id>
                                 <phase>post-integration-test</phase>
                                 <goals>
                                     <goal>stop</goal>
@@ -200,6 +178,7 @@
                             </execution>
                         </executions>
                     </plugin>
+
                     <plugin>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <version>2.22.2</version>
@@ -241,7 +220,6 @@
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>

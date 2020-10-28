@@ -9,7 +9,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -101,7 +100,7 @@ public class DomainForm extends Div {
         creator.addThemeVariants(TextFieldVariant.LUMO_ALIGN_RIGHT);
         content.add(creator);
 
-        binder = new BeanValidationBinder<>(Domain.class);
+        binder = new Binder<>(Domain.class);
         binder.forField(id).withConverter(new DomainIdConverter() )
                 .bind("id");
         binder.bindInstanceFields(this);

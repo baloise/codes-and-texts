@@ -10,7 +10,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -89,7 +88,7 @@ public class CodeTypeForm extends Div {
         creator.addThemeVariants(TextFieldVariant.LUMO_ALIGN_RIGHT);
         content.add(creator);
 
-        binder = new BeanValidationBinder<>(CodeType.class);
+        binder = new Binder<>(CodeType.class);
 
         binder.forField(name).withConverter(new UpperCaseNoSpacesConverter()).bind("name");
         binder.forField(id).withConverter(new CodeTypeIdConverter()).bind("id");

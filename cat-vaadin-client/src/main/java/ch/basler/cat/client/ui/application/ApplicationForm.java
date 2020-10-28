@@ -8,7 +8,6 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -88,7 +87,7 @@ public class ApplicationForm extends Div {
         creator.setValueChangeMode(ValueChangeMode.EAGER);
         content.add(creator);
 
-        binder = new BeanValidationBinder<>(Application.class);
+        binder = new Binder<>(Application.class);
         binder.forField(id).withConverter(new ApplicationIdConverter() )
                 .bind("id");
         binder.bindInstanceFields(this);

@@ -11,7 +11,6 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToLongConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -79,7 +78,7 @@ public class CodeValueForm extends Div {
         value.setValueChangeMode(ValueChangeMode.EAGER);
         content.add(value);
 
-        binder = new BeanValidationBinder<>(CodeValue.class);
+        binder = new Binder<>(CodeValue.class);
         binder.forField(value).withConverter(new CodeValueValueConverter()).bind("value");
         binder.forField(name).withConverter(new UpperCaseNoSpacesConverter()).bind("name");
         binder.bindInstanceFields(this);
