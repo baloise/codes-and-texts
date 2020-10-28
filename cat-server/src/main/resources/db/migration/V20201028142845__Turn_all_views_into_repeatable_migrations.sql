@@ -1,0 +1,8 @@
+DROP VIEW IF EXISTS application;
+DROP VIEW IF EXISTS codestyle;
+DROP VIEW IF EXISTS codetext;
+DROP VIEW IF EXISTS codetextraw;
+DROP VIEW IF EXISTS codetype;
+DROP VIEW IF EXISTS domain;
+DROP VIEW IF EXISTS labeltext;
+DROP VIEW IF EXISTS text;

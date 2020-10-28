@@ -1,4 +1,5 @@
-CREATE OR REPLACE VIEW CodeText (id, type_id, value, name, text_nr, text_d, text_f, text_i, text_e, creator, created, domain) As
+DROP VIEW IF EXISTS CodeText;
+CREATE VIEW CodeText (id, type_id, value, name, text_nr, text_d, text_f, text_i, text_e, creator, created, domain) As
 SELECT concat_ws(':', cw.codetyp_nr, cw.wert), cw.codetyp_nr, cw.wert, cw.name, ct.text_nr, t.wert_d, t.wert_f, t.wert_i, t.wert_e, ct.erfasser, ct.erfassungszeit, cy.zustaendigkeit_nr
 FROM tbti_codetext AS ct
          INNER JOIN tbti_codewert AS cw
