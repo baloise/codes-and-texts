@@ -1,17 +1,13 @@
 package ch.basler.cat.client.ui.code;
 
 import ch.basler.cat.client.backend.data.CodeText;
-import ch.basler.cat.client.common.converter.UpperCaseNoSpacesConverter;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyModifier;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.component.textfield.TextFieldVariant;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValueContext;
 import com.vaadin.flow.data.converter.StringToLongConverter;
@@ -84,7 +80,7 @@ public class CodeTextForm extends Div {
         content.add(textId);
 
 
-        binder = new BeanValidationBinder<>(CodeText.class);
+        binder = new Binder<>(CodeText.class);
         binder.forField(textId).withConverter(new StringToLongValueConverter()).bind("textId");
         binder.bindInstanceFields(this);
 
