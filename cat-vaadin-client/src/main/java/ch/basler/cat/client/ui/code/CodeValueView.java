@@ -42,7 +42,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     private Button newCodeValue;
     private Button newCodeText;
     private CodeValueDataProvider codeValueDataProvider;
-    private TextDataProvider textDataProvider = new TextDataProvider(1);
+    private TextDataProvider textDataProvider = new TextDataProvider();
     private CodeTextDataProvider codeTextDataProvider;
 
     public CodeValueView() {
