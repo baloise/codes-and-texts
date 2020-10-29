@@ -19,6 +19,8 @@ import ch.basler.cat.api.TextDto;
 import ch.basler.cat.mapper.TextDtoMapper;
 import ch.basler.cat.model.Text;
 import ch.basler.cat.services.TextRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(description = "Access to texts")
 @RestController
 public class TextController {
 

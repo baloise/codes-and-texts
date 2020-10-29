@@ -22,6 +22,8 @@ import ch.basler.cat.model.CodeTextId;
 import ch.basler.cat.model.CodeTextRaw;
 import ch.basler.cat.services.CodeTextRepository;
 import ch.basler.cat.services.CodeTextRepositoryRaw;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -33,6 +35,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Api(description = "Access to text representation of codes")
 @RestController
 public class CodeTextController {
 

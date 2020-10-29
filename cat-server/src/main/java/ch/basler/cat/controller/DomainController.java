@@ -19,6 +19,8 @@ import ch.basler.cat.api.DomainDto;
 import ch.basler.cat.mapper.DomainDtoMapper;
 import ch.basler.cat.model.Domain;
 import ch.basler.cat.services.DomainRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(description = "Access to domains owning codes")
 @RestController
 public class DomainController {
 

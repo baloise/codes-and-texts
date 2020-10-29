@@ -20,6 +20,8 @@ import ch.basler.cat.mapper.CodeValueDtoMapper;
 import ch.basler.cat.model.CodeValue;
 import ch.basler.cat.model.CodeValueId;
 import ch.basler.cat.services.CodeValueRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -30,6 +32,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(description = "Access to values of specific code types")
 @RestController
 public class CodeValueController {
 

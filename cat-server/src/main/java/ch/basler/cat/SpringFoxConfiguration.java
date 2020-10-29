@@ -47,10 +47,12 @@ public class SpringFoxConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Code and Texts REST API",
-                "Management System for I18N codes and texts.",
+                "Management System for I18N codes and texts. If you need more " +
+                        "Information, have a look at the " +
+                        "<a href=\"https://github.com/baloise/codes-and-texts\">github page</a>",
                 "0.0.1",
                 "Terms of service",
-                new Contact("John Doe", "www.example.com", "myeaddress@company.com"),
+                new Contact("ACME Inc.", "www.acme.org", "info@acme.org"),
                 "Apache 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0",
                 Collections.emptyList());

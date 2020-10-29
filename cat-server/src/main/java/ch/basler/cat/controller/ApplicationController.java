@@ -19,6 +19,8 @@ import ch.basler.cat.api.ApplicationDto;
 import ch.basler.cat.mapper.ApplicationDtoMapper;
 import ch.basler.cat.model.Application;
 import ch.basler.cat.services.ApplicationRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections4.IterableUtils;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -27,10 +29,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(description = "Access to applications using texts")
 @RestController
 public class ApplicationController {
 
@@ -46,6 +48,7 @@ public class ApplicationController {
     }
 
     // Aggregate root
+    @ApiOperation(value = "Get all applications", notes = "Returns a list of all applications")
     @GetMapping("/applications")
     @PreAuthorize("isAuthenticated()")
     public List<ApplicationDto> all() {
@@ -54,8 +57,8 @@ public class ApplicationController {
                 .collect(Collectors.toList());
     }
 
+    @ApiOperation(value = "Add a new application")
     @PostMapping("/applications")
-    @RolesAllowed("DEVELOPER")
     public ApplicationDto create(@RequestBody ApplicationDto applicationDto) {
 
         Application application = convertToEntity(applicationDto);
@@ -64,7 +67,7 @@ public class ApplicationController {
         return convertToDto(applicationCreated);
     }
 
-    // Single item
+    @ApiOperation(value = "Find an application by ID", notes = "Returns a single application")
     @GetMapping("/applications/{id}")
     public ApplicationDto one(@PathVariable("id") Long id) {
         Application application = this.repository.findById(id)
@@ -73,6 +76,7 @@ public class ApplicationController {
         return convertToDto(application);
     }
 
+    @ApiOperation(value = "Update an application")
     @PutMapping("/applications/{id}")
     public ApplicationDto update(@RequestBody ApplicationDto newApplicationDto, @PathVariable Long id) {
         Application newApplication = convertToEntity(newApplicationDto);
@@ -86,6 +90,7 @@ public class ApplicationController {
                 });
     }
 
+    @ApiOperation(value = "Delete an application")
     @DeleteMapping("/applications/{id}")
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
@@ -99,3 +104,4 @@ public class ApplicationController {
         return dtoMapper.maptoEntity(applicationDto);
     }
 }
+
