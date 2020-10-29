@@ -62,7 +62,7 @@ public class MainLayout extends AppLayout implements RouterLayout {
         // execution mode (development or production) and browser ES level
         // support
         final String resolvedImage = VaadinService.getCurrent().resolveResource(
-                "img/cc-cat.jpeg", VaadinSession.getCurrent().getBrowser());
+                "frontend/img/cc-cat.jpeg", VaadinSession.getCurrent().getBrowser());
 
         final Image image = new Image(resolvedImage, "");
         final Label title = new Label("CAT (Codes and Texts)");
