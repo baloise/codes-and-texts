@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
  */
 public class TextDataProvider extends ListDataProvider<TextData> {
 
+    private final DataService dataService;
     /** Text filter that can be changed separately. */
     private String filterTextD = "";
     private String filterTextF = "";
@@ -26,14 +27,18 @@ public class TextDataProvider extends ListDataProvider<TextData> {
     private TextType filterTextType = TextType.ALL;
     private Long textIdFilter;
 
-    public TextDataProvider() {
-        super(DataService.get().getAllTexts().stream()
+    public TextDataProvider(DataService dataService) {
+        super(dataService.getAllTexts().stream()
                 .sorted(
                         Comparator.comparing(TextData::getId).thenComparing(TextData::getType))
                 .collect(Collectors.toList()));
+
+        this.dataService = dataService;
     }
-    public TextDataProvider(long textId) {
-        super(Arrays.asList(DataService.get().getTextById(textId)));
+
+    public TextDataProvider(DataService dataService, long textId) {
+        super(Arrays.asList(dataService.getTextById(textId)));
+        this.dataService = dataService;
     }
     /**
      * Store given text to the backing data service.
@@ -44,7 +49,7 @@ public class TextDataProvider extends ListDataProvider<TextData> {
     public void save(TextData textData) {
         final boolean newText = textData.isNewText();
 
-        DataService.get().saveText(textData);
+        dataService.saveText(textData);
         if (newText) {
             refreshAll();
         } else {
@@ -59,7 +64,7 @@ public class TextDataProvider extends ListDataProvider<TextData> {
      *            the text to be deleted
      */
     public void delete(TextData textData) {
-        DataService.get().deleteText(textData.getId());
+        dataService.deleteText(textData.getId());
         refreshAll();
     }
 

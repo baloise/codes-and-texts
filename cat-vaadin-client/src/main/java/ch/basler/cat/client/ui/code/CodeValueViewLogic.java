@@ -22,9 +22,11 @@ public class CodeValueViewLogic implements Serializable {
 
     public static final String FRAGMENT_PREFIX = "CODE_VALUE_FORM";
     public static final String NEW = "new";
+    private final DataService dataService;
     private final CodeValueView view;
 
-    public CodeValueViewLogic(CodeValueView simpleCrudView) {
+    public CodeValueViewLogic(DataService dataService, CodeValueView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -89,7 +91,7 @@ public class CodeValueViewLogic implements Serializable {
     }
 
     private CodeValue findCodeValue(CodeType codeType, long value) {
-        return DataService.get().getCodeValue(codeType.getId(), value);
+        return dataService.getCodeValue(codeType.getId(), value);
     }
 
     public void saveCodeValue(CodeValue codeValue) {

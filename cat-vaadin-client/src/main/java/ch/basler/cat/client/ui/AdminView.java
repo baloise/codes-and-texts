@@ -20,7 +20,7 @@ public class AdminView extends VerticalLayout {
 //        categoriesListing = new IronList<>();
 //
 //        dataProvider = new ListDataProvider<Category>(
-//                new ArrayList<>(DataService.get().getAllCategories()));
+//                new ArrayList<>(dataService.getAllCategories()));
 //        categoriesListing.setDataProvider(dataProvider);
 //        categoriesListing.setRenderer(
 //                new ComponentRenderer<>(this::createCategoryEditor));
@@ -52,7 +52,7 @@ public class AdminView extends VerticalLayout {
 //                            "Please confirm",
 //                            "Are you sure you want to delete the category? Books in this category will not be deleted.",
 //                            "Delete", () -> {
-//                                DataService.get()
+//                                dataService
 //                                        .deleteCategory(category.getId());
 //                                dataProvider.getItems().remove(category);
 //                                dataProvider.refreshAll();
@@ -70,7 +70,7 @@ public class AdminView extends VerticalLayout {
 //        binder.setBean(category);
 //        binder.addValueChangeListener(event -> {
 //            if (binder.isValid()) {
-//                DataService.get().updateCategory(category);
+//                dataService.updateCategory(category);
 //                deleteButton.setEnabled(true);
 //                newCategoryButton.setEnabled(true);
 //                Notification.show("Category Saved.");

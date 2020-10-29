@@ -1,7 +1,7 @@
 package ch.basler.cat.client.backend;
 
 import com.google.gson.Gson;
-import org.springframework.web.client.RestClientException;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -12,7 +12,11 @@ public class AbstractRestDataService {
 
     private static final String URL_PREFIX = System.getenv().getOrDefault("CAT_BACKEND_URL", "http://localhost:8088");
     private final Gson gson = new Gson();
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
+
+    public AbstractRestDataService(KeycloakRestTemplate keycloakRestTemplate) {
+        this.restTemplate = keycloakRestTemplate;
+    }
 
     protected <T> Collection<T> getAllData(String route, Class<T[]> clazz) {
         String uri = combine(URL_PREFIX, route);

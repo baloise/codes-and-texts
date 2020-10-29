@@ -16,7 +16,6 @@
 package ch.basler.cat.client.backend.data;
 
 import javax.validation.constraints.NotNull;
-import javax.xml.soap.Text;
 import java.util.Objects;
 
 public class TextData {

@@ -22,10 +22,12 @@ import java.io.Serializable;
 public class CodeTextViewLogic implements Serializable {
 
     public static final String NEW = "new";
+    private final DataService dataService;
     private final CodeValueView view;
     public static final String  FRAGMENT_PREFIX = "CODE_TEXT_FORM";
 
-    public CodeTextViewLogic(CodeValueView simpleCrudView) {
+    public CodeTextViewLogic(DataService dataService, CodeValueView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -88,8 +90,8 @@ public class CodeTextViewLogic implements Serializable {
     }
 
     private TextData findText(CodeType codeType, long value) {
-        CodeText codeTextByIds = DataService.get().getCodeTextByIds(codeType.getId(), value);
-        return DataService.get().getTextById(codeTextByIds.getTextId());
+        CodeText codeTextByIds = dataService.getCodeTextByIds(codeType.getId(), value);
+        return dataService.getTextById(codeTextByIds.getTextId());
     }
 
     public void saveCodeText(CodeText codeText) {

@@ -1,11 +1,9 @@
 package ch.basler.cat.client.ui.text;
 
 import ch.basler.cat.client.backend.data.TextData;
-import ch.basler.cat.client.backend.data.TextType;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.notification.Notification;
 
 /**
  * Grid of Texts, handling the visual presentation and filtering of a set of

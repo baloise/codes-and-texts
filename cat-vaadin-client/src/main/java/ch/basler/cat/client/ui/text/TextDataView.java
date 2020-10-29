@@ -1,5 +1,6 @@
 package ch.basler.cat.client.ui.text;
 
+import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.TextData;
 import ch.basler.cat.client.backend.data.TextType;
 import ch.basler.cat.client.ui.MainLayout;
@@ -17,9 +18,7 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
-
-import java.security.AllPermission;
-import java.util.Arrays;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A view for performing create-read-update-delete operations on Texts.
@@ -34,15 +33,19 @@ public class TextDataView extends HorizontalLayout
     public static final String VIEW_NAME = "Text";
     private final TextDataGrid grid;
     private final TextDataForm form;
+    private final DataService dataService;
     private TextField filter;
     private Select<TextType> typeSelect;
 
-    private final TextDataViewLogic viewLogic = new TextDataViewLogic(this);
+    private final TextDataViewLogic viewLogic;
     private Button newText;
 
-    private TextDataProvider dataProvider = new TextDataProvider();
+    private TextDataProvider dataProvider;
 
-    public TextDataView() {
+    public TextDataView(@Autowired DataService dataService) {
+        this.dataService = dataService;
+        viewLogic = new TextDataViewLogic(dataService, this);
+        dataProvider = new TextDataProvider(dataService);
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
@@ -52,7 +55,7 @@ public class TextDataView extends HorizontalLayout
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
         form = new TextDataForm(viewLogic);
-        
+
         final VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.add(topLayout);
         barAndGridLayout.add(grid);
@@ -115,7 +118,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Shows a temporary popup notification to the user.
-     * 
+     *
      * @see Notification#show(String)
      * @param msg
      */
@@ -125,7 +128,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Enables/Disables the new Text button.
-     * 
+     *
      * @param enabled
      */
     public void setNewTextEnabled(boolean enabled) {
@@ -141,7 +144,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Selects a row
-     * 
+     *
      * @param row
      */
     public void selectRow(TextData row) {
@@ -150,7 +153,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Updates a text in the list of Texts.
-     * 
+     *
      * @param textData
      */
     public void updateText(TextData textData) {
@@ -162,7 +165,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Removes a text from the list of Texts.
-     * 
+     *
      * @param textData
      */
     public void removeText(TextData textData) {
@@ -171,14 +174,14 @@ public class TextDataView extends HorizontalLayout
     }
 
     private void reloadFromServer() {
-        this.dataProvider = new TextDataProvider();
+        this.dataProvider = new TextDataProvider(dataService);
         this.grid.setDataProvider(dataProvider);
     }
 
 
     /**
      * Displays user a form to edit a text.
-     * 
+     *
      * @param textData
      */
     public void editText(TextData textData) {
@@ -191,7 +194,7 @@ public class TextDataView extends HorizontalLayout
 
     /**
      * Shows and hides the new Text form
-     * 
+     *
      * @param show
      */
     public void showForm(boolean show) {

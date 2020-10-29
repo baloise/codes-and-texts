@@ -1,5 +1,6 @@
 package ch.basler.cat.client.ui.code;
 
+import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.*;
 import ch.basler.cat.client.ui.MainLayout;
 import ch.basler.cat.client.ui.domain.DomainDataProvider;
@@ -18,6 +19,7 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A view for performing create-read-update-delete operations on codeValues.
@@ -29,6 +31,12 @@ import com.vaadin.flow.router.Route;
 public class CodeValueView extends HorizontalLayout implements HasUrlParameter<String> {
 
     public static final String VIEW_NAME = "CodeValue";
+    private final DataService dataService;
+
+    private CodeValueDataProvider codeValueDataProvider;
+    private TextDataProvider textDataProvider;
+    private CodeTextDataProvider codeTextDataProvider;
+
     private final CodeValueGrid codeValueGrid;
     private final TextDataGrid textDataGrid;
     private final CodeValueForm codeValueForm;
@@ -37,19 +45,22 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     private Select<CodeType> codeTypeSelect;
     private CodeTypeDataProvider codeTypeDataProvider;
 
-    private final CodeValueViewLogic codeValueViewLogic = new CodeValueViewLogic(this);
-    private final CodeTextViewLogic codeTextViewLogic = new CodeTextViewLogic(this);
+    private final CodeValueViewLogic codeValueViewLogic;
+    private final CodeTextViewLogic codeTextViewLogic;
     private Button newCodeValue;
     private Button newCodeText;
-    private CodeValueDataProvider codeValueDataProvider;
-    private TextDataProvider textDataProvider = new TextDataProvider();
-    private CodeTextDataProvider codeTextDataProvider;
 
-    public CodeValueView() {
+    public CodeValueView(@Autowired DataService dataService) {
+        this.dataService = dataService;
+        this.textDataProvider = new TextDataProvider(dataService);
+        this.codeValueViewLogic = new CodeValueViewLogic(dataService, this);
+        this.codeTextViewLogic = new CodeTextViewLogic(dataService, this);
+
+
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
-        codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+        this.codeValueDataProvider = new CodeValueDataProvider(dataService, this.codeTypeSelect.getValue());
         codeValueGrid = new CodeValueGrid();
         codeValueGrid.setVisible(false);
         codeValueGrid.setDataProvider(codeValueDataProvider);
@@ -85,10 +96,10 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
                     CodeValue codeValue = event.getValue();
                     if (codeValue != null) {
                         codeValueViewLogic.rowSelected(codeValue);
-                        codeTextDataProvider = new CodeTextDataProvider(codeValue.getType(), codeValue.getValue());
+                        codeTextDataProvider = new CodeTextDataProvider(dataService, codeValue.getType(), codeValue.getValue());
                         if (!codeTextDataProvider.getItems().isEmpty()) {
                             CodeText codeText = codeTextDataProvider.getItems().iterator().next();
-                            textDataProvider = new TextDataProvider(codeText.getTextId());
+                            textDataProvider = new TextDataProvider(dataService, codeText.getTextId());
                             textDataGrid.setDataProvider(textDataProvider);
                             textDataGrid.setVisible(true);
                             newCodeText.setVisible(false);
@@ -125,7 +136,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     public HorizontalLayout createTopBar() {
         domainSelect = new Select<>();
         domainSelect.setPlaceholder("Select Domain");
-        domainSelect.setItems(new DomainDataProvider().getItems());
+        domainSelect.setItems(new DomainDataProvider(dataService).getItems());
         domainSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 codeTypeSelect.setEnabled(true);
@@ -141,11 +152,11 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
         codeTypeSelect = new Select<>();
         codeTypeSelect.setEnabled(false);
         codeTypeSelect.setPlaceholder("Select codeType");
-        codeTypeDataProvider = new CodeTypeDataProvider();
+        codeTypeDataProvider = new CodeTypeDataProvider(dataService);
         codeTypeSelect.setItems(codeTypeDataProvider.getItems());
         codeTypeSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
-                codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+                codeValueDataProvider = new CodeValueDataProvider(dataService, this.codeTypeSelect.getValue());
                 codeValueGrid.setDataProvider(codeValueDataProvider);
                 newCodeValue.setEnabled(true);
                 codeValueDataProvider.setFilter(changeEvent.getValue());
@@ -287,7 +298,7 @@ public class CodeValueView extends HorizontalLayout implements HasUrlParameter<S
     }
 
     private void reloadFromServer() {
-        this.codeValueDataProvider = new CodeValueDataProvider(this.codeTypeSelect.getValue());
+        this.codeValueDataProvider = new CodeValueDataProvider(dataService, this.codeTypeSelect.getValue());
         this.codeValueGrid.setDataProvider(codeValueDataProvider);
     }
 

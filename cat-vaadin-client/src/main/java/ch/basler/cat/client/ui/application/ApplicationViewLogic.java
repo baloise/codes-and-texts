@@ -21,7 +21,10 @@ public class ApplicationViewLogic implements Serializable {
 
     private final ApplicationView view;
 
-    public ApplicationViewLogic(ApplicationView simpleCrudView) {
+    private final DataService dataService;
+
+    public ApplicationViewLogic(DataService dataService, ApplicationView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -65,7 +68,7 @@ public class ApplicationViewLogic implements Serializable {
      * with the given applicationId and shows its data in the form fields so the
      * user can edit them.
      *
-     * 
+     *
      * @param applicationId
      */
     public void enter(String applicationId) {
@@ -88,7 +91,7 @@ public class ApplicationViewLogic implements Serializable {
     }
 
     private Application findApplication(int applicationId) {
-        return DataService.get().getApplicationById(applicationId);
+        return dataService.getApplicationById(applicationId);
     }
 
     public void saveApplication(Application application) {

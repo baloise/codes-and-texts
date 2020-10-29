@@ -4,7 +4,6 @@ import ch.basler.cat.client.backend.data.CodeValue;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.notification.Notification;
 
 /**
  * Grid of codeValues, handling the visual presentation and filtering of a set of

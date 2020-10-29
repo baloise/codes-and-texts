@@ -17,15 +17,18 @@ import java.util.stream.Collectors;
  */
 public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
 
+    private final DataService dataService;
     /** Text filter that can be changed separately. */
     private String filterText = "";
 
 
-    public CodeValueDataProvider(CodeType codeType) {
-        super(DataService.get().getAllCodeValues(codeType).stream()
+    public CodeValueDataProvider(DataService dataService, CodeType codeType) {
+        super(dataService.getAllCodeValues(codeType).stream()
                 .sorted(
                         Comparator.comparing(CodeValue::getValue))
                 .collect(Collectors.toList()));
+
+        this.dataService = dataService;
     }
 
     /**
@@ -37,7 +40,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
     public void save(CodeValue codeValue) {
         final boolean newCodeValue = codeValue.isNewCodeValue();
 
-        DataService.get().saveCodeValue(codeValue);
+        dataService.saveCodeValue(codeValue);
         if (newCodeValue) {
             refreshAll();
         } else {
@@ -52,7 +55,7 @@ public class CodeValueDataProvider extends ListDataProvider<CodeValue> {
      *            the codeValue to be deleted
      */
     public void delete(CodeValue codeValue) {
-        DataService.get().deleteCodeValue(codeValue.getType(), codeValue.getValue());
+        dataService.deleteCodeValue(codeValue.getType(), codeValue.getValue());
         refreshAll();
     }
 

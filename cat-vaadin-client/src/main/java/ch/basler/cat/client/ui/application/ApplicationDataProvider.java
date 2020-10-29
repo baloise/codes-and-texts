@@ -3,7 +3,6 @@ package ch.basler.cat.client.ui.application;
 import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Application;
 import com.vaadin.flow.data.provider.ListDataProvider;
-import com.vaadin.flow.function.SerializableComparator;
 
 import java.util.Comparator;
 import java.util.Locale;
@@ -17,14 +16,17 @@ import java.util.stream.Collectors;
  */
 public class ApplicationDataProvider extends ListDataProvider<Application> {
 
+    private final DataService dataService;
     /** Text filter that can be changed separately. */
     private String filterText = "";
 
-    public ApplicationDataProvider() {
-        super(DataService.get().getAllApplications().stream()
+    public ApplicationDataProvider(DataService dataService) {
+        super(dataService.getAllApplications().stream()
                 .sorted(
                     Comparator.comparing(Application::getName).thenComparing(Application::getPackageName))
                 .collect(Collectors.toList()));
+
+        this.dataService = dataService;
     }
 
     /**
@@ -36,7 +38,7 @@ public class ApplicationDataProvider extends ListDataProvider<Application> {
     public void save(Application application) {
         final boolean newApplication = application.isNewApplication();
 
-        DataService.get().saveApplication(application);
+        dataService.saveApplication(application);
         if (newApplication) {
             refreshAll();
         } else {
@@ -51,7 +53,7 @@ public class ApplicationDataProvider extends ListDataProvider<Application> {
      *            the application to be deleted
      */
     public void delete(Application application) {
-        DataService.get().deleteApplication(application.getId());
+        dataService.deleteApplication(application.getId());
         refreshAll();
     }
 

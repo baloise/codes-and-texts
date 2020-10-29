@@ -16,14 +16,16 @@ import java.util.stream.Collectors;
  */
 public class DomainDataProvider extends ListDataProvider<Domain> {
 
+    private final DataService dataService;
     /** Text filter that can be changed separately. */
     private String filterText = "";
 
-    public DomainDataProvider() {
-        super(DataService.get().getAllDomains().stream()
+    public DomainDataProvider(DataService dataService) {
+        super(dataService.getAllDomains().stream()
                 .sorted(
                         Comparator.comparing(Domain::getPrefix).thenComparing(Domain::getProjectName))
                 .collect(Collectors.toList()));
+        this.dataService = dataService;
     }
 
     /**
@@ -35,7 +37,7 @@ public class DomainDataProvider extends ListDataProvider<Domain> {
     public void save(Domain romain) {
         final boolean newDomain = romain.isNewDomain();
 
-        DataService.get().saveDomain(romain);
+        dataService.saveDomain(romain);
         if (newDomain) {
             refreshAll();
         } else {
@@ -50,7 +52,7 @@ public class DomainDataProvider extends ListDataProvider<Domain> {
      *            the romain to be deleted
      */
     public void delete(Domain romain) {
-        DataService.get().deleteDomain(romain.getId());
+        dataService.deleteDomain(romain.getId());
         refreshAll();
     }
 

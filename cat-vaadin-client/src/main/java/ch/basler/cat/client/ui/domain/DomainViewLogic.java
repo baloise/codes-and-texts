@@ -4,7 +4,6 @@ import ch.basler.cat.client.authentication.AccessControl;
 import ch.basler.cat.client.authentication.AccessControlFactory;
 import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Domain;
-import ch.basler.cat.client.ui.domain.DomainView;
 import com.vaadin.flow.component.UI;
 
 import java.io.Serializable;
@@ -20,9 +19,11 @@ import java.io.Serializable;
  */
 public class DomainViewLogic implements Serializable {
 
+    private final DataService dataService;
     private final DomainView view;
 
-    public DomainViewLogic(DomainView simpleCrudView) {
+    public DomainViewLogic(DataService dataService, DomainView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -66,7 +67,7 @@ public class DomainViewLogic implements Serializable {
      * with the given DomainId and shows its data in the form fields so the
      * user can edit them.
      *
-     * 
+     *
      * @param DomainId
      */
     public void enter(String DomainId) {
@@ -89,7 +90,7 @@ public class DomainViewLogic implements Serializable {
     }
 
     private Domain findDomain(int DomainId) {
-        return DataService.get().getDomainById(DomainId);
+        return dataService.getDomainById(DomainId);
     }
 
     public void saveDomain(Domain Domain) {

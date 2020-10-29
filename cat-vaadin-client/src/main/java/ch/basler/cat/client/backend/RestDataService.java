@@ -1,10 +1,13 @@
 package ch.basler.cat.client.backend;
 
 import ch.basler.cat.client.backend.data.*;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Collections;
 
+@Service
 public class RestDataService extends AbstractRestDataService implements DataService {
 
     public static final String APPLICATIONS = "applications";
@@ -15,11 +18,8 @@ public class RestDataService extends AbstractRestDataService implements DataServ
     public static final String CODETEXTS = "codetexts";
     private static RestDataService INSTANCE;
 
-    public static synchronized DataService getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new RestDataService();
-        }
-        return INSTANCE;
+    public RestDataService(KeycloakRestTemplate keycloakRestTemplate) {
+        super(keycloakRestTemplate);
     }
 
     @Override

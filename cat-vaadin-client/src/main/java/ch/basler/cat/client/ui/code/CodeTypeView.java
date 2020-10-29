@@ -1,5 +1,6 @@
 package ch.basler.cat.client.ui.code;
 
+import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.CodeType;
 import ch.basler.cat.client.backend.data.Domain;
 import ch.basler.cat.client.ui.MainLayout;
@@ -17,6 +18,7 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A view for performing create-read-update-delete operations on codeTypes.
@@ -31,15 +33,20 @@ public class CodeTypeView extends HorizontalLayout
     public static final String VIEW_NAME = "CodeType";
     private final CodeTypeGrid grid;
     private final CodeTypeForm form;
+    private final DataService dataService;
     //    private TextField filter;
     private Select<Domain> domainSelect;
 
-    private final CodeTypeViewLogic viewLogic = new CodeTypeViewLogic(this);
+    private final CodeTypeViewLogic viewLogic;
     private Button newCodeType;
 
-    private CodeTypeDataProvider dataProvider = new CodeTypeDataProvider();
+    private CodeTypeDataProvider dataProvider;
 
-    public CodeTypeView() {
+    public CodeTypeView(@Autowired DataService dataService) {
+        this.dataService = dataService;
+        viewLogic = new CodeTypeViewLogic(dataService, this);
+        dataProvider = new CodeTypeDataProvider(dataService);
+
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
@@ -68,7 +75,7 @@ public class CodeTypeView extends HorizontalLayout
     private HorizontalLayout createTopBar() {
         domainSelect = new Select<>();
         domainSelect.setPlaceholder("Select Domain");
-        domainSelect.setItems(new DomainDataProvider().getItems());
+        domainSelect.setItems(new DomainDataProvider(dataService).getItems());
         domainSelect.addValueChangeListener(changeEvent -> {
             if (changeEvent.getValue() != null) {
                 newCodeType.setEnabled(true);
@@ -159,7 +166,7 @@ public class CodeTypeView extends HorizontalLayout
     }
 
     private void reloadFromServer() {
-        this.dataProvider = new CodeTypeDataProvider();
+        this.dataProvider = new CodeTypeDataProvider(dataService);
         this.grid.setDataProvider(dataProvider);
     }
 

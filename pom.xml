@@ -67,6 +67,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.keycloak.bom</groupId>
+                <artifactId>keycloak-adapter-bom</artifactId>
+                <version>11.0.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
             <!-- Added to provide logging output as Vaadin uses -->
             <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
             <dependency>

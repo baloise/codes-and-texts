@@ -14,7 +14,7 @@ public interface DataService extends Serializable {
     void saveApplication(Application a);
     void deleteApplication(long applicationId);
     Application getApplicationById(long applicationId);
-    
+
     Collection<Domain> getAllDomains();
     void saveDomain(Domain r);
     void deleteDomain(long domainId);
@@ -40,10 +40,4 @@ public interface DataService extends Serializable {
     void saveCodeText(CodeText codeText);
     void deleteCodeText(long type, long value);
     CodeText getCodeTextByIds(long type, long value);
-
-
-    static DataService get() {
-        return RestDataService.getInstance();
-    }
-
 }

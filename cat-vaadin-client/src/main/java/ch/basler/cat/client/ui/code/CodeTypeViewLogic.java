@@ -19,9 +19,11 @@ import java.io.Serializable;
  */
 public class CodeTypeViewLogic implements Serializable {
 
+    private final DataService dataService;
     private final CodeTypeView view;
 
-    public CodeTypeViewLogic(CodeTypeView simpleCrudView) {
+    public CodeTypeViewLogic(DataService dataService, CodeTypeView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -65,7 +67,7 @@ public class CodeTypeViewLogic implements Serializable {
      * with the given codeTypeId and shows its data in the form fields so the
      * user can edit them.
      *
-     * 
+     *
      * @param codeTypeId
      */
     public void enter(String codeTypeId) {
@@ -88,7 +90,7 @@ public class CodeTypeViewLogic implements Serializable {
     }
 
     private CodeType findCodeType(int codeTypeId) {
-        return DataService.get().getCodeTypeById(codeTypeId);
+        return dataService.getCodeTypeById(codeTypeId);
     }
 
     public void saveCodeType(CodeType codeType) {

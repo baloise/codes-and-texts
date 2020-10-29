@@ -1,5 +1,6 @@
 package ch.basler.cat.client.ui.domain;
 
+import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Domain;
 import ch.basler.cat.client.ui.MainLayout;
 import com.vaadin.flow.component.Key;
@@ -15,6 +16,7 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A view for performing create-read-update-delete operations on domains.
@@ -29,14 +31,18 @@ public class DomainView extends HorizontalLayout
     public static final String VIEW_NAME = "Domain";
     private final DomainGrid grid;
     private final DomainForm form;
+    private final DataService dataService;
     private TextField filter;
 
-    private final DomainViewLogic viewLogic = new DomainViewLogic(this);
+    private final DomainViewLogic viewLogic;
     private Button newDomain;
 
-    private DomainDataProvider dataProvider = new DomainDataProvider();
+    private DomainDataProvider dataProvider;
 
-    public DomainView() {
+    public DomainView(@Autowired DataService dataService) {
+        this.dataService = dataService;
+        viewLogic = new DomainViewLogic(dataService, this);
+        dataProvider = new DomainDataProvider(dataService);
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
@@ -46,7 +52,7 @@ public class DomainView extends HorizontalLayout
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
         form = new DomainForm(viewLogic);
-        
+
         final VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.add(topLayout);
         barAndGridLayout.add(grid);
@@ -93,7 +99,7 @@ public class DomainView extends HorizontalLayout
 
     /**
      * Shows a temporary popup notification to the user.
-     * 
+     *
      * @see Notification#show(String)
      * @param msg
      */
@@ -103,7 +109,7 @@ public class DomainView extends HorizontalLayout
 
     /**
      * Enables/Disables the new romain button.
-     * 
+     *
      * @param enabled
      */
     public void setNewDomainEnabled(boolean enabled) {
@@ -119,7 +125,7 @@ public class DomainView extends HorizontalLayout
 
     /**
      * Selects a row
-     * 
+     *
      * @param row
      */
     public void selectRow(Domain row) {
@@ -128,7 +134,7 @@ public class DomainView extends HorizontalLayout
 
     /**
      * Updates a domain in the list of domains.
-     * 
+     *
      * @param domain
      */
     public void updateDomain(Domain domain) {
@@ -149,14 +155,14 @@ public class DomainView extends HorizontalLayout
     }
 
     private void reloadFromServer() {
-        this.dataProvider = new DomainDataProvider();
+        this.dataProvider = new DomainDataProvider(dataService);
         this.grid.setDataProvider(dataProvider);
     }
 
 
     /**
      * Displays user a form to edit a domain.
-     * 
+     *
      * @param domain
      */
     public void editDomain(Domain domain) {
@@ -166,7 +172,7 @@ public class DomainView extends HorizontalLayout
 
     /**
      * Shows and hides the new domain form
-     * 
+     *
      * @param show
      */
     public void showForm(boolean show) {

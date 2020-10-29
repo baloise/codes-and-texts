@@ -19,9 +19,11 @@ import java.io.Serializable;
  */
 public class TextDataViewLogic implements Serializable {
 
+    private final DataService dataService;
     private final TextDataView view;
 
-    public TextDataViewLogic(TextDataView simpleCrudView) {
+    public TextDataViewLogic(DataService dataService, TextDataView simpleCrudView) {
+        this.dataService = dataService;
         view = simpleCrudView;
     }
 
@@ -65,7 +67,7 @@ public class TextDataViewLogic implements Serializable {
      * with the given textId and shows its data in the form fields so the
      * user can edit them.
      *
-     * 
+     *
      * @param textId
      */
     public void enter(String textId) {
@@ -88,7 +90,7 @@ public class TextDataViewLogic implements Serializable {
     }
 
     private TextData findText(int textId) {
-        return DataService.get().getTextById(textId);
+        return dataService.getTextById(textId);
     }
 
     public void saveText(TextData textData) {

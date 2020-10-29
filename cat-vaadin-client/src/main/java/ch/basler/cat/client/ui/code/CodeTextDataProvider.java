@@ -5,8 +5,9 @@ import ch.basler.cat.client.backend.data.CodeText;
 import com.vaadin.flow.data.provider.ListDataProvider;
 import org.springframework.web.client.RestClientException;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Utility class that encapsulates filtering and CRUD operations for
@@ -15,16 +16,20 @@ import java.util.stream.Collectors;
  */
 public class CodeTextDataProvider extends ListDataProvider<CodeText> {
 
+    private DataService dataService;
+
     /** Text filter that can be changed separately. */
     private String filterText = "";
 
-    public CodeTextDataProvider(long type, long value) {
-        super(load(type, value));
+    public CodeTextDataProvider(DataService dataService, long type, long value) {
+        super(load(dataService, type, value));
+
+        this.dataService = dataService;
     }
 
-    private static List<CodeText> load(long type, long value) {
+    private static List<CodeText> load(DataService dataService, long type, long value) {
         try {
-            return Arrays.asList(DataService.get().getCodeTextByIds(type, value));
+            return Arrays.asList(dataService.getCodeTextByIds(type, value));
         }
         catch (RestClientException rce) {
             return Arrays.asList();
@@ -40,7 +45,7 @@ public class CodeTextDataProvider extends ListDataProvider<CodeText> {
     public void save(CodeText codeText) {
         final boolean newCodeText = codeText.isNewCodeText();
 
-        DataService.get().saveCodeText(codeText);
+        dataService.saveCodeText(codeText);
         if (newCodeText) {
             refreshAll();
         } else {
@@ -55,7 +60,7 @@ public class CodeTextDataProvider extends ListDataProvider<CodeText> {
      *            the codeText to be deleted
      */
     public void delete(CodeText codeText) {
-        DataService.get().deleteCodeText(codeText.getType(), codeText.getValue());
+        dataService.deleteCodeText(codeText.getType(), codeText.getValue());
         refreshAll();
     }
 

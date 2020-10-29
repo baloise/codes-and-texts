@@ -1,5 +1,6 @@
 package ch.basler.cat.client.ui.application;
 
+import ch.basler.cat.client.backend.DataService;
 import ch.basler.cat.client.backend.data.Application;
 import ch.basler.cat.client.ui.MainLayout;
 import com.vaadin.flow.component.Key;
@@ -12,6 +13,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A view for performing create-read-update-delete operations on applications.
@@ -29,12 +31,17 @@ public class ApplicationView extends HorizontalLayout
     private final ApplicationForm form;
     private TextField filter;
 
-    private final ApplicationViewLogic viewLogic = new ApplicationViewLogic(this);
+    private final ApplicationViewLogic viewLogic;
     private Button newApplication;
 
-    private ApplicationDataProvider dataProvider = new ApplicationDataProvider();
+    private final DataService dataService;
+    private final ApplicationDataProvider dataProvider;
 
-    public ApplicationView() {
+    public ApplicationView(@Autowired DataService dataService) {
+        this.dataService = dataService;
+        this.dataProvider = new ApplicationDataProvider(dataService);
+        this.viewLogic = new ApplicationViewLogic(dataService, this);
+
         // Sets the width and the height of InventoryView to "100%".
         setSizeFull();
         final HorizontalLayout topLayout = createTopBar();
@@ -44,7 +51,7 @@ public class ApplicationView extends HorizontalLayout
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
         form = new ApplicationForm(viewLogic);
-        
+
         final VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.add(topLayout);
         barAndGridLayout.add(grid);
@@ -91,7 +98,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Shows a temporary popup notification to the user.
-     * 
+     *
      * @see Notification#show(String)
      * @param msg
      */
@@ -101,7 +108,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Enables/Disables the new application button.
-     * 
+     *
      * @param enabled
      */
     public void setNewApplicationEnabled(boolean enabled) {
@@ -117,7 +124,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Selects a row
-     * 
+     *
      * @param row
      */
     public void selectRow(Application row) {
@@ -126,7 +133,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Updates a application in the list of applications.
-     * 
+     *
      * @param application
      */
     public void updateApplication(Application application) {
@@ -139,7 +146,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Removes a application from the list of applications.
-     * 
+     *
      * @param application
      */
     public void removeApplication(Application application) {
@@ -148,13 +155,12 @@ public class ApplicationView extends HorizontalLayout
     }
 
     private void reloadFromServer() {
-        this.dataProvider = new ApplicationDataProvider();
         this.grid.setDataProvider(dataProvider);
     }
 
     /**
      * Displays user a form to edit a Application.
-     * 
+     *
      * @param application
      */
     public void editApplication(Application application) {
@@ -164,7 +170,7 @@ public class ApplicationView extends HorizontalLayout
 
     /**
      * Shows and hides the new application form
-     * 
+     *
      * @param show
      */
     public void showForm(boolean show) {
