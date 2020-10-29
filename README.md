@@ -17,7 +17,7 @@ docker run --name postgres_cat -e POSTGRES_DB=cat -e POSTGRES_USER=cat -e  POSTG
 ## Start Server
 ```shell script
 cd cat-server
-mvn spring-boot:run -Pdev
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 running on port 8088
