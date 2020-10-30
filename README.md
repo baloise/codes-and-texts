@@ -37,3 +37,12 @@ todo
 ## OpenShift Environment
 
 [Codes and Texts Deployments](https://github.com/baloise-incubator/codes-and-texts-deployment)
+
+
+## Sources
+
+### For keycloak integration in vaddin
+[1]: https://ramonak.io/posts/vaadin–keycloak–spring-security-integration
+[2]: https://github.com/KaterinaLupacheva/spring-boot-vaadin-keycloak-demo/blob/master/vaadin-ui/src/main/java/io/ramonak/SecurityConfig.java
+[3]: https://github.com/karkaletsis/vaadin-keycloak/blob/master/src/main/java/com/gnomon/examinations/config/SecurityConfiguration.java
+[4]: https://www.keycloak.org/docs/4.8/securing_apps/#redirect-uris
