@@ -55,6 +55,28 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
+        
+        <!-- HAPI FHIR -->
+        <dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>hapi-fhir-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-server</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>hapi-fhir-structures-r4</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>ca.uhn.hapi.fhir</groupId>
+		    <artifactId>hapi-fhir-validation-resources-r4</artifactId>
+		</dependency>
 
        <dependency>
             <groupId>org.postgresql</groupId>

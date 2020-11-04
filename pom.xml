@@ -48,6 +48,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <vaadin.version>14.1.21</vaadin.version>
+        <hapi-fhir.version>5.1.0</hapi-fhir.version>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +92,33 @@
                 <artifactId>hibernate-validator</artifactId>
                 <version>6.1.0.Final</version>
             </dependency>
+            
+            <!--  HAPI FHIR -->
+            <dependency>
+				<groupId>ca.uhn.hapi.fhir</groupId>
+				<artifactId>hapi-fhir-spring-boot-starter</artifactId>
+				<version>${hapi-fhir.version}</version>
+			</dependency>
+			<dependency>
+	            <groupId>ca.uhn.hapi.fhir</groupId>
+	            <artifactId>hapi-fhir-base</artifactId>
+	            <version>${hapi-fhir.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>ca.uhn.hapi.fhir</groupId>
+	            <artifactId>hapi-fhir-server</artifactId>
+	            <version>${hapi-fhir.version}</version>
+	        </dependency>
+			<dependency>
+				<groupId>ca.uhn.hapi.fhir</groupId>
+				<artifactId>hapi-fhir-structures-r4</artifactId>
+				<version>${hapi-fhir.version}</version>
+			</dependency>
+			<dependency>
+		        <groupId>ca.uhn.hapi.fhir</groupId>
+		        <artifactId>hapi-fhir-validation-resources-r4</artifactId>
+		        <version>${hapi-fhir.version}</version>
+		    </dependency>
 
             <dependency>
                 <groupId>junit</groupId>

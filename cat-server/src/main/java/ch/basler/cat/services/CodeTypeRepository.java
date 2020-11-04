@@ -15,16 +15,20 @@
  */
 package ch.basler.cat.services;
 
-import ch.basler.cat.model.CodeType;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.util.List;
+import ch.basler.cat.model.CodeType;
 
 @CrossOrigin
 public interface CodeTypeRepository extends CrudRepository<CodeType, Long> {
 
     List<CodeType> findByDomainId(@Param("domainId") Long domainId);
+
+    Optional<CodeType> findByName(@Param("name") String name);
 
 }
